@@ -3,19 +3,81 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --main-header-height: 90px;
+  --header-height: 80px;
+  --carousel-height: calc(100svh - var(--header-height));
+  --ease-elastic-smooth: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* Transition */
+  --transition-ease: 0.83, 0, 0.17, 1;
+  --duration-animation-post: 1000;
+  --translate-post: 40;
+
+  /* Color */
+  --white: #ffffff;
+  --light: #f6f2ef;
+  --light-rgb: 246, 242, 239;
+  --primary: #b45309;
+  --primary-light: #d97706;
+  --primary-rgb: 180, 83, 9;
+  --dark: #18181b;
+  --dark-rgb: 24, 24, 27;
+  --secondary: #082f49;
+  --secondary-rgb: 8, 47, 73;
+  --turquoise: #349098;
+  --turquoise-rgb: 52, 144, 152;
+  --purple-pale: #b06dcc;
+  --purple-pale-rgb: 176, 109, 204;
+  --sky-pale: #61bbf7;
+
+  /* Tamaño fuente */
+
+  --fs-100: clamp(0.88rem, calc(0.96rem + -0.09vw), 0.94rem);
+  --fs-200: clamp(1rem, calc(0.93rem + 0.33vw), 1.105rem);
+  --fs-300: clamp(1.105rem, calc(1.05rem + 0.63vw), 1.28rem);
+  --fs-400: clamp(1.62rem, calc(1.31rem + 1.53vw), 2.5rem);
+  --fs-500: clamp(1.94rem, calc(1.39rem + 2.77vw), 3.53rem);
+  --fs-600: clamp(2.33rem, calc(1.41rem + 4.63vw), 5rem);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    @apply overflow-x-hidden;
   }
-}
+  html,
+  body {
+    @apply bg-light;
+  }
+  body p {
+    @apply leading-relaxed [text-wrap:pretty];
+  }
+  body p,
+  body span,
+  body main {
+    @apply font-body font-light text-dark [font-size:var(--fs-300)] lg:text-[var(--fs-300)];
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-headings font-light leading-[1.2] text-dark [text-wrap:balance];
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  h1 {
+    @apply [font-size:var(--fs-600)];
+  }
+  h2 {
+    @apply [font-size:var(--fs-500)];
+  }
+  h3 {
+    @apply [font-size:var(--fs-400)];
+  }
+  h4 {
+    @apply [font-size:var(--fs-300)];
+  }
+  h5 {
+    @apply [font-size:var(--fs-200)];
+  }
 }
