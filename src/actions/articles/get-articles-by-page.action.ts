@@ -27,5 +27,6 @@ export async function getArticlesByPageAction({
     query: getArticlesByPageQuery,
     variables: { first: postPerPage, after: afterCursor },
   })
+
   return { data, error }
 }

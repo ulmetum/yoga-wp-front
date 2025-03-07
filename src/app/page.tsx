@@ -8,5 +8,9 @@ export default async function Home() {
   if (response.error) {
     return <CustomError error={response.error} />
   }
-  return <div className='bg-green-700'>page</div>
+  return (
+    <div className='@container'>
+      <h1 className='text-red-600 @7xl:text-blue-600'>Home page</h1>
+    </div>
+  )
 }

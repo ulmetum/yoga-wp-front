@@ -16,3 +16,10 @@ export const errorMessages: Record<ErrorType, string> = {
   ErrorFormProducts:
     'Se ha producido un error en el envío de los datos del pedido. Por favor, vuelve a intentarlo más tarde o ponte en contacto conmigo directamente a través del correo electrónico',
 }
+
+export class ActionError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'ActionError'
+  }
+}
