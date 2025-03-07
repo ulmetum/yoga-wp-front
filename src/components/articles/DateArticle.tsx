@@ -19,7 +19,7 @@ export const DateArticle = ({ color = 'dark', createdAt }: Props) => {
   return (
     <div
       className={cn(
-        'block w-[45%] font-heading font-normal capitalize leading-none',
+        'block w-[45%] font-headings font-normal capitalize leading-none',
         colors[color]
       )}
     >

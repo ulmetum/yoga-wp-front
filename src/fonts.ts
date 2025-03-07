@@ -1,6 +1,6 @@
-import { Oswald, Merriweather_Sans, Shadows_Into_Light } from 'next/font/google'
+import { Oswald, Shadows_Into_Light, Ubuntu } from 'next/font/google'
 
-export const fontBody = Merriweather_Sans({
+export const fontBody = Ubuntu({
   subsets: ['latin'],
   weight: ['300', '400'],
   variable: '--font-body',

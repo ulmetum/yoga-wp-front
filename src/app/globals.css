@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --main-header-height: 90px;
-  --header-height: 80px;
-  --carousel-height: calc(100svh - var(--header-height));
-  --ease-elastic-smooth: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --font-body: 'Ubuntu ';
+  --font-heading: 'Oswald';
+  --header-height: 4.5rem;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-elastic-smooth: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-elastic-smoother: cubic-bezier(0.7, -0.4, 0.3, 1.4);
+  --ease-elastic: cubic-bezier(0.7, -0.8, 0.3, 1.7);
+  --header-bar-height: 0.25rem;
+  --header-bar-width: 10rem;
+  --header-bar-top: 95%;
 
   /* Transition */
   --transition-ease: 0.83, 0, 0.17, 1;
@@ -79,5 +84,57 @@
   }
   h5 {
     @apply [font-size:var(--fs-200)];
+  }
+}
+
+.grid-blog {
+  .container-image {
+    position: relative;
+    display: block;
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: 0 0 0 2px #f6f2ef, 0 0 0 3px rgba(var(--text-rgb), 0.25);
+      transition: box-shadow 0.5s var(--easeElastic);
+    }
+  }
+
+  .article-item:hover {
+    .container-image:before {
+      box-shadow: 0 0 0 2px #f6f2ef, 0 0 0 3px var(--amber700);
+    }
+  }
+}
+
+@media (width >= 1280px) {
+  .grid-blog {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 35dvh);
+    grid-template-areas:
+      'top top top'
+      'left center right'
+      'left center right';
+  }
+}
+
+@media (width >= 1280px) {
+  [data-article='1'] {
+    grid-area: top;
+  }
+  [data-article='2'] {
+    grid-area: left;
+  }
+  [data-article='3'] {
+    grid-area: center;
+  }
+  [data-article='4'] {
+    grid-area: right;
+  }
+  [data-image='1'] {
+    height: 100%;
+    width: 50%;
   }
 }

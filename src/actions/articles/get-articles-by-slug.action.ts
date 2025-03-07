@@ -1,5 +1,7 @@
 'use server'
 
+//TODO: LA QUERY ES INCORRECTA
+
 import { getAllArticlesQuery } from '@/queries/articles.query'
 import { fetchData } from '@/utils/fetchData'
 import { z } from 'zod'
