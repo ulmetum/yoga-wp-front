@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { fontBody, fontHeadings } from '@/fonts'
+import { MainHeader } from '@/components/header/MainHeader'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body
         className={`${fontHeadings.variable} ${fontBody.variable} antialiased `}
       >
+        <MainHeader />
         {children}
       </body>
     </html>
