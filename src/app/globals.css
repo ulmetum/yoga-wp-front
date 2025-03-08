@@ -97,6 +97,7 @@
       'top top top'
       'left center right'
       'left center right';
+
     [data-article='1'] {
       grid-area: top;
     }

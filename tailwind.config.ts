@@ -16,12 +16,12 @@ export default {
         'landscape-xl': {
           raw: '(max-width: 910px) and (orientation: landscape)',
         },
-        // 'max-w-lg': {
-        //   raw: '(max-width: 1024px)',
-        // }, // Define la media query personalizada
-        // 'max-w-xl': {
-        //   raw: '(max-width: 1280px)',
-        // }, // Define la media query personalizada
+        'maxi-w-lg': {
+          raw: '(max-width: 1024px)',
+        }, // Define la media query personalizada
+        'maxi-w-xl': {
+          raw: '(max-width: 1280px)',
+        }, // Define la media query personalizada
       },
       colors: {
         primary: '#b45309',
