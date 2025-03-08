@@ -19,10 +19,10 @@ export async function getArticlesBySlugAction({ slug }: Slug) {
     console.log(slugParsed.error)
     return { response: { error: 'Slug incorrecto', data: null } }
   }
-  const response = await fetchData({
+  const { data, error } = await fetchData({
     errorType: 'ErrorArticles',
     query: getAllArticlesQuery,
     variables: { slug },
   })
-  return { response }
+  return { data, error }
 }

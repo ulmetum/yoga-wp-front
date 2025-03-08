@@ -2,15 +2,14 @@ import { getArticlesBySlugAction } from '@/actions/articles/get-articles-by-slug
 import { CustomError } from '@/components/CustomError'
 
 export default async function Home() {
-  const { response } = await getArticlesBySlugAction({ slug: 'slug' })
+  const { data, error } = await getArticlesBySlugAction({ slug: 'slug' })
 
-  console.log({ response })
-  if (response.error) {
-    return <CustomError error={response.error} />
+  if (error) {
+    return <CustomError error={error} />
   }
   return (
-    <div className='@container'>
-      <h1 className='text-red-600 @7xl:text-blue-600'>Home page</h1>
+    <div className='group/edit'>
+      <h1 className='group-hover/edit:text-red-700'>Home page</h1>
     </div>
   )
 }

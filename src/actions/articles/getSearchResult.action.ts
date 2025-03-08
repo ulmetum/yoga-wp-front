@@ -33,5 +33,6 @@ export async function getSearchResult({
     query: getSearchResultQuery,
     variables: { first: postPerPage, after: afterCursorSearch, query },
   })
+
   return { data, error }
 }

@@ -3,16 +3,11 @@ import { getTotalArticlestAction } from '@/actions/articles/get-total-articles.a
 import { PaginationBlog } from '@/components/articles/PaginationBlog'
 import { Article } from '@/components/articles/Article'
 import { Container } from '@/components/Container'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import { SearchBar } from '@/components/articles/SearchBar'
-import { ListOfArticles } from '@/components/articles/ListOfArticles'
 import { getSearchResult } from '@/actions/articles/getSearchResult.action'
-import { cn } from '@/utils/mergeClass'
-import { errorMessages } from '@/errors'
 import { CustomError } from '@/components/CustomError'
-// import { ButtonsPagination } from '@/components/articles/ButtonsPagination'
-// import { wrap } from '@/utils/wrap'
+import { SearchResult } from '@/interfaces/articles.interface'
+import { ArticlesSearch } from '@/components/articles/ArticlesSearch'
 
 interface Props {
   params: Promise<{ page: string }>
@@ -65,7 +60,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
     )
   }
 
-  let searchResult = null
+  let searchResult: SearchResult | null = null
 
   if (query) {
     searchResult = await getSearchResult({
@@ -92,58 +87,11 @@ export default async function BlogPage({ params, searchParams }: Props) {
           <SearchBar placeholder='Buscar artículos...' />
         </div>
         {query !== '' ? (
-          <div>
-            <ul>
-              {searchResult?.data?.posts?.edges.map((edge, index) => (
-                <Article
-                  srcUrl={edge.node.featuredImage?.node.sourceUrl || ''}
-                  key={edge.node.id}
-                  i={index}
-                  slug={edge.node.slug || ''}
-                  title={edge.node.title || ''}
-                  excerpt={edge.node.excerpt || ''}
-                  createdAt={edge.node.date!}
-                  subtitle={edge.node.headings?.subtitle || ''}
-                />
-              ))}
-            </ul>
-            <div className='xs:mt-0 mt-2 inline-flex space-x-2'>
-              <Link
-                href={`/blog/${currentPage - 1}/?query=${query}`}
-                className={cn(
-                  `group relative z-10 flex h-8 items-center justify-center overflow-hidden rounded border border-primary px-3 font-heading text-base font-medium text-primary transition-all duration-700 ease-[var(--ease)] hover:text-white`,
-                  {
-                    'pointer-events-none border-text/20 text-dark/20':
-                      currentPage <= 1,
-                  }
-                )}
-              >
-                <div
-                  className={cn(
-                    'absolute inset-0 -inset-x-2 -inset-y-2 top-[calc(100%+8px)] -z-[1] skew-y-6 bg-primary transition-all duration-700 ease-[var(--ease)] group-hover:-top-[30%]',
-                    {
-                      'pointer-events-none border-text/20 text-dark/20':
-                        currentPage <= 1,
-                    }
-                  )}
-                />
-                Anteriores
-              </Link>
-              <Link
-                href={`/blog/${currentPage + 1}/?query=${query}`}
-                className={cn(
-                  'group relative z-10 flex h-8 items-center justify-center overflow-hidden rounded border border-primary px-3 font-heading text-base font-medium text-primary transition-all duration-700 ease-[var(--ease)] hover:text-white',
-                  {
-                    'pointer-events-none border-text/20 text-dark/20':
-                      !searchResult?.data?.posts?.pageInfo.hasNextPage,
-                  }
-                )}
-              >
-                <div className='absolute inset-0 -inset-x-2 -inset-y-2 top-[calc(100%+8px)] -z-[1] -skew-y-6 bg-primary transition-all duration-700 ease-[var(--ease)] group-hover:-top-[30%]' />
-                Siguientes
-              </Link>
-            </div>
-          </div>
+          <ArticlesSearch
+            currentPage={currentPage}
+            query={query}
+            searchResult={searchResult}
+          />
         ) : (
           <>
             <ul className='grid-blog'>
@@ -157,6 +105,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
                   excerpt={edge.node.excerpt || ''}
                   createdAt={edge.node.date!}
                   subtitle={edge.node.headings?.subtitle || ''}
+                  type='blog'
                 />
               ))}
             </ul>
