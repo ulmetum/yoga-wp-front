@@ -16,18 +16,20 @@ export default {
         'landscape-xl': {
           raw: '(max-width: 910px) and (orientation: landscape)',
         },
-        'maxi-w-lg': {
-          raw: '(max-width: 1024px)',
-        }, // Define la media query personalizada
-        'maxi-w-xl': {
-          raw: '(max-width: 1280px)',
-        }, // Define la media query personalizada
+      },
+      boxShadow: {
+        'b-section': '0px 10px 20px -20px var(--dark)',
+        'y-section':
+          '0px -10px 20px -20px var(--dark), 0px 10px 20px -20px var(--dark)',
       },
       colors: {
         primary: '#b45309',
         secondary: '#082f49',
         dark: '#18181b',
         light: '#f6f2ef',
+        turquoise: '#349098',
+        'purple-pale': '#b06dcc',
+        'sky-pale': '#61bbf7',
       },
       fontFamily: {
         body: ['var(--font-body)'],

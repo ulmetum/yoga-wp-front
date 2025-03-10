@@ -13,9 +13,32 @@ export const getAllArticlesQuery = graphql(`
     }
   }
 `)
+export const getArticleBySlugQuery = ({ slug }: { slug: string }) => `
+  query getArticleBySlug {
+    post(idType: SLUG, id: "${slug}") {
+      title
+      author {
+      node {
+          name
+        }
+      }
+      slug
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      headings {
+        subtitle
+      }
+      content(format: RENDERED)
+      date
+    }
+  }
+`
 
 export const getArticlesByPageQuery = graphql(`
-  query GetArticlesByPage($first: Int!, $after: String) {
+  query getArticlesByPage($first: Int!, $after: String) {
     posts(
       first: $first
       after: $after
@@ -26,7 +49,6 @@ export const getArticlesByPageQuery = graphql(`
           id
           title
           slug
-          excerpt
           date
           headings {
             subtitle
@@ -46,7 +68,7 @@ export const getArticlesByPageQuery = graphql(`
   }
 `)
 export const getSearchResultQuery = graphql(`
-  query GetSearchResult($first: Int!, $after: String, $query: String) {
+  query getSearchResult($first: Int!, $after: String, $query: String) {
     posts(
       first: $first
       after: $after

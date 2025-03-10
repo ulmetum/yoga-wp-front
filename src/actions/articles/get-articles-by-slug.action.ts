@@ -1,8 +1,12 @@
 'use server'
 
+import { GetArticleBySlugQuery } from '@/interfaces/article-by-slug.interface'
 //TODO: LA QUERY ES INCORRECTA
 
-import { getAllArticlesQuery } from '@/queries/articles.query'
+import {
+  getAllArticlesQuery,
+  getArticleBySlugQuery,
+} from '@/queries/articles.query'
 import { fetchData } from '@/utils/fetchData'
 import { z } from 'zod'
 
@@ -19,9 +23,9 @@ export async function getArticlesBySlugAction({ slug }: Slug) {
     // console.log(slugParsed.error)
     return { response: { error: 'Slug incorrecto', data: null } }
   }
-  const { data, error } = await fetchData({
-    errorType: 'ErrorArticles',
-    query: getAllArticlesQuery,
+  const { data, error } = await fetchData<GetArticleBySlugQuery>({
+    errorType: 'ErrorArticle',
+    query: getArticleBySlugQuery({ slug }),
     variables: { slug },
   })
   return { data, error }

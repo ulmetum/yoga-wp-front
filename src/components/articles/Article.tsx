@@ -8,7 +8,6 @@ interface Props {
   title: string
   slug: string
   srcUrl: string
-  excerpt: string
   createdAt: string
   subtitle: string
   type: 'blog' | 'search'

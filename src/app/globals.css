@@ -44,6 +44,7 @@
   --fs-400: clamp(1.62rem, calc(1.31rem + 1.53vw), 2.5rem);
   --fs-500: clamp(1.94rem, calc(1.39rem + 2.77vw), 3.53rem);
   --fs-600: clamp(2.33rem, calc(1.41rem + 4.63vw), 5rem);
+  --fs-700: clamp(3rem, calc(2rem + 5vw), 5.6rem);
 }
 
 @layer base {
@@ -57,17 +58,33 @@
   body p {
     @apply leading-relaxed [text-wrap:pretty];
   }
+
   body p,
   body span,
-  body main {
-    @apply font-body font-light text-dark [font-size:var(--fs-300)] lg:text-[var(--fs-300)];
+  body main,
+  body li {
+    @apply font-body font-light text-dark [font-size:var(--fs-300)];
   }
+  body li {
+    @apply leading-relaxed my-4 lg:text-[22px];
+  }
+
+  body li:before {
+    @apply leading-none [text-wrap:pretty];
+  }
+
+  body article p,
+  .schedule p,
+  .prices p {
+    @apply my-4 leading-[1.8] lg:text-2xl;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5 {
-    @apply font-headings font-light leading-[1.2] text-dark [text-wrap:balance];
+    @apply font-headings font-light leading-[1.2] text-dark [text-wrap:balance] my-6;
   }
 
   h1 {
@@ -85,37 +102,65 @@
   h5 {
     @apply [font-size:var(--fs-200)];
   }
-}
 
-@media (width >= 1280px) {
-  .grid-blog {
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 35dvh);
-    grid-template-areas:
-      'top top top'
-      'left center right'
-      'left center right';
-
-    [data-article='1'] {
-      grid-area: top;
-    }
-    [data-article='2'] {
-      grid-area: left;
-    }
-    [data-article='3'] {
-      grid-area: center;
-    }
-    [data-article='4'] {
-      grid-area: right;
-    }
-    [data-image='1'] {
-      height: 100%;
-      width: 50%;
+  ol {
+    width: min(100%, 1280px);
+    margin: 2rem auto;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: apples;
+    li:before {
+      content: counter(apples);
+      counter-increment: apples;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 45px;
+      margin-right: 10px;
     }
   }
 }
 
-@media (width >= 1280px) {
+@layer utilities {
+  .gradient-90 {
+    background-image: linear-gradient(to bottom right, transparent 65%, #000);
+  }
+}
+
+@layer components {
+  @media (width >= 1280px) {
+    .grid-blog {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 35dvh);
+      grid-template-areas:
+        'top top top'
+        'left center right'
+        'left center right';
+
+      [data-article='1'] {
+        grid-area: top;
+      }
+      [data-article='2'] {
+        grid-area: left;
+      }
+      [data-article='3'] {
+        grid-area: center;
+      }
+      [data-article='4'] {
+        grid-area: right;
+      }
+      [data-image='1'] {
+        height: 100%;
+        width: 50%;
+      }
+    }
+  }
+}
+
+.is-type-video,
+.aligncenter,
+.video-center,
+.center-video {
+  @apply flex flex-col items-center justify-center my-20;
 }

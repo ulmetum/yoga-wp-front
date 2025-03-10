@@ -3,6 +3,7 @@ export type ErrorType =
   | 'ErrorMenu'
   | 'ErrorWriter'
   | 'ErrorArticles'
+  | 'ErrorArticle'
   | 'ErrorFormContact'
   | 'ErrorFormProducts'
 
@@ -11,6 +12,7 @@ export const errorMessages: Record<ErrorType, string> = {
   ErrorMenu: 'Hubo un error al obtener los datos del menú principal del sitio',
   ErrorWriter: 'Hubo un error al obtener los datos del autor',
   ErrorArticles: 'Hubo un error al obtener los datos de los artículos',
+  ErrorArticle: 'Hubo un error al obtener los datos del artículo',
   ErrorFormContact:
     'Se ha producido un error en el envío de tu comentario. Por favor, vuelve a intentarlo más tarde o ponte en contacto conmigo directamente a través del correo electrónico',
   ErrorFormProducts:

@@ -103,7 +103,6 @@ export default async function BlogPage({ params, searchParams }: Props) {
                     i={index}
                     slug={edge.node.slug || ''}
                     title={edge.node.title || ''}
-                    excerpt={edge.node.excerpt || ''}
                     createdAt={edge.node.date!}
                     subtitle={edge.node.headings?.subtitle || ''}
                     type='blog'

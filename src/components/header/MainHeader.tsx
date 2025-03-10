@@ -17,7 +17,3 @@ export const MainHeader = async () => {
     </header>
   )
 }
-
-{
-  /* <div className='header-bar absolute bottom-[calc(2.5%+(var(--header-bar-height)/2))] left-1/2 h-[var(--header-bar-height)] w-[var(--header-bar-width)] -translate-x-1/2 rounded-full transition-all duration-1000'></div> */
-}

@@ -16,14 +16,13 @@ export const Navigation = ({ data }: Props) => {
   // Se elimina la barra final menos en el caso del Inicio
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
 
-  // const isPageArticle = !nonArticlePaths.includes(currentPath)
+  const isPageArticle = !nonArticlePaths.includes(currentPath)
   return (
     <nav>
       <ul className='container mx-auto flex items-center justify-center capitalize text-gray-600 dark:text-gray-300'>
         <div className='flex items-center gap-x-1 sm:gap-x-2'>
           {data?.menuItems?.edges.map((item, i) => {
             const isActive = item.node.path === currentPath
-
             return (
               <div key={item.node.id}>
                 <motion.li
@@ -31,7 +30,7 @@ export const Navigation = ({ data }: Props) => {
                   whileHover='hovered'
                   className={cn(
                     'xs:px-2 relative mx-1.5 overflow-hidden leading-tight sm:mx-3',
-                    isActive
+                    isActive || (item.node.label === 'Blog' && isPageArticle)
                       ? 'pointer-events-none text-primary'
                       : 'pointer-events-auto text-dark'
                   )}
@@ -44,7 +43,6 @@ export const Navigation = ({ data }: Props) => {
                     }}
                     transition={{ duration: 0.75, type: 'spring', bounce: 0.5 }}
                   >
-                    {/* <Link href={item.url}>{item.label}</Link> */}
                     <a href={item.node.path!}>{item.node.label}</a>
                   </motion.div>
                   <motion.div
