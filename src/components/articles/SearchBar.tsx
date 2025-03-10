@@ -65,10 +65,13 @@ export const SearchBar = ({ placeholder }: Props) => {
           placeholder={placeholder}
         />
         {term && (
-          <div onClick={handleClear}>
+          <div
+            className='group cursor-pointer'
+            onClick={handleClear}
+          >
             <Close
               size='small'
-              classNames='absolute right-[90px] top-1/2 -translate-y-1/2'
+              classNames='hover-group:stroke-primary absolute right-[90px] top-1/2 -translate-y-1/2'
             />
           </div>
         )}

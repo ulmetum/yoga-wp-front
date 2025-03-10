@@ -16,7 +16,7 @@ export async function getArticlesBySlugAction({ slug }: Slug) {
   const slugParsed = inputSchema.safeParse({ slug })
 
   if (!slugParsed.success) {
-    console.log(slugParsed.error)
+    // console.log(slugParsed.error)
     return { response: { error: 'Slug incorrecto', data: null } }
   }
   const { data, error } = await fetchData({

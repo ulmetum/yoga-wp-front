@@ -16,8 +16,7 @@ export const Navigation = ({ data }: Props) => {
   // Se elimina la barra final menos en el caso del Inicio
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
 
-  const isPageArticle = !nonArticlePaths.includes(currentPath)
-  console.log({ currentPath })
+  // const isPageArticle = !nonArticlePaths.includes(currentPath)
   return (
     <nav>
       <ul className='container mx-auto flex items-center justify-center capitalize text-gray-600 dark:text-gray-300'>
@@ -60,35 +59,6 @@ export const Navigation = ({ data }: Props) => {
                   </motion.div>
                 </motion.li>
               </div>
-              // <li
-              //   className={cn('mx-2 overflow-hidden', {
-              //     'pointer-events-none ': item.node.path === currentPath,
-              //   })}
-              //   key={item.node.id}
-              // >
-              //   <a
-              //     href={item.node.path!}
-              //     className='group relative  uppercase'
-              //   >
-              //     <span
-              //       className={cn(
-              //         'block font-headings text-sm font-normal transition-all duration-[700ms] ease-[var(--ease-elastic-smooth)] group-hover:-translate-y-full min-[480px]:text-lg md:text-xl',
-              //         {
-              //           'text-primary': isActive,
-              //         }
-              //       )}
-              //     >
-              //       {item.node.label}
-              //     </span>
-              //     <span
-              //       className={cn(
-              //         'absolute left-0 top-full font-headings text-sm font-normal text-primary transition-all duration-[700ms] ease-[var(--ease-elastic-smooth)] group-hover:top-0 min-[480px]:text-lg md:text-xl'
-              //       )}
-              //     >
-              //       {item.node.label}
-              //     </span>
-              //   </a>
-              // </li>
             )
           })}
         </div>

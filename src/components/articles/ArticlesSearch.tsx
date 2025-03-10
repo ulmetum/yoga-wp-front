@@ -1,6 +1,7 @@
 import { SearchResult } from '@/interfaces/articles.interface'
 import { PaginationBlogSearch } from './PaginationBlogSearch'
 import { Article } from './Article'
+import { h1 } from 'motion/react-client'
 
 interface Props {
   currentPage: number
@@ -9,13 +10,26 @@ interface Props {
 }
 
 export const ArticlesSearch = ({ currentPage, query, searchResult }: Props) => {
+  // console.log({ searchResult })
+  const articles = searchResult?.data?.posts?.edges ?? []
   return (
     <>
-      <h1 className='text-primary my-12 text-4xl text-center xl:text-5xl'>
-        Su búsqueda ha arrojado los siguientes resultados...
-      </h1>
+      {articles.length === 0 ? (
+        <div className='my-12 flex flex-col justify-center items-center'>
+          <h1 className='text-primary mb-2 text-4xl  xl:text-5xl'>
+            Lo siento pero no hay resultados que mostrar
+          </h1>
+          <p>
+            Pruebe con otros términos de búsqueda o explore nuestras secciones
+          </p>
+        </div>
+      ) : (
+        <h1 className='text-primary my-12 text-4xl text-center xl:text-5xl'>
+          Su búsqueda ha arrojado los siguientes resultados...
+        </h1>
+      )}
       <ul className='articles-search'>
-        {searchResult?.data?.posts?.edges.map((edge, index) => (
+        {articles.map((edge, index) => (
           <Article
             type='search'
             srcUrl={edge.node.featuredImage?.node.sourceUrl || ''}
@@ -29,11 +43,13 @@ export const ArticlesSearch = ({ currentPage, query, searchResult }: Props) => {
           />
         ))}
       </ul>
-      <PaginationBlogSearch
-        currentPage={currentPage}
-        query={query}
-        searchResult={searchResult}
-      />
+      {articles.length > 0 && (
+        <PaginationBlogSearch
+          currentPage={currentPage}
+          query={query}
+          searchResult={searchResult}
+        />
+      )}
     </>
   )
 }

@@ -81,41 +81,43 @@ export default async function BlogPage({ params, searchParams }: Props) {
   }
 
   return (
-    <section className='bg-white px-1 pb-4 pt-[calc(var(--header-height)+1rem)] shadow-b-section'>
-      <Container classNames='post my-10'>
+    <section className=' bg-white px-1 pb-4 pt-[calc(var(--header-height)+1rem)] shadow-b-section'>
+      <Container classNames='post my-10 min-h-[calc(100dvh-var(--header-height)*3)] flex flex-col'>
         <div className='mx-auto mb-12 w-[min(100%,1440px)] max-[1440px]:px-4'>
           <SearchBar placeholder='Buscar artículos...' />
         </div>
-        {query !== '' ? (
-          <ArticlesSearch
-            currentPage={currentPage}
-            query={query}
-            searchResult={searchResult}
-          />
-        ) : (
-          <>
-            <ul className='grid-blog'>
-              {data?.posts?.edges.map((edge, index) => (
-                <Article
-                  srcUrl={edge.node.featuredImage?.node.sourceUrl || ''}
-                  key={edge.node.id}
-                  i={index}
-                  slug={edge.node.slug || ''}
-                  title={edge.node.title || ''}
-                  excerpt={edge.node.excerpt || ''}
-                  createdAt={edge.node.date!}
-                  subtitle={edge.node.headings?.subtitle || ''}
-                  type='blog'
-                />
-              ))}
-            </ul>
-            <PaginationBlog
-              totalCount={parseInt(totalArticles!)}
-              postsPerPage={POSTS_PER_PAGE}
+        <div className='flex-1 flex flex-col items-center justify-center'>
+          {query !== '' ? (
+            <ArticlesSearch
               currentPage={currentPage}
+              query={query}
+              searchResult={searchResult}
             />
-          </>
-        )}
+          ) : (
+            <>
+              <ul className='grid-blog'>
+                {data?.posts?.edges.map((edge, index) => (
+                  <Article
+                    srcUrl={edge.node.featuredImage?.node.sourceUrl || ''}
+                    key={edge.node.id}
+                    i={index}
+                    slug={edge.node.slug || ''}
+                    title={edge.node.title || ''}
+                    excerpt={edge.node.excerpt || ''}
+                    createdAt={edge.node.date!}
+                    subtitle={edge.node.headings?.subtitle || ''}
+                    type='blog'
+                  />
+                ))}
+              </ul>
+              <PaginationBlog
+                totalCount={parseInt(totalArticles!)}
+                postsPerPage={POSTS_PER_PAGE}
+                currentPage={currentPage}
+              />
+            </>
+          )}
+        </div>
       </Container>
     </section>
   )

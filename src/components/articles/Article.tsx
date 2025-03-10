@@ -26,27 +26,31 @@ export const Article = ({
   return (
     <li
       data-article={i + 1}
-      className={cn(`article-item group mx-auto flex flex-col `, {
-        ' xl:gap-10 xl:first:flex-row xl:[&:nth-child(3)]:flex xl:[&:nth-child(3)]:flex-col-reverse xl:w-full xl:min-h-[35dvh] max-w-xl:my-8 max-w-xl:w-[min(100%,900px)]':
-          type === 'blog',
-        'my-8 w-[min(100%,900px)]': type === 'search',
-      })}
+      className={cn(
+        `article-item group mx-auto flex flex-col w-[min(100%,900px)] my-8`,
+        {
+          ' xl:gap-10 xl:first:flex-row xl:[&:nth-child(3)]:flex xl:[&:nth-child(3)]:flex-col-reverse xl:w-full xl:min-h-[35dvh] max-w-xl:my-8 max-w-xl:w-[min(100%,900px)]':
+            type === 'blog',
+        }
+      )}
     >
       <div
         className={cn('relative h-[35dvh] overflow-hidden ', {
           'xl:h-full w-full': type === 'blog',
         })}
       >
-        <div className='absolute inset-0 z-10 bg-gradient-to-tl from-transparent to-black/75 transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:opacity-55'></div>
-        <small className='absolute left-1 top-1 z-20 font-heading text-light'>
-          Escrito por @Míriam
-        </small>
-        <div className='h-full w-full transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:scale-105 relative'>
-          <ImageArticle
-            srcUrl={srcUrl}
-            title={title}
-          />
-        </div>
+        <a href={`/${slug}`}>
+          <div className='absolute inset-0 z-10 bg-gradient-to-tl from-transparent to-black/75 transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:opacity-55'></div>
+          <small className='absolute left-1 top-1 z-20 font-heading text-light'>
+            Escrito por @Míriam
+          </small>
+          <div className='h-full w-full transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:scale-105 relative'>
+            <ImageArticle
+              srcUrl={srcUrl}
+              title={title}
+            />
+          </div>
+        </a>
       </div>
       <article
         className={cn('mx-1 my-6 flex h-full flex-col gap-8', {

@@ -1,12 +1,11 @@
 import { getMainMenuAction } from '@/actions/menus/get-main-menu.action'
 import { CustomError } from '@/components/CustomError'
-import { Navigation } from '@/components/header/components/Navigation'
 import { Navbar } from '@/components/header/components/Navbar'
 
 export const MainHeader = async () => {
   const { data, error } = await getMainMenuAction()
 
-  console.log({ data, error })
+  // console.log({ data, error })
 
   if (error) {
     return <CustomError error={error} />

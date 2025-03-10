@@ -26,7 +26,7 @@ export const Close = ({
       strokeLinecap='round'
       strokeLinejoin='round'
       className={cn(
-        'icon icon-tabler icons-tabler-outline icon-tabler-x transition-transform duration-500 ease-[var(--ease-elastic-smoother)] hover:scale-125',
+        'hover:stroke-primary icon icon-tabler icons-tabler-outline icon-tabler-x transition-all duration-300 ease-[var(--ease-elastic-smoother)] hover:scale-125',
         classNames,
         {
           'h-5 w-5': size === 'small',
