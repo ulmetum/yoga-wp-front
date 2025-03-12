@@ -16,10 +16,11 @@ export const getTotalArticlesCounttAction = async ({
       },
     })
 
-    let totalArticles = response.headers.get('X-WP-Total')
+    const totalArticles = response.headers.get('X-WP-Total')
 
     return { data: totalArticles, error: null }
   } catch (error) {
+    console.log({ error })
     return { data: null, error: errorMessages[typeError] }
   }
 }

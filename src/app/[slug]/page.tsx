@@ -18,9 +18,13 @@ const page = async ({ params }: Props) => {
 
   if (error) return <CustomError error={error} />
 
+  const idArticle = articlesBySlug?.post.id
+
+  if (!idArticle) return <CustomError error={'No article found'} />
+
   const { data: nextPrevArticles, error: errorPagination } =
     await getPrevAndNextArticlesAction({
-      idArticle: articlesBySlug?.post.id!,
+      idArticle,
     })
 
   if (errorPagination) return <CustomError error={errorPagination} />

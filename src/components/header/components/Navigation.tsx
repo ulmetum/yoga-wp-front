@@ -22,7 +22,7 @@ export const Navigation = ({ data }: Props) => {
     <nav>
       <ul className='container mx-auto flex items-center justify-center capitalize text-gray-600 dark:text-gray-300'>
         <div className='flex items-center gap-x-1 sm:gap-x-2'>
-          {data?.menuItems?.edges.map((item, i) => {
+          {data?.menuItems?.edges.map((item) => {
             const isActive = item.node.path === currentPath
             return (
               <div key={item.node.id}>

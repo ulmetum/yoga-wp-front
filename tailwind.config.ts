@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import containerQueries from '@tailwindcss/container-queries'
+import tailwindcssMotion from 'tailwindcss-motion'
 
 export default {
   content: [
@@ -38,5 +39,5 @@ export default {
       },
     },
   },
-  plugins: [containerQueries],
+  plugins: [containerQueries, tailwindcssMotion],
 } satisfies Config

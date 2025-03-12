@@ -4,7 +4,6 @@ import { z } from 'zod'
 import { getTotalArticlesCounttAction } from '@/actions/articles/get-total-articles-count.action'
 import { getAllArticlesAction } from '@/actions/articles/get-all-articles.action'
 import { getArticlesByIdAction } from '@/actions/articles/get-articles-by-id.action'
-import { a } from 'motion/react-client'
 
 const inputSchema = z.object({
   idArticle: z.string(),
@@ -13,6 +12,12 @@ const inputSchema = z.object({
 type Params = z.infer<typeof inputSchema>
 
 export async function getPrevAndNextArticlesAction({ idArticle }: Params) {
+  const paramsParsed = inputSchema.safeParse({ idArticle })
+
+  if (!paramsParsed.success) {
+    return { error: 'Params incorrecto', data: null }
+  }
+
   const { data: totalCount, error: errorTotalCount } =
     await getTotalArticlesCounttAction({ typeError: 'ErrorTotalCount' })
 
@@ -24,6 +29,9 @@ export async function getPrevAndNextArticlesAction({ idArticle }: Params) {
   if (allArticlesError) return { data: null, error: allArticlesError }
 
   const idsArticles = allArticles?.posts?.nodes.map((article) => article.id)
+
+  if (idsArticles?.length === 0 || !idsArticles)
+    return { data: null, error: allArticlesError }
 
   const currentIndexArticle = idsArticles?.indexOf(idArticle)!
 
@@ -43,12 +51,15 @@ export async function getPrevAndNextArticlesAction({ idArticle }: Params) {
 
   const { data: prevArticle, error: prevArticleError } =
     await getArticlesByIdAction({
-      idArticle: prevIdArticle!,
+      idArticle: prevIdArticle,
     })
   const { data: nextArticle, error: nextArticleError } =
     await getArticlesByIdAction({
-      idArticle: nextIdArticle!,
+      idArticle: nextIdArticle,
     })
+
+  if (prevArticleError || nextArticleError)
+    return { data: null, error: nextArticleError }
 
   return { data: { nextArticle, prevArticle }, error: null }
 }

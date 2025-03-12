@@ -1,12 +1,8 @@
 'use server'
 
 import { GetArticleBySlugQuery } from '@/interfaces/article-by-slug.interface'
-//TODO: LA QUERY ES INCORRECTA
 
-import {
-  getAllArticlesQuery,
-  getArticleBySlugQuery,
-} from '@/queries/articles.query'
+import { getArticleBySlugQuery } from '@/queries/articles.query'
 import { fetchData } from '@/utils/fetchData'
 import { z } from 'zod'
 

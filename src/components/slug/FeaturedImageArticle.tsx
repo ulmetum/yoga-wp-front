@@ -16,9 +16,19 @@ export const FeaturedImageArticle = ({ author, image, title }: Props) => {
       initial={{
         x: 'var(--translate-x-from, 0)',
         y: 'var(--translate-y-from, 0)',
+        opacity: 0,
       }}
-      animate={{ x: 'var(--translate-x-to, 0)', y: 'var(--translate-y-to, 0)' }}
-      transition={{ duration: 1, type: 'spring', bounce: 0.55 }}
+      animate={{
+        x: 'var(--translate-x-to, 0)',
+        y: 'var(--translate-y-to, 0)',
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+        type: 'spring',
+        bounce: 0.55,
+        opacity: { duration: 0.5, ease: 'easeInOut' },
+      }}
       className='[--translate-y-from:-50px] [--translate-y-to:0px] xl:[--translate-y-from:0px] xl:[--translate-x-from:-50px] xl:[--translate-x-to:0px] container-image h-[400px] relative w-[min(100%,900px)]'
     >
       <WrittenBy

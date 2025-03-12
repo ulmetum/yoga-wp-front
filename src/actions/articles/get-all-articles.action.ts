@@ -12,6 +12,12 @@ const inputSchema = z.object({
 type Params = z.infer<typeof inputSchema>
 
 export async function getAllArticlesAction({ allArticles }: Params) {
+  const paramsParsed = inputSchema.safeParse({ allArticles })
+
+  if (!paramsParsed.success) {
+    return { error: 'Params incorrecto', data: null }
+  }
+
   const { data, error } = await fetchData<GetAllArticlesQuery>({
     errorType: 'ErrorArticles',
     query: getAllArticlesQuery,

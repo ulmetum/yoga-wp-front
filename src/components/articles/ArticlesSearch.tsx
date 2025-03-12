@@ -1,7 +1,6 @@
 import { SearchResult } from '@/interfaces/articles.interface'
 import { PaginationBlogSearch } from './PaginationBlogSearch'
 import { Article } from './Article'
-import { h1 } from 'motion/react-client'
 
 interface Props {
   currentPage: number
@@ -37,7 +36,7 @@ export const ArticlesSearch = ({ currentPage, query, searchResult }: Props) => {
             i={index}
             slug={edge.node.slug || ''}
             title={edge.node.title || ''}
-            excerpt={edge.node.excerpt || ''}
+            // excerpt={edge.node.excerpt || ''}
             createdAt={edge.node.date!}
             subtitle={edge.node.headings?.subtitle || ''}
           />

@@ -1,10 +1,7 @@
 'use server'
 
-import { GetArticleByIdQuery, GetArticlesByPageQuery } from '@/gql/graphql'
-import {
-  getArticlesByIdQuery,
-  getArticlesByPageQuery,
-} from '@/queries/articles.query'
+import { GetArticleByIdQuery } from '@/gql/graphql'
+import { getArticlesByIdQuery } from '@/queries/articles.query'
 import { fetchData } from '@/utils/fetchData'
 import { z } from 'zod'
 

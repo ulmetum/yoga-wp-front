@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Close } from '@/components/icons/Close.icon'
 
 interface Props {
@@ -22,7 +22,12 @@ export const SearchBar = ({ placeholder }: Props) => {
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const params = new URLSearchParams(searchParams)
-    term ? params.set('query', term) : params.delete('query')
+    if (term) {
+      params.set('query', term)
+    } else {
+      params.delete('query')
+    }
+
     replace(`/blog/?${params.toString()}`, { scroll: false })
   }
 
@@ -70,7 +75,7 @@ export const SearchBar = ({ placeholder }: Props) => {
             onClick={handleClear}
           >
             <Close
-              size='small'
+              size='sm'
               classNames='hover-group:stroke-primary absolute right-[90px] top-1/2 -translate-y-1/2'
             />
           </div>

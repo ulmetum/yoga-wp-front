@@ -1,4 +1,4 @@
-import { getSearchResult } from '@/actions/articles/getSearchResult.action'
+import { getSearchResult } from '@/actions/articles/get-search-result.action'
 import { Article } from '@/components/articles/Article'
 import { GetArticlesByPageQuery } from '@/gql/graphql'
 
@@ -6,17 +6,21 @@ interface Props {
   data: GetArticlesByPageQuery | null
   query: string
   postPerPage: number
-  afterCursor: string | null
+  afterCursorSearch: string | null
 }
 export const ListOfArticles = async ({
   data,
   query,
   postPerPage,
-  afterCursor,
+  afterCursorSearch,
 }: Props) => {
   let searchResult = null
   if (query) {
-    searchResult = await getSearchResult({ afterCursor, postPerPage, query })
+    searchResult = await getSearchResult({
+      afterCursorSearch,
+      postPerPage,
+      query,
+    })
   }
 
   return (
@@ -29,7 +33,8 @@ export const ListOfArticles = async ({
               i={index}
               slug={edge.node.slug || ''}
               title={edge.node.title || ''}
-              excerpt={edge.node.excerpt || ''}
+              type='search'
+              // excerpt={edge.node.excerpt || ''}
               createdAt={edge.node.date!}
               subtitle={edge.node.headings?.subtitle || ''}
             />
@@ -39,9 +44,10 @@ export const ListOfArticles = async ({
               srcUrl={edge.node.featuredImage?.node.sourceUrl || ''}
               key={edge.node.id}
               i={index}
+              type='search'
               slug={edge.node.slug || ''}
               title={edge.node.title || ''}
-              excerpt={edge.node.excerpt || ''}
+              // excerpt={edge.node.excerpt || ''}
               createdAt={edge.node.date!}
               subtitle={edge.node.headings?.subtitle || ''}
             />
