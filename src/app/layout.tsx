@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { fontBody, fontHeadings } from '@/fonts'
 import { MainHeader } from '@/components/header/MainHeader'
+import { ViewTransitions } from 'next-view-transitions'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,13 +15,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${fontHeadings.variable} ${fontBody.variable} antialiased `}
-      >
-        <MainHeader />
-        {children}
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang='es'>
+        <body
+          className={`${fontHeadings.variable} ${fontBody.variable} antialiased `}
+        >
+          <MainHeader />
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

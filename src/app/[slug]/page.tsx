@@ -1,7 +1,5 @@
-import { getAllArticlesAction } from '@/actions/articles/get-all-articles.action'
 import { getArticlesBySlugAction } from '@/actions/articles/get-articles-by-slug.action'
 import { getPrevAndNextArticlesAction } from '@/actions/articles/get-prev-and-next-articles.action'
-import { getTotalArticlesCounttAction } from '@/actions/articles/get-total-articles-count.action'
 import { Container } from '@/components/Container'
 import { CustomError } from '@/components/CustomError'
 import { HeroArticle } from '@/components/slug/HeroArticle'
@@ -32,7 +30,7 @@ const page = async ({ params }: Props) => {
 
   return (
     <div>
-      <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[10dvh] min-h-[110dvh] w-full items-center justify-center py-[calc(var(--header-height)+1rem)] xl:px-6'>
+      <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[10dvh] min-h-[110dvh] w-full items-center justify-center py-[calc(var(--main-header-height)+1rem)] xl:px-6'>
         <Container classNames='relative flex flex-col justify-center items-center gap-2'>
           {/* <BreadCrumbsArticle title={titleFormatted} /> */}
           <HeroArticle

@@ -3,6 +3,7 @@
 import { GetMainMenuQuery } from '@/gql/graphql'
 import { cn } from '@/utils/mergeClass'
 import { motion } from 'motion/react'
+import { Link } from 'next-view-transitions'
 import { usePathname } from 'next/navigation'
 
 interface Props {
@@ -43,7 +44,7 @@ export const Navigation = ({ data }: Props) => {
                     }}
                     transition={{ duration: 0.75, type: 'spring', bounce: 0.5 }}
                   >
-                    <a href={item.node.path!}>{item.node.label}</a>
+                    <Link href={item.node.path!}>{item.node.label}</Link>
                   </motion.div>
                   <motion.div
                     className={`absolute inset-0 font-headings uppercase text-primary sm:text-xl`}
@@ -53,7 +54,7 @@ export const Navigation = ({ data }: Props) => {
                     }}
                     transition={{ duration: 0.75, type: 'spring', bounce: 0.5 }}
                   >
-                    <a href={item.node.path!}>{item.node.label}</a>
+                    <Link href={item.node.path!}>{item.node.label}</Link>
                   </motion.div>
                 </motion.li>
               </div>

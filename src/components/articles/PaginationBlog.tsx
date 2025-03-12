@@ -1,6 +1,5 @@
 import { cn } from '@/utils/mergeClass'
-import Link from 'next/link'
-
+import { Link } from 'next-view-transitions'
 interface Props {
   currentPage: number
   postsPerPage: number
