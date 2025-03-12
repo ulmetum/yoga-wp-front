@@ -1,7 +1,11 @@
+import { getAllArticlesAction } from '@/actions/articles/get-all-articles.action'
 import { getArticlesBySlugAction } from '@/actions/articles/get-articles-by-slug.action'
+import { getPrevAndNextArticlesAction } from '@/actions/articles/get-prev-and-next-articles.action'
+import { getTotalArticlesCounttAction } from '@/actions/articles/get-total-articles-count.action'
 import { Container } from '@/components/Container'
 import { CustomError } from '@/components/CustomError'
 import { HeroArticle } from '@/components/slug/HeroArticle'
+import { PaginationArticle } from '@/components/slug/PaginationArticle'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -10,29 +14,50 @@ interface Props {
 const page = async ({ params }: Props) => {
   const { slug } = await params
 
-  const { data, error } = await getArticlesBySlugAction({ slug })
+  const { data: articlesBySlug, error } = await getArticlesBySlugAction({
+    slug,
+  })
 
   if (error) return <CustomError error={error} />
 
+  const { data: nextPrevArticles, error: errorPagination } =
+    await getPrevAndNextArticlesAction({
+      idArticle: articlesBySlug?.post.id!,
+    })
+
+  if (errorPagination) return <CustomError error={errorPagination} />
+
+  const nextArticle = nextPrevArticles?.nextArticle
+  const prevArticle = nextPrevArticles?.prevArticle
+  console.log({ nextArticle, prevArticle })
+
   return (
     <div>
-      <section className='section-top sticky left-0 top-0 flex min-h-screen w-full items-center justify-center py-[calc(var(--header-height)+1rem)] pb-36 xl:px-6'>
-        <Container classNames='relative flex h-full flex-col justify-center items-center gap-2'>
+      <section className='section-top sticky left-0 top-0 flex min-h-screen w-full items-center justify-center py-[calc(var(--header-height)+1rem)] xl:px-6'>
+        <Container classNames='relative flex flex-col justify-center items-center gap-2'>
           {/* <BreadCrumbsArticle title={titleFormatted} /> */}
           <HeroArticle
-            author={data?.post.author?.node.name ?? ''}
-            title={data?.post.title ?? ''}
-            createdAt={data?.post.date ?? ''}
-            subtitle={data?.post.headings.subtitle ?? ''}
-            image={data?.post.featuredImage.node.sourceUrl ?? ''}
+            author={articlesBySlug?.post.author?.node.name ?? ''}
+            title={articlesBySlug?.post.title ?? ''}
+            createdAt={articlesBySlug?.post.date ?? ''}
+            subtitle={articlesBySlug?.post.headings.subtitle ?? ''}
+            image={articlesBySlug?.post.featuredImage.node.sourceUrl ?? ''}
           />
         </Container>
       </section>
       <section className='post relative bg-white px-2 py-20 shadow-y-section sm:px-6'>
         <Container>
           <article>
-            <div dangerouslySetInnerHTML={{ __html: data?.post.content! }} />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: articlesBySlug?.post.content!,
+              }}
+            />
           </article>
+          <PaginationArticle
+            nextArticle={nextArticle}
+            prevArticle={prevArticle}
+          />
         </Container>
       </section>
     </div>

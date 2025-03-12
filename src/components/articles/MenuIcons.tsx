@@ -7,13 +7,13 @@ import { cn } from '@/utils/mergeClass'
 interface Props {
   classNames?: string
   color?: 'alternative' | 'dark'
-  size?: 'small' | 'medium' | 'large'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
 }
 
 export const MenuIcons = ({
   classNames,
   color = 'dark',
-  size = 'small',
+  size = 'xs',
 }: Props) => {
   return (
     <nav className={cn('flex', classNames)}>
@@ -27,19 +27,28 @@ export const MenuIcons = ({
           size={size}
         />
       </a>
-      <a href=''>
+      <a
+        title='Instagram'
+        href='#'
+      >
         <Instagram
           color={color}
           size={size}
         />
       </a>
-      <a href=''>
+      <a
+        title='TikTok'
+        href='#'
+      >
         <Tiktok
           color={color}
           size={size}
         />
       </a>
-      <a href=''>
+      <a
+        title='Youtube'
+        href='#'
+      >
         <Youtube
           color={color}
           size={size}

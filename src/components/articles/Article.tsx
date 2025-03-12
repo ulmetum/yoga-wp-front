@@ -39,8 +39,9 @@ export const Article = ({
         })}
       >
         <a href={`/${slug}`}>
-          <div className='absolute inset-0 z-10 bg-gradient-to-tl from-transparent to-black/75 transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:opacity-55'></div>
-          <small className='absolute left-1 top-1 z-20 font-heading text-light'>
+          <div className='gradient-tl-90 absolute inset-0 z-20'></div>
+          {/* <div className='absolute inset-0 z-10 bg-gradient-to-tl from-transparent to-black/75 transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:opacity-55'></div> */}
+          <small className='font-headings absolute left-1 top-1 z-20 font-heading text-light'>
             Escrito por @Míriam
           </small>
           <div className='h-full w-full transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:scale-105 relative'>

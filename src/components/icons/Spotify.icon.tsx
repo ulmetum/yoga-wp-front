@@ -1,7 +1,7 @@
 import { cn } from '@/utils/mergeClass'
 
 interface Props {
-  size?: 'small' | 'medium' | 'large'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: 'alternative' | 'dark'
 }
 
@@ -10,16 +10,19 @@ const colors = {
   dark: '#18181b',
 }
 
-export const Spotify = ({ size = 'medium', color = 'dark' }: Props) => {
+const sizes = {
+  xs: 'h-5 w-5 sm:h-7 sm:w-7',
+  sm: 'h-7 w-7',
+  md: 'h-8 w-8',
+  lg: 'h-10 w-10',
+}
+
+export const Spotify = ({ size = 'md', color = 'dark' }: Props) => {
   return (
     <svg
       className={cn(
         'transition-transform duration-500 ease-[var(--ease-elastic-smoother)] hover:scale-125',
-        {
-          'h-7 w-7': size === 'small',
-          'h-8 w-8': size === 'medium',
-          'h-10 w-10': size === 'large',
-        }
+        sizes[size]
       )}
       xmlns='http://www.w3.org/2000/svg'
       width='40'

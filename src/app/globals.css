@@ -121,8 +121,11 @@
 }
 
 @layer utilities {
-  .gradient-90 {
+  .gradient-br-90 {
     background-image: linear-gradient(to bottom right, transparent 65%, #000);
+  }
+  .gradient-tl-90 {
+    background-image: linear-gradient(to top left, transparent 65%, #000);
   }
 }
 
@@ -162,5 +165,8 @@
 .aligncenter,
 .video-center,
 .center-video {
-  @apply flex flex-col items-center justify-center my-20;
+  @apply flex flex-col items-center justify-center my-12;
+  iframe {
+    @apply h-[450px] aspect-video w-full;
+  }
 }

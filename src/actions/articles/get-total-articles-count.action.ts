@@ -1,9 +1,9 @@
 'use server'
 
 import { BASE_URL } from '@/config'
-import { ActionError, errorMessages, ErrorType } from '@/errors'
+import { errorMessages, ErrorType } from '@/errors'
 
-export const getTotalArticlestAction = async ({
+export const getTotalArticlesCounttAction = async ({
   typeError,
 }: {
   typeError: ErrorType
@@ -18,8 +18,8 @@ export const getTotalArticlestAction = async ({
 
     let totalArticles = response.headers.get('X-WP-Total')
 
-    return { totalArticles }
+    return { data: totalArticles, error: null }
   } catch (error) {
-    return { error: errorMessages[typeError] }
+    return { data: null, error: errorMessages[typeError] }
   }
 }

@@ -31,7 +31,7 @@ export const Navigation = ({ data }: Props) => {
                   className={cn(
                     'xs:px-2 relative mx-1.5 overflow-hidden leading-tight sm:mx-3',
                     isActive || (item.node.label === 'Blog' && isPageArticle)
-                      ? 'pointer-events-none text-primary'
+                      ? 'pointer-events-none text-primary font-normal'
                       : 'pointer-events-auto text-dark'
                   )}
                 >

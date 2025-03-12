@@ -1,5 +1,5 @@
 import { getArticlesByPageAction } from '@/actions/articles/get-articles-by-page.action'
-import { getTotalArticlestAction } from '@/actions/articles/get-total-articles.action'
+import { getTotalArticlesCounttAction } from '@/actions/articles/get-total-articles-count.action'
 import { PaginationBlog } from '@/components/articles/PaginationBlog'
 import { Article } from '@/components/articles/Article'
 import { Container } from '@/components/Container'
@@ -23,9 +23,10 @@ export default async function BlogPage({ params, searchParams }: Props) {
   const { page } = await params
   const { query = '' } = await searchParams
 
-  const { totalArticles, error } = await getTotalArticlestAction({
-    typeError: 'ErrorArticles',
-  })
+  const { data: totalArticlesCount, error } =
+    await getTotalArticlesCounttAction({
+      typeError: 'ErrorArticles',
+    })
 
   if (error) {
     return (
@@ -36,7 +37,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
     )
   }
 
-  const totalPages = Math.ceil(Number(totalArticles) / POSTS_PER_PAGE)
+  const totalPages = Math.ceil(Number(totalArticlesCount) / POSTS_PER_PAGE)
 
   let currentPage = Number(page)
 
@@ -110,7 +111,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
                 ))}
               </ul>
               <PaginationBlog
-                totalCount={parseInt(totalArticles!)}
+                totalArticlesCount={parseInt(totalArticlesCount!)}
                 postsPerPage={POSTS_PER_PAGE}
                 currentPage={currentPage}
               />

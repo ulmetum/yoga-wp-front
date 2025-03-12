@@ -8,6 +8,7 @@ interface Post {
   featuredImage: FeaturedImage
   headings: Headings
   date: string
+  id: string
   content: string
 }
 

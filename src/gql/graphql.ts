@@ -1567,8 +1567,6 @@ export type CreatePageInput = {
   content?: InputMaybe<Scalars['String']['input']>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars['String']['input']>;
-  /** The excerpt of the object */
-  excerpt?: InputMaybe<Scalars['String']['input']>;
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
   menuOrder?: InputMaybe<Scalars['Int']['input']>;
   /** The ID of the parent object */
@@ -2190,23 +2188,6 @@ export type Headings_Fields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;Headings&quot; Field Group */
   subtitle?: Maybe<Scalars['String']['output']>;
-};
-
-/** The helloElementorSettings setting type */
-export type HelloElementorSettingsSettings = {
-  __typename?: 'HelloElementorSettingsSettings';
-  /** The string Settings Group */
-  helloElementorSettingsDescriptionMetaTag?: Maybe<Scalars['String']['output']>;
-  /** The string Settings Group */
-  helloElementorSettingsHeaderFooter?: Maybe<Scalars['String']['output']>;
-  /** The string Settings Group */
-  helloElementorSettingsHelloStyle?: Maybe<Scalars['String']['output']>;
-  /** The string Settings Group */
-  helloElementorSettingsHelloTheme?: Maybe<Scalars['String']['output']>;
-  /** The string Settings Group */
-  helloElementorSettingsPageTitle?: Maybe<Scalars['String']['output']>;
-  /** The string Settings Group */
-  helloElementorSettingsSkipLink?: Maybe<Scalars['String']['output']>;
 };
 
 /** Content node with hierarchical (parent/child) relationships */
@@ -3211,7 +3192,7 @@ export enum MenuItemNodeIdTypeEnum {
 }
 
 /** Deprecated in favor of MenuItemLinkeable Interface */
-export type MenuItemObjectUnion = Category | Page | Post | Tag;
+export type MenuItemObjectUnion = Category | Page | Post | PostFormat | Tag;
 
 /** Connection between the MenuItem type and the Menu type */
 export type MenuItemToMenuConnectionEdge = Edge & MenuConnectionEdge & OneToOneConnection & {
@@ -3278,10 +3259,16 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge & MenuItemLinkableCo
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Put the menu in the menu-1 location */
-  Menu_1 = 'MENU_1',
-  /** Put the menu in the menu-2 location */
-  Menu_2 = 'MENU_2'
+  /** Put the menu in the footer_menu location */
+  FooterMenu = 'FOOTER_MENU',
+  /** Put the menu in the loggedin_account_menu location */
+  LoggedinAccountMenu = 'LOGGEDIN_ACCOUNT_MENU',
+  /** Put the menu in the mobile_menu location */
+  MobileMenu = 'MOBILE_MENU',
+  /** Put the menu in the primary location */
+  Primary = 'PRIMARY',
+  /** Put the menu in the secondary_menu location */
+  SecondaryMenu = 'SECONDARY_MENU'
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -3697,7 +3684,7 @@ export enum OrderEnum {
 }
 
 /** The page type */
-export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithExcerpt & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & {
+export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & {
   __typename?: 'Page';
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
@@ -3737,8 +3724,6 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>;
   /** Connection between the ContentNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>;
-  /** The excerpt of the post. */
-  excerpt?: Maybe<Scalars['String']['output']>;
   /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
   featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
   /** The database identifier for the featured image node assigned to the content node */
@@ -3866,12 +3851,6 @@ export type PageEnqueuedStylesheetsArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The page type */
-export type PageExcerptArgs = {
-  format?: InputMaybe<PostObjectFieldFormatEnum>;
 };
 
 
@@ -4484,7 +4463,7 @@ export type PostConnectionPageInfo = {
 };
 
 /** The postFormat type */
-export type PostFormat = DatabaseIdentifier & Node & TermNode & UniformResourceIdentifiable & {
+export type PostFormat = DatabaseIdentifier & MenuItemLinkable & Node & TermNode & UniformResourceIdentifiable & {
   __typename?: 'PostFormat';
   /** Connection between the PostFormat type and the ContentNode type */
   contentNodes?: Maybe<PostFormatToContentNodeConnection>;
@@ -5937,8 +5916,6 @@ export type RootQuery = {
   discussionSettings?: Maybe<DiscussionSettings>;
   /** Fields of the &#039;GeneralSettings&#039; settings group */
   generalSettings?: Maybe<GeneralSettings>;
-  /** Fields of the &#039;HelloElementorSettingsSettings&#039; settings group */
-  helloElementorSettingsSettings?: Maybe<HelloElementorSettingsSettings>;
   /** An object of the mediaItem Type.  */
   mediaItem?: Maybe<MediaItem>;
   /**
@@ -7645,18 +7622,6 @@ export type Settings = {
   generalSettingsTitle?: Maybe<Scalars['String']['output']>;
   /** Settings of the the string Settings Group */
   generalSettingsUrl?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the string Settings Group */
-  helloElementorSettingsSettingsHelloElementorSettingsDescriptionMetaTag?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the string Settings Group */
-  helloElementorSettingsSettingsHelloElementorSettingsHeaderFooter?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the string Settings Group */
-  helloElementorSettingsSettingsHelloElementorSettingsHelloStyle?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the string Settings Group */
-  helloElementorSettingsSettingsHelloElementorSettingsHelloTheme?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the string Settings Group */
-  helloElementorSettingsSettingsHelloElementorSettingsPageTitle?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the string Settings Group */
-  helloElementorSettingsSettingsHelloElementorSettingsSkipLink?: Maybe<Scalars['String']['output']>;
   /** Settings of the the integer Settings Group */
   readingSettingsPageForPosts?: Maybe<Scalars['Int']['output']>;
   /** Settings of the the integer Settings Group */
@@ -8555,8 +8520,6 @@ export type UpdatePageInput = {
   content?: InputMaybe<Scalars['String']['input']>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars['String']['input']>;
-  /** The excerpt of the object */
-  excerpt?: InputMaybe<Scalars['String']['input']>;
   /** The ID of the page object */
   id: Scalars['ID']['input'];
   /** Override the edit lock when another user is editing the post */
@@ -8686,12 +8649,6 @@ export type UpdateSettingsInput = {
   generalSettingsTitle?: InputMaybe<Scalars['String']['input']>;
   /** URL del sitio. */
   generalSettingsUrl?: InputMaybe<Scalars['String']['input']>;
-  helloElementorSettingsSettingsHelloElementorSettingsDescriptionMetaTag?: InputMaybe<Scalars['String']['input']>;
-  helloElementorSettingsSettingsHelloElementorSettingsHeaderFooter?: InputMaybe<Scalars['String']['input']>;
-  helloElementorSettingsSettingsHelloElementorSettingsHelloStyle?: InputMaybe<Scalars['String']['input']>;
-  helloElementorSettingsSettingsHelloElementorSettingsHelloTheme?: InputMaybe<Scalars['String']['input']>;
-  helloElementorSettingsSettingsHelloElementorSettingsPageTitle?: InputMaybe<Scalars['String']['input']>;
-  helloElementorSettingsSettingsHelloElementorSettingsSkipLink?: InputMaybe<Scalars['String']['input']>;
   /** El ID de la página que debe mostrar las últimas entradas */
   readingSettingsPageForPosts?: InputMaybe<Scalars['Int']['input']>;
   /** El ID de la página que debe mostrarse en la página de inicio */
@@ -8719,8 +8676,6 @@ export type UpdateSettingsPayload = {
   discussionSettings?: Maybe<DiscussionSettings>;
   /** Update the GeneralSettings setting. */
   generalSettings?: Maybe<GeneralSettings>;
-  /** Update the HelloElementorSettingsSettings setting. */
-  helloElementorSettingsSettings?: Maybe<HelloElementorSettingsSettings>;
   /** Update the ReadingSettings setting. */
   readingSettings?: Maybe<ReadingSettings>;
   /** Update the WritingSettings setting. */
@@ -9678,10 +9633,12 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
-export type GetAllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllArticlesQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['Int']['input']>;
+}>;
 
 
-export type GetAllArticlesQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node: { __typename?: 'Post', title?: string | null, slug?: string | null, content?: string | null } }> } | null };
+export type GetAllArticlesQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', id: string, slug?: string | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null } } | null }> } | null };
 
 export type GetArticlesByPageQueryVariables = Exact<{
   first: Scalars['Int']['input'];
@@ -9690,6 +9647,13 @@ export type GetArticlesByPageQueryVariables = Exact<{
 
 
 export type GetArticlesByPageQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node: { __typename?: 'Post', id: string, title?: string | null, slug?: string | null, date?: string | null, headings?: { __typename?: 'Headings', subtitle?: string | null } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null } } | null } }>, pageInfo: { __typename?: 'RootQueryToPostConnectionPageInfo', endCursor?: string | null, hasNextPage: boolean } } | null };
+
+export type GetArticleByIdQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetArticleByIdQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', title?: string | null, id: string, slug?: string | null, date?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null } } | null, headings?: { __typename?: 'Headings', subtitle?: string | null } | null } | null };
 
 export type GetSearchResultQueryVariables = Exact<{
   first: Scalars['Int']['input'];
@@ -9706,7 +9670,8 @@ export type GetMainMenuQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetMainMenuQuery = { __typename?: 'RootQuery', menuItems?: { __typename?: 'RootQueryToMenuItemConnection', edges: Array<{ __typename?: 'RootQueryToMenuItemConnectionEdge', node: { __typename?: 'MenuItem', id: string, path?: string | null, url?: string | null, label?: string | null } }> } | null };
 
 
-export const GetAllArticlesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllArticles"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"5"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAllArticlesQuery, GetAllArticlesQueryVariables>;
+export const GetAllArticlesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllArticles"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"nodes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sourceUrl"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAllArticlesQuery, GetAllArticlesQueryVariables>;
 export const GetArticlesByPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getArticlesByPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"after"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"after"},"value":{"kind":"Variable","name":{"kind":"Name","value":"after"}}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"orderby"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"field"},"value":{"kind":"EnumValue","value":"DATE"}},{"kind":"ObjectField","name":{"kind":"Name","value":"order"},"value":{"kind":"EnumValue","value":"DESC"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"headings"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sourceUrl"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"endCursor"}},{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}}]}}]}}]}}]} as unknown as DocumentNode<GetArticlesByPageQuery, GetArticlesByPageQueryVariables>;
+export const GetArticleByIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getArticleById"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"post"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sourceUrl"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"headings"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}}]}}]}}]} as unknown as DocumentNode<GetArticleByIdQuery, GetArticleByIdQueryVariables>;
 export const GetSearchResultDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getSearchResult"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"after"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"query"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"after"},"value":{"kind":"Variable","name":{"kind":"Name","value":"after"}}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"search"},"value":{"kind":"Variable","name":{"kind":"Name","value":"query"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"orderby"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"field"},"value":{"kind":"EnumValue","value":"DATE"}},{"kind":"ObjectField","name":{"kind":"Name","value":"order"},"value":{"kind":"EnumValue","value":"DESC"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"headings"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sourceUrl"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"endCursor"}},{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}}]}}]}}]}}]} as unknown as DocumentNode<GetSearchResultQuery, GetSearchResultQueryVariables>;
-export const GetMainMenuDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getMainMenu"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"menuItems"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"location"},"value":{"kind":"EnumValue","value":"MENU_1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"path"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetMainMenuQuery, GetMainMenuQueryVariables>;
+export const GetMainMenuDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getMainMenu"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"menuItems"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"location"},"value":{"kind":"EnumValue","value":"PRIMARY"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"path"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetMainMenuQuery, GetMainMenuQueryVariables>;

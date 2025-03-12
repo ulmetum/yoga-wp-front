@@ -6,9 +6,5 @@ interface Props {
 }
 
 export const WrittenBy = ({ classNames, author }: Props) => {
-  return (
-    <small className={cn('font-heading', classNames)}>
-      Escrito por @{author}
-    </small>
-  )
+  return <small className={cn('', classNames)}>Escrito por @{author}</small>
 }

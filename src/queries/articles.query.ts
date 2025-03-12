@@ -1,22 +1,27 @@
 import { graphql } from '@/gql'
 
 export const getAllArticlesQuery = graphql(`
-  query getAllArticles {
-    posts(first: 5) {
-      edges {
-        node {
-          title
-          slug
-          content
+  query getAllArticles($first: Int) {
+    posts(first: $first) {
+      nodes {
+        id
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+          }
         }
       }
     }
   }
 `)
+
+// El parámetro debe escribirse de esta forma especial en este caso porque id debe ser un string y no un ID de graphql
 export const getArticleBySlugQuery = ({ slug }: { slug: string }) => `
   query getArticleBySlug {
     post(idType: SLUG, id: "${slug}") {
       title
+      id
       author {
       node {
           name
@@ -67,6 +72,31 @@ export const getArticlesByPageQuery = graphql(`
     }
   }
 `)
+
+export const getArticlesByIdQuery = graphql(`
+  query getArticleById($id: ID!) {
+    post(id: $id) {
+      title
+      id
+      slug
+      date
+      author {
+        node {
+          name
+        }
+      }
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      headings {
+        subtitle
+      }
+    }
+  }
+`)
+
 export const getSearchResultQuery = graphql(`
   query getSearchResult($first: Int!, $after: String, $query: String) {
     posts(

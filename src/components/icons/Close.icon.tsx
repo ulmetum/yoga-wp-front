@@ -1,7 +1,7 @@
 import { cn } from '@/utils/mergeClass'
 
 interface Props {
-  size?: 'small' | 'medium' | 'large'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: 'alternative' | 'dark'
   classNames?: string
 }
@@ -9,11 +9,14 @@ const colors = {
   alternative: '#b45309',
   dark: '#18181b',
 }
-export const Close = ({
-  color = 'dark',
-  size = 'medium',
-  classNames,
-}: Props) => {
+
+const sizes = {
+  xs: 'h-5 w-5 sm:h-7 sm:w-7',
+  sm: 'h-7 w-7',
+  md: 'h-8 w-8',
+  lg: 'h-10 w-10',
+}
+export const Close = ({ color = 'dark', size = 'md', classNames }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -28,11 +31,7 @@ export const Close = ({
       className={cn(
         'hover:stroke-primary icon icon-tabler icons-tabler-outline icon-tabler-x transition-all duration-300 ease-[var(--ease-elastic-smoother)] hover:scale-125',
         classNames,
-        {
-          'h-5 w-5': size === 'small',
-          'h-8 w-8': size === 'medium',
-          'h-10 w-10': size === 'large',
-        }
+        sizes[size]
       )}
     >
       <path

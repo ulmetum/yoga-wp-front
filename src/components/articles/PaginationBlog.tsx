@@ -4,15 +4,15 @@ import Link from 'next/link'
 interface Props {
   currentPage: number
   postsPerPage: number
-  totalCount: number
+  totalArticlesCount: number
 }
 
 export const PaginationBlog = ({
   currentPage,
   postsPerPage,
-  totalCount,
+  totalArticlesCount,
 }: Props) => {
-  return totalCount === postsPerPage ? null : (
+  return totalArticlesCount === postsPerPage ? null : (
     <div className='my-16 flex flex-col items-center'>
       <span className='my-2 font-heading text-lg text-primary'>
         Mostrando{' '}
@@ -21,9 +21,10 @@ export const PaginationBlog = ({
         </span>{' '}
         a{' '}
         <span className='font-heading text-primary'>
-          {Math.min(totalCount, postsPerPage * currentPage)}
+          {Math.min(totalArticlesCount, postsPerPage * currentPage)}
         </span>{' '}
-        de <span className='font-heading text-primary'>{totalCount}</span>{' '}
+        de{' '}
+        <span className='font-heading text-primary'>{totalArticlesCount}</span>{' '}
         entradas
       </span>
 
@@ -55,7 +56,7 @@ export const PaginationBlog = ({
             'group relative z-10 flex h-8 items-center justify-center overflow-hidden rounded border border-primary px-3 font-heading text-base font-medium text-primary transition-all duration-700 ease-[var(--ease)] hover:text-white',
             {
               'pointer-events-none border-text/20 text-dark/20':
-                currentPage >= totalCount / postsPerPage,
+                currentPage >= totalArticlesCount / postsPerPage,
             }
           )}
         >

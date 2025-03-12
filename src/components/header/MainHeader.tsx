@@ -8,7 +8,12 @@ export const MainHeader = async () => {
   // console.log({ data, error })
 
   if (error) {
-    return <CustomError error={error} />
+    return (
+      <CustomError
+        classNames='min-h-[var(--main-header-height)]'
+        error={error}
+      />
+    )
   }
 
   return (
