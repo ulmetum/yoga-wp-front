@@ -34,6 +34,7 @@ export default {
       fontFamily: {
         body: ['var(--font-body)'],
         headings: ['var(--font-headings)'],
+        hand: ['var(--font-hand)'],
       },
     },
   },

@@ -5,6 +5,7 @@
 :root {
   --font-body: 'Ubuntu ';
   --font-heading: 'Oswald';
+  --font-hand: 'Shadows Into Light';
   --header-height: 4.5rem;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
   --ease-elastic-smooth: cubic-bezier(0.68, -0.6, 0.32, 1.6);
@@ -109,9 +110,28 @@
     padding: 0;
     list-style-type: none;
     counter-reset: apples;
+
     li:before {
       content: counter(apples);
       counter-increment: apples;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 45px;
+      font-family: var(--font-hand);
+      margin-right: 10px;
+      display: inline-block;
+      width: 2rem;
+      text-align: center;
+    }
+  }
+
+  ul {
+    width: min(100%, 1280px);
+    margin: 2rem auto;
+    padding: 0;
+    list-style-type: none;
+    li:before {
+      /* content: ; */
       color: var(--primary);
       font-weight: bold;
       font-size: 45px;
@@ -169,4 +189,8 @@
   iframe {
     @apply h-[450px] aspect-video w-full;
   }
+}
+
+.liy-podcast {
+  @apply w-[min(100%,900px)] mx-auto my-10;
 }

@@ -17,7 +17,7 @@ export const HeroArticle = ({
   image,
 }: Props) => {
   return (
-    <div className='relative flex  flex-col items-center justify-center gap-2 xl:flex-row xl:justify-between'>
+    <div className='relative flex  flex-col items-center justify-center gap-4 xl:flex-row xl:justify-between'>
       <FeaturedImageArticle
         author={author}
         title={title}

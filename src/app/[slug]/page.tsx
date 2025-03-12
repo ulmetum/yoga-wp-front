@@ -29,11 +29,10 @@ const page = async ({ params }: Props) => {
 
   const nextArticle = nextPrevArticles?.nextArticle
   const prevArticle = nextPrevArticles?.prevArticle
-  console.log({ nextArticle, prevArticle })
 
   return (
     <div>
-      <section className='section-top sticky left-0 top-0 flex min-h-screen w-full items-center justify-center py-[calc(var(--header-height)+1rem)] xl:px-6'>
+      <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[10dvh] min-h-[110dvh] w-full items-center justify-center py-[calc(var(--header-height)+1rem)] xl:px-6'>
         <Container classNames='relative flex flex-col justify-center items-center gap-2'>
           {/* <BreadCrumbsArticle title={titleFormatted} /> */}
           <HeroArticle
