@@ -84,7 +84,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
   return (
     <section className=' bg-white px-1 pb-4 pt-[calc(var(--main-header-height)+1rem)] shadow-b-section'>
       <Container classNames='post my-10 min-h-[calc(100dvh-var(--main-header-height)*3)] flex flex-col'>
-        <div className='mx-auto mb-12 w-[min(100%,1440px)] max-[1440px]:px-4'>
+        <div className='mx-auto mb-12 w-[min(100%,1440px)] '>
           <SearchBar placeholder='Buscar artículos...' />
         </div>
         <div className='flex-1 flex flex-col items-center justify-center'>

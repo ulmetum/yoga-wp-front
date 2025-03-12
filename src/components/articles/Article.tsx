@@ -2,6 +2,7 @@ import { DateArticle } from '@/components/articles/DateArticle'
 import { MenuIcons } from '@/components/articles/MenuIcons'
 import { ImageArticle } from './ImageArticle'
 import { cn } from '@/utils/mergeClass'
+import { Link } from 'next-view-transitions'
 
 interface Props {
   i: number
@@ -38,26 +39,19 @@ export const Article = ({
           'xl:h-full w-full': type === 'blog',
         })}
       >
-        <a href={`/${slug}`}>
-          <div className='gradient-tl-90 absolute inset-0 z-20'></div>
-          {/* <div className='absolute inset-0 z-10 bg-gradient-to-tl from-transparent to-black/75 transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:opacity-55'></div> */}
-          <small className='font-headings absolute left-1 top-1 z-20 font-heading text-light'>
-            Escrito por @Míriam
-          </small>
-          <div className='h-full w-full transition-all duration-700 ease-[var(--ease-elastic-smoother)] group-hover:scale-105 relative'>
-            <ImageArticle
-              srcUrl={srcUrl}
-              title={title}
-            />
-          </div>
-        </a>
+        <Link href={`/${slug}`}>
+          <ImageArticle
+            srcUrl={srcUrl}
+            title={title}
+          />
+        </Link>
       </div>
       <article
         className={cn('mx-1 my-6 flex h-full flex-col gap-8', {
           'xl:group-first:w-1/2 xl:m-0': type === 'blog',
         })}
       >
-        <a href={`/${slug}`}>
+        <Link href={`/${slug}`}>
           <h3
             className={cn(
               '!my-0 text-center font-light text-secondary transition duration-700 ease-[var(--ease-elastic-smoother)] group-hover:text-primary ',
@@ -68,13 +62,10 @@ export const Article = ({
           >
             {title}
           </h3>
-        </a>
+        </Link>
         <div className='mx-auto h-[1px] w-28 bg-secondary duration-700 ease-[var(--ease-elastic-smoother)] group-hover:w-44 group-hover:bg-primary'></div>
-        {/* <h5
-          dangerouslySetInnerHTML={{ __html: truncateText(excerpt, 300) }}
-          className='subtitle-article'
-        /> */}
-        <h5 className='  max-w-[768px] my-0 mx-auto  flex-1 text-center text-lg font-light italic leading-6 text-gray-600'>
+
+        <h5 className='max-w-[768px] my-0 mx-auto  flex-1 text-center text-lg font-light italic leading-6 text-gray-600'>
           {subtitle}
         </h5>
         <div className='flex items-end justify-between text-primary'>

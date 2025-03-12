@@ -17,13 +17,13 @@ const colors = {
 export const DateArticle = ({ color = 'dark', createdAt }: Props) => {
   const date = dayjs(createdAt).format('MMMM D, YYYY')
   return (
-    <div
+    <small
       className={cn(
         'block w-[45%] font-headings font-normal capitalize leading-none',
         colors[color]
       )}
     >
       {date}
-    </div>
+    </small>
   )
 }

@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss'
 import containerQueries from '@tailwindcss/container-queries'
-import tailwindcssMotion from 'tailwindcss-motion'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
   content: [
@@ -11,6 +11,26 @@ export default {
   theme: {
     extend: {
       screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1440px',
+        'max-sm': {
+          raw: `not all and (max-width: ${defaultTheme.screens.sm})`,
+        },
+        'max-md': {
+          raw: ` (max-width: ${defaultTheme.screens.md})`,
+        },
+        'max-lg': {
+          raw: ` (max-width: ${defaultTheme.screens.lg})`,
+        },
+        'max-xl': {
+          raw: ` (max-width: ${defaultTheme.screens.xl})`,
+        },
+        'max-2xl': {
+          raw: ` (max-width: ${defaultTheme.screens['2xl']})`,
+        },
         'landscape-sm': {
           raw: '(max-width: 667px) and (orientation: landscape)',
         },
@@ -39,5 +59,5 @@ export default {
       },
     },
   },
-  plugins: [containerQueries, tailwindcssMotion],
+  plugins: [containerQueries],
 } satisfies Config
