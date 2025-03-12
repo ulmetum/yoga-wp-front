@@ -19,6 +19,24 @@ const POSTS_PER_PAGE = 4
 const cursorCache: Record<number, string | null> = {}
 const cursorCacheSearch: Record<number, string | null> = {}
 
+export async function generateStaticParams() {
+  const { data: totalArticlesCount } = await getTotalArticlesCounttAction({
+    typeError: 'ErrorArticles',
+  })
+
+  const totalPages = Math.ceil(Number(totalArticlesCount) / POSTS_PER_PAGE)
+
+  const staticPagesBlog = Array.from({ length: totalPages }, (_, i) => i + 1)
+
+  return staticPagesBlog.map((page) => ({
+    page: [`${page}`],
+  }))
+  // return [
+  //   { page: ["1"] },
+  //   { page: ["2"] },
+  // ]
+}
+
 export default async function BlogPage({ params, searchParams }: Props) {
   const { page } = await params
   const { query = '' } = await searchParams
