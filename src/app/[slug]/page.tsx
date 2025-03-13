@@ -70,7 +70,7 @@ const page = async ({ params }: Props) => {
       </section>
       <section className='post relative bg-white px-2 py-20 shadow-y-section sm:px-6'>
         <Container>
-          <article>
+          <article className='article-content'>
             <div
               dangerouslySetInnerHTML={{
                 __html: articlesBySlug?.post.content!,
