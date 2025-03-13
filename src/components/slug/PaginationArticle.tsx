@@ -29,7 +29,7 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
   const nextTitleArticle = nextArticle?.post?.title
 
   return (
-    <div className='space-y-8 border-t px-4 py-16 text-center font-headings text-amber-900 lg:flex lg:items-center lg:justify-between lg:space-y-0'>
+    <div className='space-y-8 border-t mt-24 px-4 py-16 text-center font-headings text-amber-900 lg:flex lg:items-center lg:justify-between lg:space-y-0'>
       <Link
         href={`/${prevUrlArticle}`}
         className='relative mx-auto flex justify-center text-center lg:mx-0 lg:w-1/2'
