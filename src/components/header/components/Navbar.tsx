@@ -31,9 +31,9 @@ export const Navbar = ({ data }: Props) => {
         },
       }}
       transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1] }}
-      className={`fixed inset-x-1 top-0 z-[9990] mx-auto mt-2 flex max-w-7xl items-center justify-between rounded-lg px-2 py-4 backdrop-blur-sm h-[var(--main-header-height)]`}
+      className={`fixed inset-x-1 top-0 z-[9990] mx-auto mt-2 flex max-w-7xl items-center justify-center sm:justify-between rounded-lg px-2 py-4 backdrop-blur-sm h-[var(--main-header-height)]`}
     >
-      <div>Logo</div>
+      <div className='hidden sm:block'>Logo</div>
       <Navigation data={data} />
       <MenuLine isHidden={isHidden} />
     </motion.div>

@@ -6,7 +6,7 @@
   --font-body: 'Ubuntu ';
   --font-heading: 'Oswald';
   --font-hand: 'Shadows Into Light';
-  --main-header-height: 7rem;
+  --main-header-height: 6rem;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
   --ease-elastic-smooth: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   --ease-elastic-smoother: cubic-bezier(0.7, -0.4, 0.3, 1.4);
@@ -192,5 +192,5 @@
 }
 
 .liy-podcast {
-  @apply w-[min(100%,900px)] mx-auto my-10;
+  @apply w-[min(100%,900px)] mx-auto my-12;
 }

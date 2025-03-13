@@ -17,7 +17,7 @@ export default {
         xl: '1280px',
         '2xl': '1440px',
         'max-sm': {
-          raw: `not all and (max-width: ${defaultTheme.screens.sm})`,
+          raw: ` (max-width: ${defaultTheme.screens.sm})`,
         },
         'max-md': {
           raw: ` (max-width: ${defaultTheme.screens.md})`,
