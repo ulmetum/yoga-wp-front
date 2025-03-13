@@ -80,6 +80,10 @@
     @apply my-4 leading-[1.8] lg:text-2xl;
   }
 
+  body article p {
+    @apply leading-relaxed;
+  }
+
   h1,
   h2,
   h3,
@@ -131,10 +135,10 @@
     padding: 0;
     list-style-type: none;
     li:before {
-      /* content: ; */
+      content: '✓';
       color: var(--primary);
-      font-weight: bold;
-      font-size: 45px;
+      font-weight: lighter;
+      font-size: 40px;
       margin-right: 10px;
     }
   }
