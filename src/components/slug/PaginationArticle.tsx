@@ -28,8 +28,6 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
   const nextImage = nextArticle?.post?.featuredImage?.node.sourceUrl
   const nextTitleArticle = nextArticle?.post?.title
 
-  console.log({ prevImage, nextImage })
-
   return (
     <div className='space-y-8 border-t mt-24 px-4 py-16 text-center font-headings text-amber-900 lg:flex lg:items-center lg:justify-between lg:space-y-0'>
       <Link
