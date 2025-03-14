@@ -197,6 +197,31 @@
   }
 }
 
+.wp-block-embed__wrapper {
+  @apply flex justify-center items-center w-full;
+  .ast-oembed-container {
+    @apply aspect-video w-[min(100%,768px)];
+    iframe {
+      @apply w-full h-full  mx-auto;
+    }
+  }
+}
+
+.ast-oembed-container {
+  @apply flex justify-center items-center my-12;
+  iframe {
+    @apply h-full mx-auto aspect-video w-[min(100%,768px)];
+  }
+}
+
+.wp-block-image {
+  @apply flex justify-center flex-col items-center my-12 w-full;
+}
+
+.aligncenter {
+  @apply mx-auto;
+}
+
 .liy-podcast {
   @apply w-[min(100%,900px)] mx-auto my-12;
 }

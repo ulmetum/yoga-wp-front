@@ -14,13 +14,13 @@ export const BreadCrumbsArticle = ({ title }: { title: string }) => {
         className='font-headings text-xl font-light transition-colors duration-300 hover:text-primary'
         href={'/'}
       >
-        Inicio -
+        Inicio<span className='mx-1'>-</span>
       </Link>
       <Link
         className='font-headings text-xl font-light transition-colors duration-300 hover:text-primary'
         href='/blog'
       >
-        Blog -
+        Blog<span className='mx-1'>-</span>
       </Link>
       <span className='font-headings text-xl font-light capitalize text-primary'>
         {slug}

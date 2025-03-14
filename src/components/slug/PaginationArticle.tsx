@@ -28,6 +28,8 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
   const nextImage = nextArticle?.post?.featuredImage?.node.sourceUrl
   const nextTitleArticle = nextArticle?.post?.title
 
+  console.log({ prevImage, nextImage })
+
   return (
     <div className='space-y-8 border-t mt-24 px-4 py-16 text-center font-headings text-amber-900 lg:flex lg:items-center lg:justify-between lg:space-y-0'>
       <Link
@@ -58,7 +60,7 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
                 className='aspect-video  rounded object-cover'
                 fill
                 sizes='100%'
-                src={`${prevImage}`}
+                src={`${prevImage ? prevImage : '/images/placeholder.webp'}`}
                 alt='Imagen destacada del post siguiente'
               />
             </motion.div>
@@ -106,7 +108,7 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
               <Image
                 fill
                 sizes='100%'
-                src={`${nextImage}`}
+                src={`${nextImage ? nextImage : '/images/placeholder.webp'}`}
                 alt='Imagen destacada del post previo'
                 className='aspect-video  rounded object-cover'
               />
