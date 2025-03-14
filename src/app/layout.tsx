@@ -3,6 +3,7 @@ import './globals.css'
 import { fontBody, fontHeadings } from '@/fonts'
 import { MainHeader } from '@/components/header/MainHeader'
 import { ViewTransitions } from 'next-view-transitions'
+import { MainFooter } from '@/components/footer/main-footer'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +22,8 @@ export default function RootLayout({
           className={`${fontHeadings.variable} ${fontBody.variable} antialiased `}
         >
           <MainHeader />
-          {children}
+          <main>{children}</main>
+          <MainFooter />
         </body>
       </html>
     </ViewTransitions>
