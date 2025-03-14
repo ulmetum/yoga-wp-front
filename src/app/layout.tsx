@@ -3,7 +3,7 @@ import './globals.css'
 import { fontBody, fontHeadings } from '@/fonts'
 import { MainHeader } from '@/components/header/MainHeader'
 import { ViewTransitions } from 'next-view-transitions'
-import { MainFooter } from '@/components/footer/main-footer'
+import { MainFooter } from '@/components/footer/MainFooter'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

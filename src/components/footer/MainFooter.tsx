@@ -1,4 +1,5 @@
 import { Container } from '@/components/Container'
+import { MenuFooter } from '@/components/footer/MenuFooter'
 
 export const MainFooter = () => {
   return (
@@ -11,7 +12,7 @@ export const MainFooter = () => {
           <Container classNames='h-full'>
             <div className='flex h-full flex-col justify-between gap-4 px-2 py-10 sm:px-6'>
               <div className='flex flex-col gap-10 md:flex-row'>
-                {/* <MenuFooter /> */}
+                <MenuFooter />
                 <h2 className='text-5xl font-normal uppercase md:w-2/5'>
                   Ponte en contacto conmigo
                 </h2>
