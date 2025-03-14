@@ -1,5 +1,6 @@
 import { Container } from '@/components/Container'
 import { MenuFooter } from '@/components/footer/MenuFooter'
+import { CopyClipboard } from '@/components/footer/CopyClipboard'
 
 export const MainFooter = () => {
   return (
@@ -23,7 +24,7 @@ export const MainFooter = () => {
                   pregunta o duda, no dudes en ponerte en contacto conmigo.
                   Estaré encantada de ayudarte.
                 </p>
-                {/* <CustomEmail classNames="relative h-8 overflow-hidden sm:h-12 lg:w-[max-content] " /> */}
+                <CopyClipboard color='amber' />
               </div>
               <div className='flex justify-center'>
                 {/* <AnimationIsla delay="4s" fill="dark" />

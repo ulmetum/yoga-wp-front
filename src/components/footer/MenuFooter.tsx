@@ -1,6 +1,6 @@
 import { getMainMenuAction } from '@/actions/menus/get-main-menu.action'
 import { CustomError } from '@/components/CustomError'
-import { FooterInner } from '@/components/footer/FooterInner'
+import { FooterMenuItem } from '@/components/footer/MenuFooterItem'
 
 export const MenuFooter = async () => {
   const { data, error } = await getMainMenuAction()
@@ -9,5 +9,19 @@ export const MenuFooter = async () => {
   }
 
   const menuItems = data?.menuItems?.edges
-  return <FooterInner menuItems={menuItems} />
+  return (
+    <nav
+      id='menu-footer'
+      className='flex md:order-1 md:w-3/5 md:justify-end'
+    >
+      <ul className='flex w-[max-content] flex-col md:items-end'>
+        {menuItems?.map((item) => (
+          <FooterMenuItem
+            key={item.node.id}
+            item={item}
+          />
+        ))}
+      </ul>
+    </nav>
+  )
 }
