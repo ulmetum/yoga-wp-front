@@ -33,7 +33,9 @@ export const FooterMenuItem = ({ item }: Props) => {
       >
         {item.node.label?.split('').map((char: string, i: number) => (
           <motion.span
-            className='font-headings text-3xl font-light  md:text-4xl'
+            className={cn('font-headings text-3xl font-light md:text-4xl  ', {
+              'font-normal': currentPath === item.node.path,
+            })}
             key={i}
             variants={{
               rest: {

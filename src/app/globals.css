@@ -225,3 +225,8 @@
 .liy-podcast {
   @apply w-[min(100%,900px)] mx-auto my-12;
 }
+
+.custom-text-bold {
+  -webkit-text-stroke: 1px var(--dark); /* Contorno de las letras */
+  -webkit-text-fill-color: transparent; /* Texto inicialmente vacío */
+}

@@ -1,6 +1,7 @@
 import { Container } from '@/components/Container'
 import { MenuFooter } from '@/components/footer/MenuFooter'
 import { CopyClipboard } from '@/components/footer/CopyClipboard'
+import { AnimationText } from '@/components/text-animation-isla/AnimationText'
 
 export const MainFooter = () => {
   return (
@@ -26,10 +27,7 @@ export const MainFooter = () => {
                 </p>
                 <CopyClipboard color='amber' />
               </div>
-              <div className='flex justify-center'>
-                {/* <AnimationIsla delay="4s" fill="dark" />
-						<AnimationIsla fill="amber" color="amber" /> */}
-              </div>
+              <AnimationText />
               <div className=''>
                 <p className='flex items-center justify-center gap-1 font-headings text-base md:text-xl'>
                   <span className='font-headings text-base text-dark md:text-xl'>
