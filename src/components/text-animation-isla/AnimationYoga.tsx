@@ -30,7 +30,7 @@ export const AnimationYoga = ({
               ease: [0.83, 0, 0.17, 1],
             }}
             className={cn(
-              'inline-block w-14 text-8xl uppercase font-headings text-center text-primary font-extrabold',
+              'inline-block w-[49px] text-8xl uppercase font-headings text-center text-primary font-extrabold',
               { 'translate-y-full': even, '-translate-y-full': !even }
             )}
           >

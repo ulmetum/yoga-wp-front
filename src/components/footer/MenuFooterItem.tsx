@@ -15,8 +15,6 @@ export const FooterMenuItem = ({ item }: Props) => {
   const pathname = usePathname()
 
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
-  console.log({ pathname: pathname })
-  console.log({ path: item.node.path })
   return (
     <Link
       href={item.node.path ?? '#'}

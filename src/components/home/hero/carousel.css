@@ -1,0 +1,72 @@
+/* Swiper */
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-timing-function: var(--ease);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination-bullets {
+  bottom: 4px !important;
+  /* width: max-content !important;
+  background-color: rgba(var(--light-rgb), 0.5);
+  padding-inline: 0.5rem;
+  border-radius: 10px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50% !important;
+  transform: translateX(-50%); */
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--light);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary);
+}
+
+.autoplay-progress {
+  /* position: absolute; */
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 100px;
+  height: 3px; /* Suficiente altura para ver la barra */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
+
+.autoplay-progress svg {
+  width: 100%; /* Asegura que el SVG ocupe todo el contenedor */
+  height: 100%; /* Asegura que tenga suficiente altura */
+}
+
+.progress-background {
+  width: 100%;
+  height: 100%;
+  fill: lightgray; /* Color de fondo de la barra */
+}
+
+.progress-bar {
+  height: 100%;
+  fill: var(--primary); /* Color de la barra de progreso */
+  /* transition: width 0.3s ease-out;  */
+}

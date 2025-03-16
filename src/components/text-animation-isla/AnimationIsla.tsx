@@ -28,7 +28,7 @@ export const AnimationIsla = ({
               ease: [0.83, 0, 0.17, 1],
             }}
             className={cn(
-              ' inline-block w-14 text-8xl uppercase font-headings text-center translate-y-0 font-bold'
+              ' inline-block w-[49px] text-8xl uppercase font-headings text-center translate-y-0 font-bold'
               // { 'translate-y-0': even, 'translate-y-0': !even }
             )}
           >
