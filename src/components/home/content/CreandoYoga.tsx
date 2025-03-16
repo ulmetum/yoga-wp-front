@@ -58,7 +58,7 @@ export const CreandoYoga = () => {
             <CreandoYogaText />
           </div>
         </div>
-        <p className='text-md mt-6 text-center leading-[1.5] max-lg:text-center text-primary md:text-2xl'>
+        <p className='text-md mt-6 text-center leading-[1.5] max-lg:text-center text-primary md:text-2xl font-normal'>
           Pásate e inscríbete de forma gratuita y sin compromiso de ningún tipo.
           ¡No te lo pierdas!
         </p>

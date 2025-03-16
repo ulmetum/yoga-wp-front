@@ -1,7 +1,7 @@
 'use client'
 
 import { DateArticle } from '@/components/slug/DateArticle'
-import { MenuIcons } from '@/components/articles/MenuIcons'
+import { MenuIcons } from '@/components/MenuIcons'
 import { motion } from 'motion/react'
 
 interface Props {

@@ -17,7 +17,7 @@ export const MainHeader = async () => {
   }
 
   return (
-    <header>
+    <header className=''>
       <Navbar data={data} />
     </header>
   )

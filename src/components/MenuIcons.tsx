@@ -3,6 +3,7 @@ import { Instagram } from '@/components/icons/Instagram.icon'
 import { Tiktok } from '@/components/icons/Tiktok.icon'
 import { Youtube } from '@/components/icons/Youtube.icon'
 import { cn } from '@/utils/mergeClass'
+import Link from 'next/link'
 
 interface Props {
   classNames?: string
@@ -17,7 +18,7 @@ export const MenuIcons = ({
 }: Props) => {
   return (
     <nav className={cn('flex', classNames)}>
-      <a
+      <Link
         title='Spotify'
         href='#'
         target='_blank'
@@ -26,8 +27,9 @@ export const MenuIcons = ({
           color={color}
           size={size}
         />
-      </a>
-      <a
+      </Link>
+      <Link
+        target='_blank'
         title='Instagram'
         href='#'
       >
@@ -35,8 +37,9 @@ export const MenuIcons = ({
           color={color}
           size={size}
         />
-      </a>
-      <a
+      </Link>
+      <Link
+        target='_blank'
         title='TikTok'
         href='#'
       >
@@ -44,8 +47,9 @@ export const MenuIcons = ({
           color={color}
           size={size}
         />
-      </a>
-      <a
+      </Link>
+      <Link
+        target='_blank'
         title='Youtube'
         href='#'
       >
@@ -53,7 +57,7 @@ export const MenuIcons = ({
           color={color}
           size={size}
         />
-      </a>
+      </Link>
     </nav>
   )
 }

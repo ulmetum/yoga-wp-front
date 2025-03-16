@@ -436,3 +436,8 @@
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
   }
 }
+@media (orientation: landscape) and (max-height: 900px) {
+  .hero-about-me {
+    position: static;
+  }
+}

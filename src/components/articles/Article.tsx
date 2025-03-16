@@ -1,5 +1,5 @@
 import { DateArticle } from '@/components/articles/DateArticle'
-import { MenuIcons } from '@/components/articles/MenuIcons'
+import { MenuIcons } from '@/components/MenuIcons'
 import { ImageArticle } from './ImageArticle'
 import { cn } from '@/utils/mergeClass'
 import { Link } from 'next-view-transitions'
