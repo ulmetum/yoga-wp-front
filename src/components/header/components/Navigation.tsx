@@ -10,7 +10,13 @@ interface Props {
   data: GetMainMenuQuery | null
 }
 
-const nonArticlePaths = ['/', '/blog', '/contacto', '/sobre-mi', '/servicios']
+const nonArticlePaths = [
+  '/',
+  '/blog/',
+  '/contacto/',
+  '/sobre-mi/',
+  '/servicios/',
+]
 
 export const Navigation = ({ data }: Props) => {
   const pathname = usePathname()
@@ -18,11 +24,14 @@ export const Navigation = ({ data }: Props) => {
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
 
   const isPageArticle = !nonArticlePaths.includes(currentPath)
+  console.log({ isPageArticle })
   return (
     <nav>
       <ul className='container mx-auto flex items-center justify-center capitalize text-gray-600 dark:text-gray-300'>
         {data?.menuItems?.edges.map((item) => {
           const isActive = item.node.path === currentPath
+
+          console.log({ path: item.node.path, currentPath })
           return (
             <motion.li
               key={item.node.id}
