@@ -6,11 +6,11 @@ import { AnimationText } from '@/components/text-animation-isla/AnimationText'
 export const MainFooter = () => {
   return (
     <footer
-      className='main-footer light relative h-[900px] md:h-[700px] xl:h-[500px]'
+      className='main-footer light relative h-[900px] md:h-[700px] xl:h-[550px]'
       style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
     >
-      <div className='main-footer-wrapper relative -top-[100vh] h-[calc(100vh+900px)] md:h-[calc(100vh+700px)] xl:h-[calc(100vh+500px)]'>
-        <div className='main-footer-inner sticky top-[calc(100vh-900px)] h-[900px] md:top-[calc(100vh-700px)] md:h-[700px] xl:top-[calc(100vh-500px)] xl:h-[500px]'>
+      <div className='main-footer-wrapper relative -top-[100vh] h-[calc(100vh+900px)] md:h-[calc(100vh+700px)] xl:h-[calc(100vh+550px)]'>
+        <div className='main-footer-inner sticky top-[calc(100vh-900px)] h-[900px] md:top-[calc(100vh-700px)] md:h-[700px] xl:top-[calc(100vh-550px)] xl:h-[550px]'>
           <Container classNames='h-full'>
             <div className='flex h-full flex-col justify-between gap-4 px-2 py-10 sm:px-6'>
               <div className='flex flex-col gap-10 md:flex-row'>
