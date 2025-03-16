@@ -212,6 +212,19 @@
       }
     }
   }
+  .marquee:hover .animate-marquee2,
+  .marquee:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+  .fadeout-horizontal {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5rem,
+      black calc(100% - 5rem),
+      transparent
+    );
+  }
 }
 
 .is-type-video,

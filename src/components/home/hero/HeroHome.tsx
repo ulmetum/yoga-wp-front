@@ -3,13 +3,14 @@ import { MainHeading } from '@/components/home/hero/MainHeading'
 import { AnimationText } from '@/components/text-animation-isla/AnimationText'
 import { CircularText } from '@/components/home/hero/CircularText'
 import { CarouselYoga } from '@/components/home/hero/CarouselYoga'
+import { Marquee } from '@/components/home/hero/Marquee'
 
 export const HeroHome = () => {
   return (
     <Container classNames='flex min-h-screen items-center justify-center px-2 py-[calc(var(--main-header-height)+2rem)] sm:px-6'>
       <div className='relative flex h-full w-full flex-col items-center justify-center gap-6 pt-[calc(var(--header-height))] lg:gap-0 xl:pt-0'>
         <MainHeading />
-        <div className='relative mx-auto flex max-w-[900px] flex-col items-center gap-4 md:flex-row-reverse xl:gap-0'>
+        <div className='relative mx-auto flex max-w-[900px] flex-col items-center gap-4 lg:flex-row-reverse xl:gap-0'>
           <AnimationText />
           <div className='circular-text hidden h-auto w-[300px] items-center lg:flex'>
             <CircularText />
@@ -26,11 +27,10 @@ export const HeroHome = () => {
           </div>
         </div>
         <CarouselYoga />
-        <div className='mt-auto max-xl:hidden'>{/* <Marquee /> */}</div>
+        <div className='mt-auto max-xl:hidden'>
+          <Marquee />
+        </div>
       </div>
     </Container>
-    // <div className='min-h-screen px-2 py-[calc(var(--main-header-height)+2rem)] sm:px-6'>
-    //   HeroHome
-    // </div>
   )
 }
