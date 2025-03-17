@@ -1,6 +1,6 @@
 import { cn } from '@/utils/mergeClass'
 
-export const PoseWomanEight = ({ classNames }: { classNames: string }) => {
+export const PoseWomanEight = ({ classNames }: { classNames?: string }) => {
   return (
     <svg
       className={cn('', classNames)}
