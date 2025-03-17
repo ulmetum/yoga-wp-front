@@ -36,7 +36,27 @@ export const ServiceItem = ({ service }: Props) => {
       }}
       className='card mx-auto max-w-2xl'
     >
-      <div className='inner-card flex h-full flex-col justify-center p-8 transition-all duration-300 ease-out'>
+      <div className='relative inner-card flex h-full flex-col justify-center p-8 transition-all duration-300 ease-out'>
+        <motion.span
+          variants={{
+            inView: {
+              opacity: isInView ? 1 : 0,
+              scale: isInView ? 1 : 0.75,
+              transition: {
+                delay: 0.4,
+                duration: 0.25,
+                type: 'spring',
+                stiffness: 300,
+                damping: 10,
+                bounce: 0.5,
+              },
+            },
+          }}
+          className='inline-block opacity-0 scale-[75%] font-headings absolute top-6 right-6 text-5xl font-semibold'
+        >
+          {service.price}{' '}
+          <span className='-ml-2 font-headings text-3xl font-semibold'>€</span>
+        </motion.span>
         <div className='image mx-auto h-[250px] w-[250px]'>
           <Image
             width={248}
