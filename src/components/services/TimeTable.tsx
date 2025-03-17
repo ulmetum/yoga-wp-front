@@ -1,8 +1,4 @@
-interface Props {
-  classNames?: string
-}
-
-export const TimeTable = ({ classNames }: Props) => {
+export const TimeTable = () => {
   return (
     <div>
       <div className='w-full md:flex md:justify-center'>

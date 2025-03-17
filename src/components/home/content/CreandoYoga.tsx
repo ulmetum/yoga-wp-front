@@ -42,7 +42,7 @@ export const CreandoYoga = () => {
             </div>
           </div>
         </div>
-        <div className='relative flex h-[300px] max-w-[600px] items-end justify-start overflow-hidden rounded-3xl border border-text max-lg:mx-auto lg:w-[50%]'>
+        <div className='relative flex h-[300px] max-w-[600px] items-end justify-start overflow-hidden rounded-3xl border border-dark max-lg:mx-auto lg:w-[50%]'>
           <div className='absolute -right-6 -top-24 scale-[65%] md:block'>
             <PoseWomanNine classNames='fill-primary' />
           </div>

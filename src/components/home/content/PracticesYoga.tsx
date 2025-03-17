@@ -33,7 +33,7 @@ export const PracticesYoga = () => {
           de tus circunstancias actuales.
         </p>
       </div>
-      <div className='relative flex h-[300px] max-w-[600px] items-end justify-end overflow-hidden rounded-3xl border border-text [grid-area:text] max-lg:mx-auto lg:w-[50%]'>
+      <div className='relative flex h-[300px] max-w-[600px] items-end justify-end overflow-hidden rounded-3xl border border-dark [grid-area:text] max-lg:mx-auto lg:w-[50%]'>
         <div className='absolute -left-0 top-4 md:block'>
           <PoseWomanTwo classNames='fill-primary' />
         </div>

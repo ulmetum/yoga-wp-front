@@ -6,11 +6,9 @@ import { motion } from 'motion/react'
 export const AnimationYoga = ({
   text,
   classNames,
-  reverse,
 }: {
   text: string
   classNames?: string
-  reverse?: boolean
 }) => {
   return (
     <div className={cn(' flex justify-center', classNames)}>

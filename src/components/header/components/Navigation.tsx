@@ -24,14 +24,14 @@ export const Navigation = ({ data }: Props) => {
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
 
   const isPageArticle = !nonArticlePaths.includes(currentPath)
-  console.log({ isPageArticle })
+  // console.log({ isPageArticle })
   return (
     <nav>
       <ul className='container mx-auto flex items-center justify-center capitalize text-gray-600 dark:text-gray-300'>
         {data?.menuItems?.edges.map((item) => {
           const isActive = item.node.path === currentPath
 
-          console.log({ path: item.node.path, currentPath })
+          // console.log({ path: item.node.path, currentPath })
           return (
             <motion.li
               key={item.node.id}

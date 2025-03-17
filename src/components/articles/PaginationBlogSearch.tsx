@@ -19,7 +19,7 @@ export const PaginationBlogSearch = ({
         className={cn(
           `group relative z-10 flex h-8 items-center justify-center overflow-hidden rounded border border-primary px-3 font-heading text-base font-medium text-primary transition-all duration-700 ease-[var(--ease)] hover:text-white`,
           {
-            'pointer-events-none border-text/20 text-dark/20': currentPage <= 1,
+            'pointer-events-none border-dark/20 text-dark/20': currentPage <= 1,
           }
         )}
       >
@@ -27,7 +27,7 @@ export const PaginationBlogSearch = ({
           className={cn(
             'absolute inset-0 -inset-x-2 -inset-y-2 top-[calc(100%+8px)] -z-[1] skew-y-6 bg-primary transition-all duration-700 ease-[var(--ease)] group-hover:-top-[30%]',
             {
-              'pointer-events-none border-text/20 text-dark/20':
+              'pointer-events-none border-dark/20 text-dark/20':
                 currentPage <= 1,
             }
           )}
@@ -39,7 +39,7 @@ export const PaginationBlogSearch = ({
         className={cn(
           'group relative z-10 flex h-8 items-center justify-center overflow-hidden rounded border border-primary px-3 font-heading text-base font-medium text-primary transition-all duration-700 ease-[var(--ease)] hover:text-white',
           {
-            'pointer-events-none border-text/20 text-dark/20':
+            'pointer-events-none border-dark/20 text-dark/20':
               !searchResult?.data?.posts?.pageInfo.hasNextPage,
           }
         )}
