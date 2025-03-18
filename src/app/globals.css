@@ -8,12 +8,6 @@
   --font-hand: 'Shadows Into Light';
   --main-header-height: 6rem;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
-  --ease-elastic-smooth: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  --ease-elastic-smoother: cubic-bezier(0.7, -0.4, 0.3, 1.4);
-  --ease-elastic: cubic-bezier(0.7, -0.8, 0.3, 1.7);
-  --header-bar-height: 0.25rem;
-  --header-bar-width: 10rem;
-  --header-bar-top: 95%;
 
   /* Transition */
   --transition-ease: 0.83, 0, 0.17, 1;

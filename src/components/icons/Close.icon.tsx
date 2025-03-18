@@ -11,7 +11,7 @@ const colors = {
 }
 
 const sizes = {
-  xs: 'h-5 w-5 sm:h-7 sm:w-7',
+  xs: 'h-5 w-5 sm:h-6 sm:w-6',
   sm: 'h-7 w-7',
   md: 'h-8 w-8',
   lg: 'h-10 w-10',
@@ -29,7 +29,7 @@ export const Close = ({ color = 'dark', size = 'md', classNames }: Props) => {
       strokeLinecap='round'
       strokeLinejoin='round'
       className={cn(
-        'hover:stroke-primary icon icon-tabler icons-tabler-outline icon-tabler-x transition-all duration-300 ease-[var(--ease-elastic-smoother)] hover:scale-125',
+        'hover:stroke-primary h- icon icon-tabler icons-tabler-outline icon-tabler-x transition-all duration-300 ease-[var(--ease-elastic-smoother)] hover:scale-125',
         classNames,
         sizes[size]
       )}

@@ -54,7 +54,7 @@ export const CreandoYoga = () => {
       </div>
       <div className='mt-12'>
         <div className='mt-6 hidden justify-center lg:flex'>
-          <div className='motion-preset-pulse-sm relative w-[max-content] motion-duration-1000 motion-ease-spring-bounciest'>
+          <div className=' relative w-[max-content] '>
             <CreandoYogaText />
           </div>
         </div>

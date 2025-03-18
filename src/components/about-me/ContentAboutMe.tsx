@@ -16,7 +16,7 @@ export const ContentAboutMe = () => {
         classNames='bottom-0'
         year={new Date().getFullYear()}
       />
-      <div className='motion-preset-pulse-sm absolute bottom-0 right-4 z-20 hidden motion-duration-1000 motion-ease-spring-bounciest sm:block md:-bottom-12 md:right-12'>
+      <div className=' absolute bottom-0 right-4 z-20 hidden  sm:block md:-bottom-12 md:right-12'>
         <CreandoYogaText />
       </div>
     </div>

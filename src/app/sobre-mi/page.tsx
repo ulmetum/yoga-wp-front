@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function AboutMePage() {
   return (
     <div>
-      <section className='hero-about-me sticky left-0 top-0 min-h-[100dvh] w-full shadow-y-section motion-duration-1000 lg:flex'>
+      <section className='hero-about-me sticky left-0 top-0 min-h-[100dvh] w-full shadow-y-section  lg:flex'>
         <Container classNames='relative order-1 w-full py-2'>
           <HeroAboutMe />
         </Container>

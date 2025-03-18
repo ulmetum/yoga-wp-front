@@ -18,14 +18,14 @@ export default function ContactPage() {
                 Envíame un correo electrónico a{' '}
                 <span
                   id='span-email'
-                  className='inline-block scale-100 bg-white px-1 text-[.95rem] text-primary underline underline-offset-2 motion-duration-700 motion-ease-spring-bouncier'
+                  className='inline-block scale-100 bg-white px-1 text-[.95rem] text-primary underline underline-offset-2 '
                 >
                   hola@laisladelyoga.com
                 </span>{' '}
                 o a través del siguiente formulario
               </p>
             </div>
-            <div className='mx-auto h-[600px] w-[min(100%,600px)] -motion-translate-y-loop-[2%]/mirror -motion-rotate-loop-1/mirror motion-duration-[4s] motion-ease-spring-bouncier'>
+            <div className='mx-auto h-[600px] w-[min(100%,600px)] '>
               <PoseWomanEight />
             </div>
           </div>

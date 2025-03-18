@@ -15,6 +15,7 @@ export const formContactSchema = z.object({
     .min(5, { message: 'El mensaje es demasiado corto' })
     .max(350, { message: 'El mensaje es demasiado largo' }),
   remember_me: z.boolean().optional(),
+  contact_number: z.string().max(0, 'Spam detectado'),
   terms: z.boolean().refine((value) => value === true, {
     message: 'Debes aceptar los términos y condiciones',
   }),
