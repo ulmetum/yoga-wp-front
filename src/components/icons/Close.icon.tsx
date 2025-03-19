@@ -2,12 +2,13 @@ import { cn } from '@/utils/mergeClass'
 
 interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg'
-  color?: 'alternative' | 'dark'
+  color?: 'alternative' | 'dark' | 'light'
   classNames?: string
 }
 const colors = {
-  alternative: '#b45309',
-  dark: '#18181b',
+  alternative: 'var(--primary)',
+  dark: 'var(--dark)',
+  light: 'var(--light)',
 }
 
 const sizes = {

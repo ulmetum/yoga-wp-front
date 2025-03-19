@@ -25,19 +25,21 @@ export async function sendEmailContactAction(data: formContact) {
   }
 
   console.log({ data })
-  // try {
-  //   await sendEmail({
-  //     action: 'respond', // Se debe enviar un coreo de respuesta automática
-  //     to: [{ name: 'Míriam', email: 'laisladelyoga@gmail.com' }],
-  //     templateId: 3, // Plantilla para la web laisladelyoga.com
-  //     params: {
-  //       ...data,
-  //       website: 'laisladelyoga.com',
-  //     },
-  //   })
+  try {
+    // await sendEmail({
+    //   action: 'respond', // Se debe enviar un coreo de respuesta automática
+    //   to: [{ name: 'Míriam', email: 'laisladelyoga@gmail.com' }],
+    //   templateId: 3, // Plantilla para la web laisladelyoga.com
+    //   params: {
+    //     ...data,
+    //     website: 'laisladelyoga.com',
+    //   },
+    // })
+    // throw new Error('Error al enviar el correo')
 
-  //   return { success: true, name: data.name }
-  // } catch (error) {
-  //   console.log({ error })
-  // }
+    return { success: true, name: data.name }
+  } catch (error) {
+    console.log({ error })
+    return { success: false, name: 'No hay nombre' }
+  }
 }

@@ -11,15 +11,17 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { getCookie } from 'cookies-next'
 import { useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
-import { Close } from '@/components/icons/Close.icon'
+import { AnimatePresence } from 'motion/react'
+import { ModalContact } from '@/components/contact/ModalContact'
 
-const durationAnimationModal = 12000
+const durationSuccessModal = 600000
+const durationErrorModal = 300000
+export type TypeModal = 'success' | 'error' | null
 
 export const FormContact = () => {
   const email = (getCookie('email') as string) ?? ''
   const rememberMe = !!email
-  const [showModal, setShowModal] = useState(false)
+  const [modal, setModal] = useState<TypeModal>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const {
@@ -34,14 +36,24 @@ export const FormContact = () => {
   const handleForm: SubmitHandler<formContact> = async (data) => {
     if (data.contact_number) return
 
-    await sendEmailContactAction(data)
+    const { success, name } = await sendEmailContactAction(data)
 
-    setShowModal(true)
+    if (!success) {
+      setModal('error')
+      timeoutRef.current = setTimeout(() => {
+        setModal(null)
+      }, durationErrorModal)
+
+      reset()
+      return
+    }
+
+    setModal('success')
     // document.documentElement.style.overflow = 'hidden'
 
     timeoutRef.current = setTimeout(() => {
-      setShowModal(false)
-    }, durationAnimationModal)
+      setModal(null)
+    }, durationSuccessModal)
 
     reset()
   }
@@ -49,7 +61,7 @@ export const FormContact = () => {
   const handleCloseModal = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
-      setShowModal(false)
+      setModal(null)
       // document.documentElement.style.overflow = 'auto'
     }
   }
@@ -57,47 +69,33 @@ export const FormContact = () => {
   return (
     <div>
       <AnimatePresence initial={false}>
-        {showModal && (
-          <motion.section
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{
-              duration: 1,
-              type: 'spring',
-              bounce: 0.55,
-              exit: { duration: 0.15 },
-            }}
-            className={cn(
-              'z-30 w-full fixed inset-0 flex items-center justify-center',
-              {
-                'backdrop-blur-sm': showModal,
-              }
-            )}
-          >
-            <div className='relative h-[40dvh] border border-dark/30 py-6 rounded-lg px-8 flex justify-center flex-col w-[min(100%,700px)] mx-auto bg-white'>
-              <div
-                onClick={handleCloseModal}
-                className='absolute top-2 right-2 cursor-pointer'
-              >
-                <Close size='xs' />
-              </div>
-              <h2 className='text-primary mb-4 text-3xl my-0 sm:text-4xl text-center'>
-                ¡Gracias por ponerte en contacto conmigo!
-              </h2>
-              <p className='text-dark text-lg md:text-xl text-center'>
-                Intentaré responderte lo antes posible.
-              </p>
-              <motion.div
-                animate={{ width: showModal ? '100%' : 0 }}
-                transition={{
-                  duration: durationAnimationModal / 1000,
-                  ease: 'linear',
-                }}
-                className='absolute bottom-0 bg-primary h-[4px] w-0 left-0'
-              ></motion.div>
-            </div>
-          </motion.section>
+        {modal === 'error' && (
+          <ModalContact
+            title='Hubo un error al enviar el correo'
+            content='Por favor, inténtalo de nuevo más tarde.'
+            modal={modal}
+            containerClassNames='bg-secondary p-8 rounded-lg'
+            titleClassNames='mb-4'
+            colorButton='light'
+            duration={durationErrorModal}
+            handleCloseModal={handleCloseModal}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence initial={false}>
+        {modal === 'success' && (
+          <ModalContact
+            title='¡Gracias por ponerte en contacto conmigo!'
+            content='Intentaré responderte lo antes posible.'
+            containerClassNames='bg-white p-8 rounded-lg h-[40dvh] border border-dark/30'
+            titleClassNames='text-primary mb-4'
+            contentClassNames='text-dark'
+            modal={modal}
+            colorButton='dark'
+            duration={durationSuccessModal}
+            handleCloseModal={handleCloseModal}
+            barClassNames='bg-primary'
+          />
         )}
       </AnimatePresence>
       <form
