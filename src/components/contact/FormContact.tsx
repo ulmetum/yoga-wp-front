@@ -14,8 +14,8 @@ import { useRef, useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import { ModalContact } from '@/components/contact/ModalContact'
 
-const durationSuccessModal = 600000
-const durationErrorModal = 300000
+const durationSuccessModal = 5000
+const durationErrorModal = 5000
 export type TypeModal = 'success' | 'error' | null
 
 export const FormContact = () => {
@@ -33,37 +33,35 @@ export const FormContact = () => {
     resolver: zodResolver(formContactSchema),
   })
 
-  const handleForm: SubmitHandler<formContact> = async (data) => {
-    if (data.contact_number) return
-
-    const { success, name } = await sendEmailContactAction(data)
-
-    if (!success) {
-      setModal('error')
-      timeoutRef.current = setTimeout(() => {
-        setModal(null)
-      }, durationErrorModal)
-
-      reset()
-      return
-    }
-
-    setModal('success')
-    // document.documentElement.style.overflow = 'hidden'
-
-    timeoutRef.current = setTimeout(() => {
-      setModal(null)
-    }, durationSuccessModal)
-
-    reset()
+  const handleOpenModal = (type: TypeModal) => {
+    setModal(type)
+    document.documentElement.style.overflow = 'hidden' // Bloquea scroll
   }
 
   const handleCloseModal = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
-      setModal(null)
-      // document.documentElement.style.overflow = 'auto'
     }
+    setModal(null)
+    document.documentElement.style.overflow = '' // Restaura scroll
+  }
+
+  const handleForm: SubmitHandler<formContact> = async (data) => {
+    if (data.contact_number) return
+
+    const { success } = await sendEmailContactAction(data)
+
+    if (!success) {
+      handleOpenModal('error')
+      timeoutRef.current = setTimeout(handleCloseModal, durationErrorModal)
+      reset()
+      return
+    }
+
+    handleOpenModal('success')
+    timeoutRef.current = setTimeout(handleCloseModal, durationErrorModal)
+
+    reset()
   }
 
   return (
@@ -74,9 +72,10 @@ export const FormContact = () => {
             title='Hubo un error al enviar el correo'
             content='Por favor, inténtalo de nuevo más tarde.'
             modal={modal}
-            containerClassNames='bg-secondary p-8 rounded-lg'
+            containerClassNames='bg-primary p-8 rounded-lg'
             titleClassNames='mb-4'
             colorButton='light'
+            buttonCloseClassNames='hover:stroke-light'
             duration={durationErrorModal}
             handleCloseModal={handleCloseModal}
           />
@@ -191,7 +190,7 @@ export const FormContact = () => {
               id='btn-submit'
               type='submit'
               className={cn('btn-submit mt-5 w-[300px] rounded-md px-10 py-2', {
-                'bg-dark/45 pointer-events-none': isSubmitting,
+                'pointer-events-none': isSubmitting,
               })}
             >
               {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}

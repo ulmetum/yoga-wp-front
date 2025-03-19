@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/utils/mergeClass'
 import { motion } from 'motion/react'
 import { TypeModal } from '@/components/contact/FormContact'
@@ -14,11 +16,13 @@ interface Props {
   modal: TypeModal
   title: string
   titleClassNames?: string
+  buttonCloseClassNames?: string
 }
 
 export const ModalContact = ({
   barClassNames = 'bg-light',
   colorButton = 'light',
+  buttonCloseClassNames,
   containerClassNames,
   content,
   contentClassNames,
@@ -35,6 +39,7 @@ export const ModalContact = ({
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{
         duration: 1,
+        delay: 0.25,
         type: 'spring',
         bounce: 0.55,
         exit: { duration: 0.15 },
@@ -48,7 +53,7 @@ export const ModalContact = ({
     >
       <div
         className={cn(
-          'relative flex justify-center flex-col w-[min(100%,700px)] mx-auto ',
+          'relative flex justify-center flex-col w-[min(100%,768px)] mx-auto ',
           containerClassNames
         )}
       >
@@ -57,13 +62,14 @@ export const ModalContact = ({
           className='absolute top-2 right-2 cursor-pointer'
         >
           <Close
+            classNames={buttonCloseClassNames}
             size='xs'
             color={colorButton}
           />
         </div>
         <h2
           className={cn(
-            'text-light mb-4 text-3xl my-0 sm:text-4xl text-center',
+            'text-light mb-4 text-3xl my-0 sm:text-5xl text-center',
             titleClassNames
           )}
         >
@@ -71,7 +77,7 @@ export const ModalContact = ({
         </h2>
         <p
           className={cn(
-            'text-light text-lg md:text-xl text-center',
+            'text-light text-lg md:text-2xl text-center',
             contentClassNames
           )}
         >

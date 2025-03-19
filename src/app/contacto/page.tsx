@@ -1,7 +1,9 @@
 import { FormContact } from '@/components/contact/FormContact'
+import { ImageContact } from '@/components/contact/ImageContact'
 import { VerticalHeading } from '@/components/contact/VerticalHeading'
 import { Container } from '@/components/Container'
 import { PoseWomanEight } from '@/components/icons/PoseWomanEight.icon'
+import { MailIslaDelYoga } from '@/components/MailIslaDelYoga'
 
 export default function ContactPage() {
   return (
@@ -15,18 +17,12 @@ export default function ContactPage() {
                 Pero jamás pierdas el contacto contigo
               </h3>
               <p className='mt-3 text-[.95rem]'>
-                Envíame un correo electrónico a{' '}
-                <span
-                  id='span-email'
-                  className='inline-block scale-100 bg-white px-1 text-[.95rem] text-primary underline underline-offset-2 '
-                >
-                  hola@laisladelyoga.com
-                </span>{' '}
-                o a través del siguiente formulario
+                Envíame un correo electrónico a
+                <MailIslaDelYoga /> o a través del siguiente formulario
               </p>
             </div>
-            <div className='mx-auto h-[600px] w-[min(100%,600px)] '>
-              <PoseWomanEight />
+            <div className='mx-auto h-[600px] w-[min(100%,425px)] '>
+              <ImageContact />
             </div>
           </div>
           <div className='w-full max-w-2xl rounded-md max-xl:mx-auto xl:flex xl:w-1/2 xl:items-center xl:justify-center'>

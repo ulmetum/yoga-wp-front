@@ -30,7 +30,7 @@ export const Close = ({ color = 'dark', size = 'md', classNames }: Props) => {
       strokeLinecap='round'
       strokeLinejoin='round'
       className={cn(
-        'hover:stroke-primary h- icon icon-tabler icons-tabler-outline icon-tabler-x transition-all duration-300 ease-[var(--ease-elastic-smoother)] hover:scale-125',
+        'hover:stroke-primary icon icon-tabler icons-tabler-outline icon-tabler-x transition-all duration-300 ease-[var(--ease-elastic-smoother)] hover:scale-125',
         classNames,
         sizes[size]
       )}
