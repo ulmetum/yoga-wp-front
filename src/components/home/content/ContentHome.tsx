@@ -3,7 +3,7 @@ import { PassionYoga } from '@/components/home/content/PassionYoga'
 import { ServicesYoga } from '@/components/home/content/ServicesYoga'
 import { PracticesYoga } from '@/components/home/content/PracticesYoga'
 import { ChallengeYoga } from '@/components/home/content/ChallengeYoga'
-import { CreandoYoga } from '@/components/home/content/CreandoYoga'
+import { CreatingYoga } from '@/components/home/content/CreatingYoga'
 
 export const ContentHome = () => {
   return (
@@ -21,7 +21,7 @@ export const ContentHome = () => {
         <ChallengeYoga />
       </div>
       <div id='container-creando-yoga'>
-        <CreandoYoga />
+        <CreatingYoga />
       </div>
     </Container>
   )
