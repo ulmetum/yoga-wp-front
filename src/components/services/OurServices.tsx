@@ -82,7 +82,7 @@ const services: Service[] = [
 
 export const OurServices = () => {
   return (
-    <ul className='services gap-2 px-1 max-lg:space-y-8 lg:grid lg:h-[135vh] lg:grid-cols-10 lg:grid-rows-5 xl:gap-4'>
+    <ul className='services gap-2 px-1 max-lg:space-y-8 lg:grid lg:h-[150vh] xl:h-[125vh] lg:grid-cols-10 lg:grid-rows-5 xl:gap-4'>
       {services.map((service) => (
         <ServiceItem
           key={service.id}

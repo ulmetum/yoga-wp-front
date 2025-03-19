@@ -52,7 +52,7 @@ export const ServiceItem = ({ service }: Props) => {
               },
             },
           }}
-          className='inline-block opacity-0 scale-[75%] font-headings absolute top-6 right-6 text-5xl font-semibold'
+          className='inline-block opacity-0 scale-[75%] font-headings absolute top-6 left-6 text-5xl font-semibold'
         >
           {service.price}{' '}
           <span className='-ml-2 font-headings text-3xl font-semibold'>€</span>
