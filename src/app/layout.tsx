@@ -4,6 +4,8 @@ import { fontBody, fontHeadings } from '@/fonts'
 import { MainHeader } from '@/components/header/MainHeader'
 import { ViewTransitions } from 'next-view-transitions'
 import { MainFooter } from '@/components/footer/MainFooter'
+import { ScrollLayout } from '@/layouts/ScrollLayout'
+import { ScrollTop } from '@/components/ScrollTop'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,12 +20,15 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang='es'>
+        <ScrollTop />
         <body
           className={`${fontHeadings.variable} ${fontBody.variable} antialiased `}
         >
-          <MainHeader />
-          <main>{children}</main>
-          <MainFooter />
+          <ScrollLayout>
+            <MainHeader />
+            <main>{children}</main>
+            <MainFooter />
+          </ScrollLayout>
         </body>
       </html>
     </ViewTransitions>
