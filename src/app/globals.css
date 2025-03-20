@@ -533,3 +533,45 @@
     position: static;
   }
 }
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .main-footer,
+  .main-footer-wrapper {
+    top: 0;
+    height: auto;
+  }
+  .main-footer-inner {
+    position: static;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-about-me-inner {
+    position: static;
+    width: 100%;
+    transform: translateX(0);
+  }
+  .mail-networks {
+    opacity: 0;
+  }
+  .image {
+    width: 230px;
+  }
+}
+@media (orientation: landscape) and (max-height: 900px) {
+  .hero-home {
+    position: static;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .section-top {
+    position: static;
+    padding-top: calc(var(--header-height) + 1rem);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 900px) {
+  .hero-about-me {
+    position: static;
+  }
+}

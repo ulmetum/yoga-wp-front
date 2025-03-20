@@ -38,7 +38,7 @@ export const Navigation = ({ data }: Props) => {
               initial='initial'
               whileHover='hovered'
               className={cn(
-                'text-sm [@media(min-width:400px)]:text-lg xs:px-2 relative mx-1.5 overflow-hidden leading-tight sm:mx-3',
+                ' text-sm [@media(min-width:400px)]:text-lg xs:px-2 relative mx-1.5 overflow-hidden leading-tight sm:mx-3',
                 isActive || (item.node.label === 'Blog' && isPageArticle)
                   ? 'pointer-events-none text-primary font-normal'
                   : 'pointer-events-auto text-dark'

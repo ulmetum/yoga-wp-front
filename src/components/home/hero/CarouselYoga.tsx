@@ -27,7 +27,7 @@ export const CarouselYoga = () => {
     progressBarRef.current.setAttribute('width', `${roundedProgress}`)
   }
   return (
-    <div className='relative xl:absolute xl:top-0 xl:right-[20%] xl:max-w-[400px] '>
+    <div className='relative w-full xl:absolute xl:top-0 xl:right-[20%] xl:max-w-[400px] '>
       <Swiper
         effect={'fade'}
         pagination={{
