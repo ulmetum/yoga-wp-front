@@ -451,6 +451,14 @@
   }
 
   /* Fin Contacto */
+
+  /* Inicio border imagen destacada slug */
+
+  .border-shadow {
+    box-shadow: 0 0 0 3px var(--light), 0 0 0 4px var(--primary);
+  }
+
+  /* Fin border imagen destacada slug */
 }
 
 .is-type-video,

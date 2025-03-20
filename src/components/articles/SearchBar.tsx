@@ -45,7 +45,7 @@ export const SearchBar = ({ placeholder }: Props) => {
       <div className='relative'>
         <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
           <svg
-            className='w-4 h-4 text-gray-500 dark:text-gray-400'
+            className='w-4 h-4 text-primary dark:text-gray-400'
             aria-hidden='true'
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -66,7 +66,7 @@ export const SearchBar = ({ placeholder }: Props) => {
           type='search'
           name='search'
           id='default-search'
-          className='block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:primary focus:primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:primary dark:focus:primary'
+          className='block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:primary focus:outline-primary dark:bg-gray-700 dark:border-gray-600 placeholder-dark/50 dark:text-white dark:focus:primary dark:focus:primary'
           placeholder={placeholder}
         />
         {term && (
@@ -82,7 +82,7 @@ export const SearchBar = ({ placeholder }: Props) => {
         )}
         <button
           disabled={term === ''}
-          className='text-white absolute end-2.5 bottom-2.5 bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary'
+          className='text-white absolute end-2.5 bottom-2.5 bg-primary/90 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary transition-all duration-300 hover:cursor-pointer'
         >
           Buscar
         </button>

@@ -29,7 +29,7 @@ export const FeaturedImageArticle = ({ author, image, title }: Props) => {
         bounce: 0.55,
         opacity: { duration: 0.5, ease: 'easeInOut' },
       }}
-      className='[--translate-y-from:-50px] [--translate-y-to:0px] xl:[--translate-y-from:0px] xl:[--translate-x-from:-50px] xl:[--translate-x-to:0px] container-image h-[400px] relative w-[min(100%,900px)]'
+      className='[--translate-y-from:-50px] [--translate-y-to:0px] xl:[--translate-y-from:0px] xl:[--translate-x-from:-50px] xl:[--translate-x-to:0px] container-image h-[400px] relative w-[min(100%,900px)] border-shadow'
     >
       <WrittenBy
         author={author}
@@ -40,8 +40,6 @@ export const FeaturedImageArticle = ({ author, image, title }: Props) => {
           className='absolute object-cover'
           src={image || '/images/placeholder.webp'}
           alt={title}
-          // width={300}
-          // height={200}
           fill
           priority
         />

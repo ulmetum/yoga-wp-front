@@ -26,6 +26,7 @@ export const HeroAboutMe = () => {
             <Image
               className='relative h-full w-full -scale-x-100 rounded-md object-cover grayscale-[55%]'
               src='/images/perfil.webp'
+              priority
               alt='Perfil'
               width={300}
               height={600}

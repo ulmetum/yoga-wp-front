@@ -6,6 +6,7 @@ export const BfgImgAboutMe = () => {
       <Image
         className=' absolute left-[2.5%] top-[2.5%] h-[95%] w-[95%] -scale-x-100 object-cover blur-md grayscale-[55%] '
         src='/images/perfil.webp'
+        priority
         alt='Perfil'
         width={300}
         height={600}

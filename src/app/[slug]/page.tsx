@@ -58,7 +58,7 @@ const page = async ({ params }: Props) => {
   return (
     <div>
       <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[10dvh] min-h-[110dvh] w-full items-center justify-center py-[calc(var(--main-header-height))] xl:px-6'>
-        <Container classNames='mt-4 relative flex flex-col justify-center items-center gap-2'>
+        <Container classNames='mt-4 relative '>
           <BreadCrumbsArticle title={titleArticle} />
           <HeroArticle
             author={articlesBySlug?.post.author?.node.name ?? ''}
