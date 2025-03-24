@@ -7,6 +7,7 @@ import { Container } from '@/components/Container'
 import { CustomError } from '@/components/CustomError'
 import { HeroArticle } from '@/components/slug/HeroArticle'
 import { PaginationArticle } from '@/components/slug/PaginationArticle'
+import { notFound } from 'next/navigation'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -39,7 +40,8 @@ const page = async ({ params }: Props) => {
   if (error) return <CustomError error={error} />
 
   if (!articlesBySlug?.post) {
-    return <CustomError error='No article found' />
+    // return <CustomError error='No article found' />
+    return notFound()
   }
 
   const idArticle = articlesBySlug.post.id

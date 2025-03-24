@@ -8,6 +8,7 @@ import { getSearchResult } from '@/actions/articles/get-search-result.action'
 import { CustomError } from '@/components/CustomError'
 import { SearchResult } from '@/interfaces/articles.interface'
 import { ArticlesSearch } from '@/components/articles/ArticlesSearch'
+import { Metadata } from 'next'
 
 interface Props {
   params: Promise<{ page: string }>
@@ -35,6 +36,43 @@ export async function generateStaticParams() {
   //   { page: ["1"] },
   //   { page: ["2"] },
   // ]
+}
+
+export const metadata: Metadata = {
+  title:
+    'Blog | La Isla del Yoga - Consejos y Artículos sobre Yoga y Bienestar',
+  description:
+    'Explora el blog de La Isla del Yoga. Lee artículos, consejos y reflexiones sobre yoga, bienestar físico y mental, y cómo integrar el yoga en tu vida.',
+  openGraph: {
+    title:
+      'Blog | La Isla del Yoga - Consejos y Artículos sobre Yoga y Bienestar',
+    description:
+      'Explora el blog de La Isla del Yoga. Lee artículos, consejos y reflexiones sobre yoga, bienestar físico y mental, y cómo integrar el yoga en tu vida.',
+    url: 'https://www.laisladelyoga.com/blog',
+    images: [
+      {
+        url: '/images/laisladelyoga-blog.webp', // Ruta de la imagen para Open Graph
+        width: 1200,
+        height: 630,
+        alt: 'Blog de La Isla del Yoga - Artículos sobre Yoga y Bienestar',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image', // Tipo de tarjeta para Twitter
+    title:
+      'Blog | La Isla del Yoga - Consejos y Artículos sobre Yoga y Bienestar',
+    description:
+      'Explora el blog de La Isla del Yoga. Lee artículos, consejos y reflexiones sobre yoga, bienestar físico y mental, y cómo integrar el yoga en tu vida.',
+    images: [
+      {
+        url: '/images/laisladelyoga-blog.webp', // Ruta de la imagen para Twitter
+        width: 1200,
+        height: 630,
+        alt: 'Blog de La Isla del Yoga - Artículos sobre Yoga y Bienestar',
+      },
+    ],
+  },
 }
 
 export default async function BlogPage({ params, searchParams }: Props) {

@@ -1,6 +1,44 @@
 import { Container } from '@/components/Container'
 import { OurServices } from '@/components/services/OurServices'
 import { TimeTable } from '@/components/services/TimeTable'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title:
+    'Servicios | La Isla del Yoga - Clases y Asesoramiento Personalizado de Yoga',
+  description:
+    'Descubre los servicios de yoga personalizados en La Isla del Yoga. Desde clases individuales hasta programas diseñados para tu bienestar físico y mental.',
+  openGraph: {
+    title:
+      'Servicios | La Isla del Yoga - Clases y Asesoramiento Personalizado de Yoga',
+    description:
+      'Descubre los servicios de yoga personalizados en La Isla del Yoga. Desde clases individuales hasta programas diseñados para tu bienestar físico y mental.',
+    url: 'https://www.laisladelyoga.com/servicios',
+    images: [
+      {
+        url: '/images/laisladelyoga-services.webp', // Ruta de la imagen para Open Graph
+        width: 1200,
+        height: 630,
+        alt: 'Servicios personalizados de yoga en La Isla del Yoga',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image', // Tipo de tarjeta para Twitter
+    title:
+      'Servicios | La Isla del Yoga - Clases y Asesoramiento Personalizado de Yoga',
+    description:
+      'Descubre los servicios de yoga personalizados en La Isla del Yoga. Desde clases individuales hasta programas diseñados para tu bienestar físico y mental.',
+    images: [
+      {
+        url: '/images/laisladelyoga-services.webp', // Ruta de la imagen para Twitter
+        width: 1200,
+        height: 630,
+        alt: 'Servicios personalizados de yoga en La Isla del Yoga',
+      },
+    ],
+  },
+}
 
 export default function Page() {
   return (

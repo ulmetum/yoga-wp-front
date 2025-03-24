@@ -2,8 +2,42 @@ import { FormContact } from '@/components/contact/FormContact'
 import { ImageContact } from '@/components/contact/ImageContact'
 import { VerticalHeading } from '@/components/contact/VerticalHeading'
 import { Container } from '@/components/Container'
-import { PoseWomanEight } from '@/components/icons/PoseWomanEight.icon'
 import { MailIslaDelYoga } from '@/components/MailIslaDelYoga'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contacto | La Isla del Yoga - Conecta con tu Instructora de Yoga',
+  description:
+    'Ponte en contacto con La Isla del Yoga para más información sobre clases, asesoramiento y cualquier consulta relacionada con yoga y bienestar.',
+  openGraph: {
+    title: 'Contacto | La Isla del Yoga - Conecta con tu Instructora de Yoga',
+    description:
+      'Ponte en contacto con La Isla del Yoga para más información sobre clases, asesoramiento y cualquier consulta relacionada con yoga y bienestar.',
+    url: 'https://www.laisladelyoga.com/contacto',
+    images: [
+      {
+        url: '/images/laisladelyoga-contact.webp', // Ruta de la imagen para Open Graph
+        width: 1200,
+        height: 630,
+        alt: 'Contacto con La Isla del Yoga',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image', // Tipo de tarjeta para Twitter
+    title: 'Contacto | La Isla del Yoga - Conecta con tu Instructora de Yoga',
+    description:
+      'Ponte en contacto con La Isla del Yoga para más información sobre clases, asesoramiento y cualquier consulta relacionada con yoga y bienestar.',
+    images: [
+      {
+        url: '/images/laisladelyoga-contact.webp', // Ruta de la imagen para Twitter
+        width: 1200,
+        height: 630,
+        alt: 'Contacto con La Isla del Yoga',
+      },
+    ],
+  },
+}
 
 export default function ContactPage() {
   return (

@@ -1,7 +1,42 @@
 import { ContentAboutMe } from '@/components/about-me/ContentAboutMe'
 import { HeroAboutMe } from '@/components/about-me/HeroAboutMe'
 import { Container } from '@/components/Container'
+import { Metadata } from 'next'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Sobre mí | La Isla del Yoga - Conoce a tu instructora de Yoga',
+  description:
+    'Conoce a la fundadora de La Isla del Yoga. Descubre su viaje hacia el yoga y cómo su enfoque único puede ayudarte a encontrar bienestar físico y mental.',
+  openGraph: {
+    title: 'Sobre mí | La Isla del Yoga - Conoce a tu instructora de Yoga',
+    description:
+      'Conoce a la fundadora de La Isla del Yoga. Descubre su viaje hacia el yoga y cómo su enfoque único puede ayudarte a encontrar bienestar físico y mental.',
+    url: 'https://www.laisladelyoga.com/sobre-mi',
+    images: [
+      {
+        url: '/images/laisladelyoga-aboutme.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Instructora de Yoga de La Isla del Yoga',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image', // Tipo de tarjeta (en este caso, una imagen grande)
+    title: 'Sobre mí | La Isla del Yoga - Conoce a tu instructora de Yoga',
+    description:
+      'Conoce a la fundadora de La Isla del Yoga. Descubre su viaje hacia el yoga y cómo su enfoque único puede ayudarte a encontrar bienestar físico y mental.',
+    images: [
+      {
+        url: '/images/laisladelyoga-aboutme.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Instructora de Yoga de La Isla del Yoga',
+      },
+    ],
+  },
+}
 
 export default function AboutMePage() {
   return (
