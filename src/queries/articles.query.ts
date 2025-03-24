@@ -42,6 +42,25 @@ export const getArticleBySlugQuery = ({ slug }: { slug: string }) => `
   }
 `
 
+export const getSeoBySlugQuery = ({ slug }: { slug: string }) => `
+  query getSeoBySlug {
+     post (idType: SLUG, id: "${slug}") {
+      seo {
+        title
+        description
+        breadcrumbTitle
+        openGraph {
+          title
+          description
+          image {
+            url
+          }
+        }
+      }
+    }
+  }
+`
+
 export const getArticlesByPageQuery = graphql(`
   query getArticlesByPage($first: Int!, $after: String) {
     posts(
