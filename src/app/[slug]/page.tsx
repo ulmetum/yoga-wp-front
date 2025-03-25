@@ -1,3 +1,6 @@
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+
 import { getAllArticlesAction } from '@/actions/articles/get-all-articles.action'
 import { getArticlesBySlugAction } from '@/actions/articles/get-articles-by-slug.action'
 import { getPrevAndNextArticlesAction } from '@/actions/articles/get-prev-and-next-articles.action'
@@ -8,8 +11,7 @@ import { Container } from '@/components/Container'
 import { CustomError } from '@/components/CustomError'
 import { HeroArticle } from '@/components/slug/HeroArticle'
 import { PaginationArticle } from '@/components/slug/PaginationArticle'
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { getRandomYogaImage } from '@/utils/randomBgImage'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -19,8 +21,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
 
   const { data, error } = await getSeoBySlugAction({ slug })
-
-  console.log({ data })
 
   if (error || !data?.post)
     return {
@@ -41,26 +41,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     }
 
+  const { seo: { title, description, openGraph } = {} } = data.post
+
+  const imageUrl = openGraph?.image.url || getRandomYogaImage()
+
   return {
-    title: data.post.seo.title || 'Descubre el bienestar en La Isla del Yoga',
+    title: title || 'Descubre el bienestar en La Isla del Yoga',
     description:
-      data.post.seo.description ||
+      description ||
       'Explora artículos sobre yoga, bienestar y crecimiento personal en La Isla del Yoga.',
     openGraph: {
-      title: data.post.seo.title || 'Descubre el bienestar en La Isla del Yoga',
+      title: title || 'Descubre el bienestar en La Isla del Yoga',
       description:
-        data.post.seo.description ||
+        description ||
         'Explora artículos sobre yoga, bienestar y crecimiento personal en La Isla del Yoga.',
       url: `/blog/${slug}`,
       type: 'article',
-      images: data?.post.seo?.openGraph?.image?.url
-        ? [{ url: data.post.seo.openGraph.image.url, alt: data.post.seo.title }]
-        : [
-            {
-              url: '/images/laisladelyoga-aboutme.webp',
-              alt: 'Imagen de bienestar y yoga',
-            },
-          ],
+      images: [
+        {
+          url: imageUrl,
+          alt: title || 'Imagen de bienestar y yoga',
+        },
+      ],
     },
   }
 }
@@ -82,7 +84,7 @@ export async function generateStaticParams() {
   }))
 }
 
-const page = async ({ params }: Props) => {
+export default async function ({ params }: Props) {
   const { slug } = await params
 
   const { data: articlesBySlug, error } = await getArticlesBySlugAction({
@@ -92,7 +94,6 @@ const page = async ({ params }: Props) => {
   if (error) return <CustomError error={error} />
 
   if (!articlesBySlug?.post) {
-    // return <CustomError error='No article found' />
     return notFound()
   }
 
@@ -119,7 +120,10 @@ const page = async ({ params }: Props) => {
             title={articlesBySlug?.post.title ?? ''}
             createdAt={articlesBySlug?.post.date ?? ''}
             subtitle={articlesBySlug?.post.headings.subtitle ?? ''}
-            image={articlesBySlug?.post.featuredImage?.node.sourceUrl ?? ''}
+            image={
+              articlesBySlug?.post.featuredImage?.node.sourceUrl ??
+              getRandomYogaImage()
+            }
           />
         </Container>
       </section>
@@ -141,4 +145,3 @@ const page = async ({ params }: Props) => {
     </div>
   )
 }
-export default page

@@ -6,6 +6,7 @@ export const getAllArticlesQuery = graphql(`
       nodes {
         id
         slug
+        date
         featuredImage {
           node {
             sourceUrl

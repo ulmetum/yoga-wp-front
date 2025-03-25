@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/config'
+import { BACKEND_BASE_URL } from '@/config'
 import { errorMessages, ErrorType } from '@/errors'
 import request from 'graphql-request'
 
@@ -11,7 +11,7 @@ export const fetchData = async <T>({
   query: any
   variables?: any
 }): Promise<{ data: T | null; error: string | null }> => {
-  const url = `${BASE_URL}/graphql`
+  const url = `${BACKEND_BASE_URL}/graphql`
   try {
     const data = await request<T>({ url, document: query, variables })
     return { data, error: null }

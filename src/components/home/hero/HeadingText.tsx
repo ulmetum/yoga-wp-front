@@ -8,13 +8,13 @@ export const HeadingText = ({
   children: React.ReactNode
 }) => {
   return (
-    <p
+    <h1
       className={cn(
         'relative font-headings font-bold uppercase leading-[1.15] [font-size:var(--fs-700)] sm:[font-size:var(--fs-700)]',
         classNames
       )}
     >
       {children}
-    </p>
+    </h1>
   )
 }

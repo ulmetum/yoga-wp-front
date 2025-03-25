@@ -54,6 +54,7 @@ export const CarouselYoga = () => {
             alt='yoga'
             width={400}
             height={200}
+            priority
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -62,6 +63,7 @@ export const CarouselYoga = () => {
             alt='yoga'
             width={400}
             height={200}
+            priority
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -70,6 +72,7 @@ export const CarouselYoga = () => {
             alt='yoga'
             width={400}
             height={200}
+            priority
           />
         </SwiperSlide>
       </Swiper>

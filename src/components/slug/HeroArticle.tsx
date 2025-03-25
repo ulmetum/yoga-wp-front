@@ -16,6 +16,7 @@ export const HeroArticle = ({
   subtitle,
   image,
 }: Props) => {
+  console.log({ image })
   return (
     <div className='w-full relative flex flex-col items-center justify-center gap-4 xl:flex-row xl:justify-between'>
       <FeaturedImageArticle

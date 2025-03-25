@@ -1,6 +1,6 @@
 'use server'
 
-import { BASE_URL } from '@/config'
+import { BACKEND_BASE_URL } from '@/config'
 import { errorMessages, ErrorType } from '@/errors'
 
 export const getTotalArticlesCounttAction = async ({
@@ -9,12 +9,15 @@ export const getTotalArticlesCounttAction = async ({
   typeError: ErrorType
 }) => {
   try {
-    const response = await fetch(`${BASE_URL}/wp-json/wp/v2/posts?per_page=1`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${BACKEND_BASE_URL}/wp-json/wp/v2/posts?per_page=1`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     const totalArticles = response.headers.get('X-WP-Total')
 
