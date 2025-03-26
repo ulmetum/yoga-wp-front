@@ -104,6 +104,19 @@
 }
 
 @layer utilities {
+  /* Inicio Spectra */
+
+  .container-2 {
+    & > div {
+      @apply grid grid-cols-1 lg:grid-cols-2 place-items-center my-20;
+      & > div {
+        @apply w-[min(100%,640px)] h-full;
+      }
+    }
+  }
+
+  /* Fin Spectra */
+
   .gradient-br-90 {
     background-image: linear-gradient(to bottom right, transparent 65%, #000);
   }
@@ -144,6 +157,7 @@
         &:before {
           content: '✓';
           color: var(--primary);
+          vertical-align: bottom;
           font-weight: lighter;
           font-size: 40px;
           margin-right: 10px;

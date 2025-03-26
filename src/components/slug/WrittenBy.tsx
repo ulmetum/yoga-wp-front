@@ -6,5 +6,6 @@ interface Props {
 }
 
 export const WrittenBy = ({ classNames, author }: Props) => {
-  return <small className={cn('', classNames)}>Escrito por @{author}</small>
+  const nameAuthor = author.includes('@') ? author.split('@')[1] : author
+  return <small className={cn('', classNames)}>Escrito por @{nameAuthor}</small>
 }

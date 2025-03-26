@@ -11,7 +11,6 @@ import { Container } from '@/components/Container'
 import { CustomError } from '@/components/CustomError'
 import { HeroArticle } from '@/components/slug/HeroArticle'
 import { PaginationArticle } from '@/components/slug/PaginationArticle'
-import { getRandomYogaImage } from '@/utils/randomBgImage'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -43,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { seo: { title, description, openGraph } = {} } = data.post
 
-  const imageUrl = openGraph?.image.url || getRandomYogaImage()
+  const imageUrl = openGraph?.image.url || '/images/placeholder.webp'
 
   return {
     title: title || 'Descubre el bienestar en La Isla del Yoga',
@@ -112,8 +111,8 @@ export default async function ({ params }: Props) {
 
   return (
     <div>
-      <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[10dvh] min-h-[110dvh] w-full items-center justify-center py-[calc(var(--main-header-height))] xl:px-6'>
-        <Container classNames='mt-4 relative '>
+      <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[40dvh] min-h-[140dvh]  w-full items-center justify-center py-[calc(var(--main-header-height))] xl:px-6'>
+        <Container classNames='mt-4 relative  '>
           <BreadCrumbsArticle title={titleArticle} />
           <HeroArticle
             author={articlesBySlug?.post.author?.node.name ?? ''}
@@ -122,7 +121,7 @@ export default async function ({ params }: Props) {
             subtitle={articlesBySlug?.post.headings.subtitle ?? ''}
             image={
               articlesBySlug?.post.featuredImage?.node.sourceUrl ??
-              getRandomYogaImage()
+              '/images/placeholder.webp'
             }
           />
         </Container>

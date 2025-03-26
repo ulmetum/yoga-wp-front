@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import { Link } from 'next-view-transitions'
 import { MouseEvent } from 'react'
-import { getRandomYogaImage } from '@/utils/randomBgImage'
 
 interface Props {
   nextArticle: GetArticleByIdQuery | null | undefined
@@ -59,7 +58,7 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
                 className='aspect-video  rounded object-cover'
                 fill
                 sizes='100%'
-                src={`${prevImage ? prevImage : getRandomYogaImage()}`}
+                src={`${prevImage ? prevImage : '/images/placeholder.webp'}`}
                 alt='Imagen destacada del post siguiente'
               />
             </motion.div>
@@ -107,7 +106,7 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
               <Image
                 fill
                 sizes='100%'
-                src={`${nextImage ? nextImage : getRandomYogaImage()}`}
+                src={`${nextImage ? nextImage : '/images/placeholder.webp'}`}
                 alt='Imagen destacada del post previo'
                 className='aspect-video  rounded object-cover'
               />

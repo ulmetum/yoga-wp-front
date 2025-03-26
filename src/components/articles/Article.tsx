@@ -3,6 +3,7 @@ import { MenuIcons } from '@/components/MenuIcons'
 import { ImageArticle } from './ImageArticle'
 import { cn } from '@/utils/mergeClass'
 import { Link } from 'next-view-transitions'
+import { getRandomYogaSentence } from '@/utils/randomSentence'
 
 interface Props {
   i: number
@@ -65,8 +66,8 @@ export const Article = ({
         </Link>
         <div className='mx-auto h-[1px] w-28 bg-secondary duration-700 ease-[var(--ease-elastic-smoother)] group-hover:w-44 group-hover:bg-primary'></div>
 
-        <h5 className='max-w-[768px] my-0 mx-auto  flex-1 text-center text-lg font-light italic leading-6 text-gray-600'>
-          {subtitle}
+        <h5 className='max-w-[768px] my-0 mx-auto flex-1 text-center text-xl  font-light italic leading-6 text-gray-600'>
+          {subtitle || getRandomYogaSentence()}
         </h5>
         <div className='flex items-end justify-between text-primary'>
           <DateArticle

@@ -20,13 +20,13 @@ export async function PUT(request: NextRequest) {
   const { paths, tags }: { paths?: string[]; tags?: string[] } =
     await request.json()
 
-  console.log('Received paths:', paths)
-  console.log('Received tags:', tags)
+  // console.log('Received paths:', paths)
+  // console.log('Received tags:', tags)
 
   const headersList = await headers()
   const authorizationHeader = headersList.get('authorization')
 
-  console.log('Authorization header:', authorizationHeader)
+  // console.log('Authorization header:', authorizationHeader)
 
   if (authorizationHeader !== `Bearer ${REVALIDATE_SECRET_KEY}`) {
     console.error(`Invalid token: ${authorizationHeader}`)
@@ -46,12 +46,12 @@ export async function PUT(request: NextRequest) {
   if (paths) {
     revalidatePaths = paths.filter((path) => path.startsWith('/'))
 
-    console.log('Filtered correct paths:', revalidatePaths)
+    // console.log('Filtered correct paths:', revalidatePaths)
   }
 
   if (tags) {
     correctTags = tags.filter((tag) => typeof tag === 'string')
-    console.log('Filtered correct tags:', correctTags)
+    // console.log('Filtered correct tags:', correctTags)
   }
 
   try {
@@ -63,11 +63,11 @@ export async function PUT(request: NextRequest) {
       revalidateTag(tag)
     })
 
-    console.log(
-      `${new Date().toJSON()} - Paths and tags revalidated: ${revalidatePaths.join(
-        ', '
-      )} and ${correctTags.join(', ')}`
-    )
+    // console.log(
+    //   `${new Date().toJSON()} - Paths and tags revalidated: ${revalidatePaths.join(
+    //     ', '
+    //   )} and ${correctTags.join(', ')}`
+    // )
 
     return new Response(
       JSON.stringify({
