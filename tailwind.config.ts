@@ -8,7 +8,12 @@ export default {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  safelist: ['.container-2'],
+  safelist: [
+    '.wp-columns-2',
+    '.custom-icon',
+    '.wp-block-quote',
+    '.wp-block-quote-author',
+  ],
   theme: {
     extend: {
       screens: {
