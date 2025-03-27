@@ -10,7 +10,7 @@ interface Props {
   data: GetMainMenuQuery | null
 }
 
-const nonArticlePaths = [
+export const nonArticlePaths = [
   '/',
   '/blog/',
   '/contacto/',
