@@ -106,17 +106,13 @@
 @layer utilities {
   /* Inicio gutenberg */
 
-  .wp-columns-2 {
-    @apply grid grid-cols-1 lg:grid-cols-2 place-items-center my-20;
-    & > div {
-      @apply w-[min(100%,640px)] h-full;
+  .wp-block-media-text {
+    @apply grid lg:grid-cols-2 gap-4 py-20 my-20;
+    .wp-block-media-text__media {
+      @apply w-[min(100%,480px)] mx-auto;
     }
-  }
-
-  .custom-icon-40 {
-    @apply w-10 h-10;
-    svg {
-      @apply w-full h-full;
+    .wp-block-media-text__content {
+      @apply flex flex-col justify-center;
     }
   }
 
@@ -137,24 +133,72 @@
       @apply indent-12 xl:text-3xl xl:leading-10;
     }
     .wp-block-quote-author {
-      @apply absolute right-[2rem] top-[calc(100%+1rem)] m-0 text-primary;
+      @apply absolute right-[2rem] top-[calc(100%+1rem)] m-0 text-primary italic xl:text-xl;
       &:before,
       &:after {
-        content: '—';
+        content: '';
         position: absolute;
-        color: var(--primary);
+        height: 2px;
+        width: 0.75rem;
+        background-color: var(--primary);
       }
       &:before {
         top: 50%;
         transform: translateY(-50%);
-        left: -1.35rem;
+        left: -1.15rem;
       }
       &:after {
         top: 50%;
         transform: translateY(-50%);
-        right: -1.35rem;
+        right: -1.15rem;
       }
     }
+  }
+
+  .wp-block-pullquote {
+    @apply relative my-20 w-[min(100%,900px)] mx-auto;
+    blockquote {
+      @apply text-center;
+      p {
+        @apply xl:text-3xl;
+      }
+      &:before {
+        content: '❠';
+        position: absolute;
+        left: 50%;
+        top: -5rem;
+        transform: translateX(-50%) rotate(180deg);
+        opacity: 0.3;
+        font-size: 10rem;
+        line-height: 1;
+        color: var(--primary);
+      }
+      cite {
+        @apply text-primary relative font-headings xl:text-xl;
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          height: 2px;
+          width: 0.75rem;
+          background-color: var(--primary);
+        }
+        &:before {
+          top: 50%;
+          transform: translateY(-50%);
+          left: -1.15rem;
+        }
+        &:after {
+          top: 50%;
+          transform: translateY(-50%);
+          right: -1.15rem;
+        }
+      }
+    }
+  }
+
+  .wp-block-columns {
+    @apply grid lg:grid-cols-2 gap-4 my-20;
   }
 
   /* Fin gutenberg */
@@ -180,6 +224,7 @@
         &:before {
           content: counter(apples);
           position: absolute;
+          -webkit-text-stroke: 2px var(--primary);
           left: 0;
           top: 0;
           counter-increment: apples;

@@ -9,10 +9,11 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   safelist: [
-    '.wp-columns-2',
-    '.custom-icon',
+    '.wp-block-columns',
     '.wp-block-quote',
     '.wp-block-quote-author',
+    '.wp-block-pullquote',
+    '.wp-block-media-text',
   ],
   theme: {
     extend: {

@@ -34,11 +34,11 @@ export const FooterMenuItem = ({ item }: Props) => {
         animate='rest'
       >
         {item.node.label?.split('').map((char: string, i: number) => {
-          console.log({
-            // isActive,
-            item: item.node.label,
-            isPageArticle,
-          })
+          // console.log({
+          //   // isActive,
+          //   item: item.node.label,
+          //   isPageArticle,
+          // })
           return (
             <motion.span
               className={cn('font-headings text-3xl font-light md:text-4xl  ', {
