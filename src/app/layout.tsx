@@ -7,6 +7,7 @@ import { MainFooter } from '@/components/footer/MainFooter'
 import { ScrollLayout } from '@/layouts/ScrollLayout'
 import { ScrollTop } from '@/components/ScrollTop'
 import { FRONTEND_BASE_URL } from '@/config'
+import { MagneticButton } from '@/components/MagneticButton'
 
 export const metadata: Metadata = {
   metadataBase: new URL(FRONTEND_BASE_URL!),
@@ -33,7 +34,10 @@ export default function RootLayout({
         >
           <ScrollLayout>
             <MainHeader />
-            <main>{children}</main>
+            <main>
+              {children}
+              <MagneticButton size='sm' />
+            </main>
             <MainFooter />
           </ScrollLayout>
         </body>
