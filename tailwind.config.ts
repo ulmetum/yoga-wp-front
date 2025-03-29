@@ -23,27 +23,13 @@ export default {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1440px',
-        'max-sm': {
-          raw: ` (max-width: ${defaultTheme.screens.sm})`,
-        },
-        'max-md': {
-          raw: ` (max-width: ${defaultTheme.screens.md})`,
-        },
-        'max-lg': {
-          raw: ` (max-width: ${defaultTheme.screens.lg})`,
-        },
-        'max-xl': {
-          raw: ` (max-width: ${defaultTheme.screens.xl})`,
-        },
-        'max-2xl': {
-          raw: ` (max-width: ${defaultTheme.screens['2xl']})`,
-        },
-        'landscape-sm': {
-          raw: '(max-width: 667px) and (orientation: landscape)',
-        },
-        'landscape-xl': {
-          raw: '(max-width: 910px) and (orientation: landscape)',
-        },
+        'max-sm': '(max-width: 639px)', // En lugar de usar defaultTheme.screens.sm
+        'max-md': '(max-width: 767px)',
+        'max-lg': '(max-width: 1023px)',
+        'max-xl': '(max-width: 1279px)',
+        'max-2xl': '(max-width: 1439px)',
+        'landscape-sm': '(max-width: 667px) and (orientation: landscape)',
+        'landscape-xl': '(max-width: 910px) and (orientation: landscape)',
       },
       boxShadow: {
         'b-section': '0px 10px 20px -20px var(--dark)',
