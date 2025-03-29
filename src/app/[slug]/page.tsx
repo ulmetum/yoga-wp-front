@@ -83,7 +83,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function ({ params }: Props) {
+export default async function SlugPage({ params }: Props) {
   const { slug } = await params
 
   const { data: articlesBySlug, error } = await getArticlesBySlugAction({
@@ -112,7 +112,7 @@ export default async function ({ params }: Props) {
   return (
     <div>
       <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[40dvh] min-h-[140dvh]  w-full items-center justify-center py-[calc(var(--main-header-height))] xl:px-6'>
-        <Container classNames='mt-4 relative  '>
+        <Container classNames='mt-4 relative'>
           <BreadCrumbsArticle title={titleArticle} />
           <HeroArticle
             author={articlesBySlug?.post.author?.node.name ?? ''}
