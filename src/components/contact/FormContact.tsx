@@ -13,6 +13,7 @@ import { getCookie } from 'cookies-next'
 import { useRef, useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import { ModalContact } from '@/components/contact/ModalContact'
+import { AnimatedTitle } from '@/components/AnimatedTitle'
 
 const durationSuccessModal = 5000
 const durationErrorModal = 5000
@@ -65,7 +66,15 @@ export const FormContact = () => {
   }
 
   return (
-    <div>
+    <>
+      {/* <h2 className='mb-8 text-center font-normal text-primary'>
+        Respira, Relájate y Escríbeme
+      </h2> */}
+      <AnimatedTitle
+        classNamesTitle='text-primary lg:text-6xl'
+        classNamesContainer='text-center font-normal text-primary pb-2'
+        text='Respira, Relájate y Escríbeme'
+      />
       <AnimatePresence initial={false}>
         {modal === 'error' && (
           <ModalContact
@@ -100,11 +109,8 @@ export const FormContact = () => {
       <form
         onSubmit={handleSubmit(handleForm)}
         id='contact-form'
-        className='mx-auto h-3/4 w-full p-6 xl:mt-0 round'
+        className='mx-auto h-3/4 p-6 xl:mt-0 round w-[min(100%,672px)]'
       >
-        <h2 className='mb-8 text-center font-normal text-primary'>
-          Respira, Relájate y Escríbeme
-        </h2>
         <input
           type='text'
           autoComplete='off'
@@ -231,6 +237,6 @@ export const FormContact = () => {
           </div>
         </div>
       </form>
-    </div>
+    </>
   )
 }

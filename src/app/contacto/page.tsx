@@ -43,7 +43,7 @@ export default function ContactPage() {
   return (
     <section className='min-h-screen bg-white py-[calc(var(--main-header-height)+2rem)] shadow-y-section xl:pt-[calc(25dvh-var(--main-header-height))]'>
       <Container>
-        <div className='max-xl:space-y-8 xl:flex xl:gap-4 xl:px-4'>
+        <div className='flex flex-col gap-8 xl:gap-4 xl:flex-row xl:px-4'>
           <div className='relative !leading-[1.125] xl:w-1/2'>
             <VerticalHeading />
             <div className='absolute -bottom-6 left-1/2 z-10 w-full -translate-x-1/2 text-center sm:bottom-0'>
@@ -59,7 +59,7 @@ export default function ContactPage() {
               <ImageContact />
             </div>
           </div>
-          <div className='w-full max-w-2xl rounded-md max-xl:mx-auto xl:flex xl:w-1/2 xl:items-center xl:justify-center'>
+          <div className=' xl:w-1/2 '>
             <FormContact />
           </div>
         </div>
