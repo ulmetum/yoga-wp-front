@@ -8,6 +8,7 @@ import { ScrollLayout } from '@/layouts/ScrollLayout'
 import { ScrollTop } from '@/components/ScrollTop'
 import { FRONTEND_BASE_URL } from '@/config'
 import { MagneticButton } from '@/components/MagneticButton'
+import { PageWrapperLayout } from '@/layouts/PageWrapperLayout'
 
 export const metadata: Metadata = {
   metadataBase: new URL(FRONTEND_BASE_URL!),
@@ -33,12 +34,14 @@ export default function RootLayout({
           className={`${fontHeadings.variable} ${fontBody.variable} antialiased `}
         >
           <ScrollLayout>
-            <MainHeader />
-            <main>
-              {children}
-              <MagneticButton size='sm' />
-            </main>
-            <MainFooter />
+            <PageWrapperLayout>
+              <MainHeader />
+              <main>
+                {children}
+                <MagneticButton size='sm' />
+              </main>
+              <MainFooter />
+            </PageWrapperLayout>
           </ScrollLayout>
         </body>
       </html>

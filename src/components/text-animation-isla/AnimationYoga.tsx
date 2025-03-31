@@ -39,39 +39,3 @@ export const AnimationYoga = ({
     </div>
   )
 }
-
-// 'use client'
-
-// import { cn } from '@/utils/mergeClass'
-// import { motion } from 'motion/react'
-
-// export const AnimationText = ({
-//   text,
-//   classNames,
-// }: {
-//   text: string
-//   classNames?: string
-// }) => {
-//   return (
-//     <div className={cn('overflow-hidden', classNames)}>
-//       {text.split('').map((char, index) => {
-//         const even = index % 2 === 0
-//         return (
-//           <motion.span
-//             animate={{ y: even ? 100 : -100 }}
-//             transition={{
-//               duration: 1,
-//               repeatDelay: 1,
-//               repeat: Infinity,
-//               repeatType: 'reverse',
-//             }}
-//             key={index}
-//             className='inline-block w-9 text-7xl uppercase font-headings text-center'
-//           >
-//             {char}
-//           </motion.span>
-//         )
-//       })}
-//     </div>
-//   )
-// }
