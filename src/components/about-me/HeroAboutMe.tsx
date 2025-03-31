@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { CopyClipboard } from '@/components/footer/CopyClipboard'
 import { BfgImgAboutMe } from '@/components/about-me/BgImgAboutMe'
 import { MenuIcons } from '@/components/MenuIcons'
-import { AnimatedSentence } from '@/components/AnimatedSentence'
+import { AnimatedTitle } from '@/components/AnimatedTitle'
 
 export const HeroAboutMe = () => {
   return (
@@ -13,7 +13,7 @@ export const HeroAboutMe = () => {
         <h4 className='text-[1.4rem] text-primary m-0'>Bienvenid@s</h4>
         <div className='w-[min(90%,1280px)] lg:mx-auto lg:flex lg:items-center lg:gap-8'>
           <div className='w-[min(90%,600px)] lg:w-2/3'>
-            <AnimatedSentence
+            <AnimatedTitle
               classNames='pb-4'
               text='Míriam R. Vázquez'
             />
