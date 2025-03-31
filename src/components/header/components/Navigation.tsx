@@ -3,7 +3,9 @@
 import { GetMainMenuQuery } from '@/gql/graphql'
 import { cn } from '@/utils/mergeClass'
 import { motion } from 'motion/react'
-import { Link } from 'next-view-transitions'
+import { useTransitionRouter } from 'next-view-transitions'
+import Link from 'next/link'
+// import { Link } from 'next-view-transitions'
 import { usePathname } from 'next/navigation'
 
 interface Props {
@@ -18,20 +20,64 @@ export const nonArticlePaths = [
   '/servicios/',
 ]
 
+const pageAnimation = () => {
+  document.documentElement.animate(
+    [
+      {
+        opacity: 1,
+        scale: 1,
+        transform: 'translateY(0)',
+      },
+      {
+        opacity: 0.5,
+        scale: 0.9,
+        transform: 'translateY(-200px)',
+      },
+    ],
+    {
+      duration: 1000,
+      easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      fill: 'forwards',
+      pseudoElement: '::view-transition-old(root)',
+    }
+  )
+
+  document.documentElement.animate(
+    [
+      {
+        clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
+        scale: 0.9,
+        transform: 'translateY(50px)',
+      },
+      {
+        clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+        scale: 1,
+        transform: 'translateY(0px)',
+      },
+    ],
+    {
+      duration: 1000,
+      easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      fill: 'forwards',
+      pseudoElement: '::view-transition-new(root)',
+    }
+  )
+}
+
 export const Navigation = ({ data }: Props) => {
   const pathname = usePathname()
+  const router = useTransitionRouter()
   // Se elimina la barra final menos en el caso del Inicio
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
-
   const isPageArticle = !nonArticlePaths.includes(currentPath)
-  // console.log({ isPageArticle })
+
   return (
     <nav>
       <ul className='container mx-auto flex items-center justify-center capitalize text-gray-600 dark:text-gray-300'>
         {data?.menuItems?.edges.map((item) => {
           const isActive = item.node.path === currentPath
+          const url = item.node.path!
 
-          // console.log({ path: item.node.path, currentPath })
           return (
             <motion.li
               key={item.node.id}
@@ -52,7 +98,17 @@ export const Navigation = ({ data }: Props) => {
                 }}
                 transition={{ duration: 0.75, type: 'spring', bounce: 0.5 }}
               >
-                <Link href={item.node.path!}>{item.node.label}</Link>
+                <Link
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push(url, {
+                      onTransitionReady: pageAnimation,
+                    })
+                  }}
+                  href={url}
+                >
+                  {item.node.label}
+                </Link>
               </motion.div>
               <motion.div
                 className={`absolute inset-0 font-headings uppercase text-primary sm:text-xl`}
@@ -62,7 +118,17 @@ export const Navigation = ({ data }: Props) => {
                 }}
                 transition={{ duration: 0.75, type: 'spring', bounce: 0.5 }}
               >
-                <Link href={item.node.path!}>{item.node.label}</Link>
+                <Link
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push(url, {
+                      onTransitionReady: pageAnimation,
+                    })
+                  }}
+                  href={url}
+                >
+                  {item.node.label}
+                </Link>
               </motion.div>
             </motion.li>
           )
