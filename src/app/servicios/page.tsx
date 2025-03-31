@@ -1,3 +1,4 @@
+import { AnimatedTitle } from '@/components/AnimatedTitle'
 import { Container } from '@/components/Container'
 import { OurServices } from '@/components/services/OurServices'
 import { TimeTable } from '@/components/services/TimeTable'
@@ -45,8 +46,13 @@ export default function Page() {
     <div className='bg-white pt-[calc(var(--main-header-height))] shadow-y-section '>
       <Container classNames='space-y-8'>
         <section className='mx-2 flex min-h-screen flex-col items-center justify-center'>
+          <AnimatedTitle
+            classNamesContainer='flex justify-center mt-20 '
+            text='Estos son mis servicios'
+            classNamesTitle='capitalize pb-4 '
+          />
           <div className='schedule mb-8'>
-            <h2 className='mb-8 text-center font-normal'>Horarios de clases</h2>
+            <h2 className='mb-8 text-center'>Horarios de clases</h2>
             <p>
               Consulta nuestros horarios detallados y selecciona el que mejor se
               ajuste a tus necesidades. Contamos con sesiones regulares durante
@@ -64,9 +70,7 @@ export default function Page() {
         </section>
         <section className='mx-2 flex min-h-screen flex-col items-center justify-center'>
           <div className='prices mb-12'>
-            <h2 className='my-12 text-center font-normal xl:mt-0'>
-              Precios / Servicios
-            </h2>
+            <h2 className='my-12 text-center xl:mt-0'>Precios / Servicios</h2>
             <p>
               Ofrecemos diferentes modalidades para que adaptes tu práctica de
               yoga a tu estilo de vida: clases presenciales para profundizar en

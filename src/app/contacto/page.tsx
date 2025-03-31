@@ -1,3 +1,4 @@
+import { AnimatedTitle } from '@/components/AnimatedTitle'
 import { FormContact } from '@/components/contact/FormContact'
 import { ImageContact } from '@/components/contact/ImageContact'
 import { VerticalHeading } from '@/components/contact/VerticalHeading'
@@ -43,6 +44,11 @@ export default function ContactPage() {
   return (
     <section className='min-h-screen bg-white py-[calc(var(--main-header-height)+2rem)] shadow-y-section xl:pt-[calc(25dvh-var(--main-header-height))]'>
       <Container>
+        <AnimatedTitle
+          classNamesTitle='pb-2'
+          classNamesContainer='text-center   '
+          text='Respira, Relájate y Escríbeme'
+        />
         <div className='flex flex-col gap-8 xl:gap-4 xl:flex-row xl:px-4'>
           <div className='relative !leading-[1.125] xl:w-1/2'>
             <VerticalHeading />
@@ -59,7 +65,7 @@ export default function ContactPage() {
               <ImageContact />
             </div>
           </div>
-          <div className=' xl:w-1/2 '>
+          <div className='flex items-center justify-center xl:w-1/2 '>
             <FormContact />
           </div>
         </div>

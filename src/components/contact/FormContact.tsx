@@ -67,14 +67,6 @@ export const FormContact = () => {
 
   return (
     <>
-      {/* <h2 className='mb-8 text-center font-normal text-primary'>
-        Respira, Relájate y Escríbeme
-      </h2> */}
-      <AnimatedTitle
-        classNamesTitle='text-primary lg:text-6xl'
-        classNamesContainer='text-center font-normal text-primary pb-2'
-        text='Respira, Relájate y Escríbeme'
-      />
       <AnimatePresence initial={false}>
         {modal === 'error' && (
           <ModalContact

@@ -13,27 +13,29 @@ export const AnimatedTitle = ({
   classNamesTitle?: string
 }) => {
   return (
-    <div className='mb-6'>
-      <h1
-        className={cn('mb-0 overflow-hidden leading-none', classNamesContainer)}
-      >
+    <div className={cn('mb-6', classNamesContainer)}>
+      <h1 className='mb-0 overflow-hidden leading-none'>
         {text.split(' ').map((word, index) => (
-          <motion.span
+          <span
             key={index}
-            initial={{ y: '115%' }}
-            animate={{ y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.5 + index * 0.1,
-              ease: [0.83, 0, 0.17, 1],
-            }}
-            className={cn(
-              'font-headings font-bold text-4xl sm:text-5xl inline-block mr-4',
-              classNamesTitle
-            )}
+            className='inline-block overflow-hidden '
           >
-            {word}
-          </motion.span>
+            <motion.span
+              initial={{ y: '115%' }}
+              animate={{ y: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.5 + index * 0.1,
+                ease: [0.83, 0, 0.17, 1],
+              }}
+              className={cn(
+                'font-headings  font-normal text-3xl sm:text-5xl md:text-6xl xl:text-7xl lg:text-6xl inline-block',
+                classNamesTitle
+              )}
+            >
+              {word}&nbsp;
+            </motion.span>
+          </span>
         ))}
       </h1>
     </div>
