@@ -93,7 +93,7 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
       <Link
         onClick={(e) => {
           e.preventDefault()
-          router.push(`/${prevUrlArticle}`, {
+          router.push(`/${nextUrlArticle}`, {
             onTransitionReady: pageAnimation,
           })
         }}
