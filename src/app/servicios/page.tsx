@@ -48,7 +48,7 @@ export default function Page() {
         <section className='mx-2 flex min-h-screen flex-col items-center justify-center'>
           <AnimatedTitle
             classNamesContainer='flex justify-center mt-20 '
-            text='Estos son mis servicios'
+            text='El Bienestar a tu Alcance'
             classNamesTitle='capitalize pb-4 '
           />
           <div className='schedule mb-8'>
