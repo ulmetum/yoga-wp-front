@@ -25,10 +25,10 @@ export const FeaturedImageArticle = ({ author, image, title }: Props) => {
       }}
       transition={{
         duration: 1,
-        delay: 0.5,
+        delay: 0.65,
         type: 'spring',
         bounce: 0.55,
-        opacity: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+        opacity: { delay: 0.65, duration: 0.5, ease: 'easeInOut' },
       }}
       className=' [--translate-y-from:-50px] [--translate-y-to:0px] xl:[--translate-y-from:0px] xl:[--translate-x-from:-50px] xl:[--translate-x-to:0px] container-image h-[400px] relative w-[min(100%,900px)] border-shadow'
     >
