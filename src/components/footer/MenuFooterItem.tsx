@@ -1,12 +1,13 @@
 'use client'
 
-import { Link } from 'next-view-transitions'
-
+import { useTransitionRouter } from 'next-view-transitions'
 import { MenuItem } from '@/interfaces/main-menu.interface'
 import { motion } from 'motion/react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/utils/mergeClass'
 import { nonArticlePaths } from '@/components/header/components/Navigation'
+import { pageAnimation } from '@/utils/animations'
+import Link from 'next/link'
 
 interface Props {
   item: MenuItem
@@ -14,14 +15,21 @@ interface Props {
 
 export const FooterMenuItem = ({ item }: Props) => {
   const pathname = usePathname()
+  const router = useTransitionRouter()
+  const url = item.node.path!
 
   const currentPath = pathname === '/' ? pathname : `${pathname}/`
   const isPageArticle = !nonArticlePaths.includes(currentPath)
   const isActive = item.node.path === currentPath
   return (
     <Link
-      href={item.node.path ?? '#'}
-      key={item.node.id}
+      href={url}
+      onClick={(e) => {
+        e.preventDefault()
+        router.push(url, {
+          onTransitionReady: pageAnimation,
+        })
+      }}
       className={cn('', {
         'pointer-events-none':
           isActive || (item.node.label === 'Blog' && isPageArticle),
@@ -34,11 +42,6 @@ export const FooterMenuItem = ({ item }: Props) => {
         animate='rest'
       >
         {item.node.label?.split('').map((char: string, i: number) => {
-          // console.log({
-          //   // isActive,
-          //   item: item.node.label,
-          //   isPageArticle,
-          // })
           return (
             <motion.span
               className={cn('font-headings text-3xl font-light md:text-4xl  ', {

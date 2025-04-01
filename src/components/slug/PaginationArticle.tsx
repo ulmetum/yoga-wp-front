@@ -1,11 +1,14 @@
 'use client'
 
+import Image from 'next/image'
+import Link from 'next/link'
+
 import { GetArticleByIdQuery } from '@/gql/graphql'
 import { useMouseParallax } from '@/hooks/useMouseParallax'
 import { AnimatePresence, motion } from 'motion/react'
-import Image from 'next/image'
-import { Link } from 'next-view-transitions'
 import { MouseEvent } from 'react'
+import { useTransitionRouter } from 'next-view-transitions'
+import { pageAnimation } from '@/utils/animations'
 
 interface Props {
   nextArticle: GetArticleByIdQuery | null | undefined
@@ -13,6 +16,8 @@ interface Props {
 }
 
 export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
+  const router = useTransitionRouter()
+
   const {
     mousePosition,
     hoveredImage,
@@ -31,6 +36,12 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
   return (
     <div className='space-y-8 border-t mt-24 px-4 py-16 text-center font-headings text-amber-900 lg:flex lg:items-center lg:justify-between lg:space-y-0'>
       <Link
+        onClick={(e) => {
+          e.preventDefault()
+          router.push(`/${prevUrlArticle}`, {
+            onTransitionReady: pageAnimation,
+          })
+        }}
         href={`/${prevUrlArticle}`}
         className='relative mx-auto flex justify-center text-center lg:mx-0 lg:w-1/2'
       >
@@ -80,6 +91,12 @@ export const PaginationArticle = ({ nextArticle, prevArticle }: Props) => {
         </motion.h4>
       </Link>
       <Link
+        onClick={(e) => {
+          e.preventDefault()
+          router.push(`/${prevUrlArticle}`, {
+            onTransitionReady: pageAnimation,
+          })
+        }}
         href={`/${nextUrlArticle}`}
         className='relative mx-auto flex justify-center text-center lg:mx-0 lg:w-1/2'
       >
