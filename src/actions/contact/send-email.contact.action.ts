@@ -34,7 +34,7 @@ export async function sendEmailContactAction(data: formContact) {
     //     website: 'laisladelyoga.com',
     //   },
     // })
-    throw new Error('Error al enviar el correo')
+    // throw new Error('Error al enviar el correo')
 
     return { success: true, name: data.name }
   } catch (error) {
