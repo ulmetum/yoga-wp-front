@@ -2,9 +2,9 @@ import Image from 'next/image'
 
 export const BfgImgAboutMe = () => {
   return (
-    <div>
+    <div className='relative h-full w-full'>
       <Image
-        className=' absolute left-[2.5%] top-[2.5%] h-[95%] w-[95%] -scale-x-100 object-cover blur-md grayscale-[55%] '
+        className='absolute left-[2.5%] top-[2.5%] h-[95%] w-[95%] -scale-x-100 object-cover blur-md grayscale-[55%] '
         src='/images/perfil.webp'
         priority
         alt='Perfil'

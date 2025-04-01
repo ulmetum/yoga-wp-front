@@ -4,10 +4,11 @@ import { CopyClipboard } from '@/components/footer/CopyClipboard'
 import { BfgImgAboutMe } from '@/components/about-me/BgImgAboutMe'
 import { MenuIcons } from '@/components/MenuIcons'
 import { AnimatedTitle } from '@/components/AnimatedTitle'
+import { TiltShineCard } from '../TiltShineCard'
 
 export const HeroAboutMe = () => {
   return (
-    <div>
+    <div className='w-full h-screen'>
       <BfgImgAboutMe />
       <div className='hero-about-me-inner absolute left-1/2 top-0 z-10 flex min-h-[100dvh] w-[min(100%,1280px)] -translate-x-1/2 flex-col justify-between px-2 py-4 pt-[calc(var(--main-header-height)+2rem)]'>
         <h4 className='text-[1.4rem] text-primary m-0'>Bienvenid@s</h4>
@@ -26,7 +27,7 @@ export const HeroAboutMe = () => {
               una vida plena y significativa.
             </p>
           </div>
-          <div className='image bottom-4 right-2 h-[300px] w-1/2 overflow-hidden rounded-md shadow-md max-lg:absolute max-[450px]:hidden md:w-[min(100%,350px)] lg:block lg:h-[450px] lg:w-1/3'>
+          {/* <div className='image bottom-4 right-2 h-[300px] w-1/2 overflow-hidden rounded-md shadow-md max-lg:absolute max-[450px]:hidden md:w-[min(100%,350px)] lg:block lg:h-[450px] lg:w-1/3'>
             <Image
               className='relative h-full w-full -scale-x-100 rounded-md object-cover grayscale-[55%]'
               src='/images/perfil.webp'
@@ -35,7 +36,12 @@ export const HeroAboutMe = () => {
               width={300}
               height={600}
             />
-          </div>
+          </div> */}
+          <TiltShineCard
+            classNamesContainer='max-md:hidden max-lg:absolute bottom-4 right-4 '
+            classNamesInner='w-60 lg:w-80'
+            src='/images/perfil.webp'
+          />
         </div>
         <div className='mail-networks mx-6 mb-32 md:mb-16 lg:mx-2 lg:mb-32'>
           <div className='w-[max-content] origin-left rotate-90'>
