@@ -49,7 +49,7 @@ export default function Page() {
           <AnimatedTitle
             classNamesContainer='flex justify-center mt-20 '
             text='El Bienestar a tu Alcance'
-            classNamesTitle='capitalize pb-4 '
+            classNamesTitle='capitalize xl:text-8xl pb-4 '
           />
           <div className='schedule mb-8'>
             <h2 className='mb-8 text-center'>Horarios de clases</h2>

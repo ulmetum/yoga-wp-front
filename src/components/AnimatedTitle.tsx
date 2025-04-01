@@ -29,7 +29,7 @@ export const AnimatedTitle = ({
                 ease: [0.83, 0, 0.17, 1],
               }}
               className={cn(
-                'font-headings  font-normal text-3xl sm:text-5xl md:text-6xl xl:text-7xl lg:text-6xl inline-block',
+                'font-headings  font-normal text-3xl sm:text-5xl md:text-6xl xl:text-7xl  inline-block',
                 classNamesTitle
               )}
             >

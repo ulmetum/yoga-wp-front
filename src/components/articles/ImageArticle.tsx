@@ -37,6 +37,7 @@ export const ImageArticle = ({ srcUrl, title }: Props) => {
           src={srcUrl || '/images/placeholder.webp'}
           alt={title}
           fill
+          priority
         />
       </div>
     </div>

@@ -23,13 +23,6 @@ export default {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1440px',
-        'max-sm': '(max-width: 639px)', // En lugar de usar defaultTheme.screens.sm
-        'max-md': '(max-width: 767px)',
-        'max-lg': '(max-width: 1023px)',
-        'max-xl': '(max-width: 1279px)',
-        'max-2xl': '(max-width: 1439px)',
-        'landscape-sm': '(max-width: 667px) and (orientation: landscape)',
-        'landscape-xl': '(max-width: 910px) and (orientation: landscape)',
       },
       boxShadow: {
         'b-section': '0px 10px 20px -20px var(--dark)',
@@ -66,5 +59,26 @@ export default {
       },
     },
   },
-  plugins: [containerQueries],
+  plugins: [
+    containerQueries,
+    function ({
+      addVariant,
+    }: {
+      addVariant: (name: string, rule: string) => void
+    }) {
+      addVariant('max-sm', '@media (max-width: 639px)')
+      addVariant('max-md', '@media (max-width: 767px)')
+      addVariant('max-lg', '@media (max-width: 1023px)')
+      addVariant('max-xl', '@media (max-width: 1279px)')
+      addVariant('max-2xl', '@media (max-width: 1439px)')
+      addVariant(
+        'landscape-sm',
+        '@media (max-width: 667px) and (orientation: landscape)'
+      )
+      addVariant(
+        'landscape-xl',
+        '@media (max-width: 910px) and (orientation: landscape)'
+      )
+    },
+  ],
 } satisfies Config

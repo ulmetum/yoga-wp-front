@@ -45,7 +45,7 @@ export default function ContactPage() {
     <section className='min-h-screen bg-white py-[calc(var(--main-header-height)+2rem)] shadow-y-section xl:pt-[calc(25dvh-var(--main-header-height))]'>
       <Container>
         <AnimatedTitle
-          classNamesTitle='pb-2'
+          classNamesTitle='pb-2 xl:text-8xl'
           classNamesContainer='text-center   '
           text='Respira, Relájate y Escríbeme'
         />

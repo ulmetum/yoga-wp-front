@@ -14,7 +14,7 @@ export const HeroAboutMe = () => {
         <div className='w-[min(90%,1280px)] lg:mx-auto lg:flex lg:items-center lg:gap-8'>
           <div className='w-[min(90%,600px)] lg:w-2/3'>
             <AnimatedTitle
-              classNamesTitle='lg:text-7xl pb-4'
+              classNamesTitle='xl:text-8xl pb-4'
               text='Míriam R. Vázquez'
             />
             <p className='leading-normal sm:text-[1.35rem] lg:text-2xl'>
