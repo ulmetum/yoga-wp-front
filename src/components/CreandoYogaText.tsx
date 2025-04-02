@@ -8,7 +8,7 @@ export const CreandoYogaText = () => {
     <Link
       href='https://creandoyoga.com'
       target='_blank'
-      data-customtooltip='Haz clic para acceder a la escuela online!'
+      data-customtooltip='¡Haz clic para acceder a la escuela online!'
       id='creando-yoga'
       className='tooltip transition-all'
     >
@@ -18,7 +18,7 @@ export const CreandoYogaText = () => {
       >
         <div className='top'>
           <span className='font-heading'>
-            Haz clic para acceder a la escuela online!
+            ¡Haz clic para acceder a la escuela online!
           </span>
           <i></i>
         </div>
