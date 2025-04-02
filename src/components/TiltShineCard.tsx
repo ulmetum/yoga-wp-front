@@ -76,14 +76,18 @@ export const TiltShineCard = ({
         onMouseLeave={handleMouseLeave}
         style={{
           transform,
-          backgroundImage: `url(${src})`,
-          backgroundSize: 'cover',
         }}
         className={cn(
-          'aspect-[9/13] shadow-2xl shadow-zinc-950',
+          'aspect-[9/12] shadow-2xl shadow-zinc-950',
           classNamesInner
         )}
       >
+        <div
+          style={{
+            backgroundImage: `url(${src})`,
+          }}
+          className='w-full h-full [transform:rotateY(-180deg)] grayscale-[55%] bg-cover bg-no-repeat'
+        ></div>
         <motion.div
           style={{
             opacity: sheenOpacity,
