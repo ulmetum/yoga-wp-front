@@ -45,7 +45,7 @@ export default {
       animation: {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
-        fadeIn: 'fadeIn 1.5s ease-in-out forwards',
+        fadeIn: 'fadeIn 1.2s ease-in-out forwards',
       },
       keyframes: {
         marquee: {
