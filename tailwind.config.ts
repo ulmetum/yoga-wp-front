@@ -46,6 +46,7 @@ export default {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
         fadeIn: 'fadeIn 1.2s ease-in-out forwards',
+        slideInUp: 'slide-in-up .75s cubic-bezier(0.83, 0, 0.17, 1) forwards',
       },
       keyframes: {
         marquee: {
@@ -59,6 +60,14 @@ export default {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        'slide-in-up': {
+          '0%': {
+            transform: 'translateY(100%)',
+          },
+          '100%': {
+            transform: 'translateY(0%)',
+          },
         },
       },
     },
