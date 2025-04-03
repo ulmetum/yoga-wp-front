@@ -53,7 +53,9 @@ export default function Page() {
             classNamesTitle='capitalize xl:text-8xl pb-4 '
           />
           <div className='schedule mb-8'>
-            <h2 className='mb-8 text-center'>Horarios de clases</h2>{' '}
+            <h2 className='opacity-0 fade-in custom-delay-1000 custom mb-8 text-center'>
+              Horarios de clases
+            </h2>{' '}
             <p>
               Consulta nuestros horarios detallados y selecciona el que mejor se
               ajuste a tus necesidades. Contamos con sesiones regulares durante

@@ -104,6 +104,27 @@
 }
 
 @layer utilities {
+  .custom-delay-300 {
+    --delay: 300ms;
+  }
+  .custom-delay-500 {
+    --delay: 500ms;
+  }
+  .custom-delay-1000 {
+    --delay: 1000ms;
+  }
+  .custom-delay-2000 {
+    --delay: 2000ms;
+  }
+
+  .fade-in {
+    @apply animate-fadeIn; /* Aplica la animación fadeIn */
+    animation-delay: var(
+      --delay,
+      0ms
+    ); /* Usar una variable CSS para el delay */
+  }
+
   /* Inicio gutenberg */
 
   .wp-block-media-text {

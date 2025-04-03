@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss'
 import containerQueries from '@tailwindcss/container-queries'
-import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
   content: [
@@ -46,6 +45,7 @@ export default {
       animation: {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
+        fadeIn: 'fadeIn 1.5s ease-in-out forwards',
       },
       keyframes: {
         marquee: {
@@ -55,6 +55,10 @@ export default {
         marquee2: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
       },
     },
