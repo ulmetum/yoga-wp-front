@@ -10,11 +10,11 @@ export const CustomError = ({
   return (
     <div
       className={cn(
-        `relative z-[9999] min-h-[50vh] flex flex-col items-center justify-center space-y-4 `,
+        `relative z-[9999] flex flex-col items-center justify-center space-y-4 `,
         classNames
       )}
     >
-      <h2>Algo no fue del todo bien...</h2>
+      <h2 className='my-0'>Algo no fue del todo bien...</h2>
       <p className='text-primary'>{error}</p>
     </div>
   )
