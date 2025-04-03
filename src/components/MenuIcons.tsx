@@ -22,6 +22,7 @@ export const MenuIcons = ({
         title='Spotify'
         href='#'
         target='_blank'
+        rel='noreferrer noopener'
       >
         <Spotify
           color={color}
@@ -30,6 +31,7 @@ export const MenuIcons = ({
       </Link>
       <Link
         target='_blank'
+        rel='noreferrer noopener'
         title='Instagram'
         href='#'
       >
@@ -40,6 +42,7 @@ export const MenuIcons = ({
       </Link>
       <Link
         target='_blank'
+        rel='noreferrer noopener'
         title='TikTok'
         href='#'
       >
@@ -50,6 +53,7 @@ export const MenuIcons = ({
       </Link>
       <Link
         target='_blank'
+        rel='noreferrer noopener'
         title='Youtube'
         href='#'
       >
