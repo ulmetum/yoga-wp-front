@@ -25,7 +25,7 @@ export const AnimatedTitle = ({
               animate={{ y: 0 }}
               transition={{
                 duration: 1,
-                delay: 0.5 + index * 0.1,
+                delay: 0.35 + index * 0.1,
                 ease: [0.83, 0, 0.17, 1],
               }}
               className={cn(
