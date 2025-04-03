@@ -104,45 +104,6 @@
 }
 
 @layer utilities {
-  .custom-delay-300 {
-    --delay: 300ms;
-  }
-  .custom-delay-500 {
-    --delay: 500ms;
-  }
-  .custom-delay-600 {
-    --delay: 600ms;
-  }
-  .custom-delay-700 {
-    --delay: 700ms;
-  }
-  .custom-delay-800 {
-    --delay: 800ms;
-  }
-  .custom-delay-900 {
-    --delay: 900ms;
-  }
-  .custom-delay-1000 {
-    --delay: 1000ms;
-  }
-  .custom-delay-1100 {
-    --delay: 1100ms;
-  }
-
-  .custom-delay-1200 {
-    --delay: 1200ms;
-  }
-  .custom-delay-1300 {
-    --delay: 1300ms;
-  }
-  .custom-delay-1400 {
-    --delay: 1400ms;
-  }
-
-  .fade-in {
-    @apply animate-fadeIn;
-    animation-delay: var(--delay, 0ms);
-  }
   /* Inicio gutenberg */
 
   .wp-block-media-text {
