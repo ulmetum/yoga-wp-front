@@ -5,7 +5,12 @@ import { FooterMenuItem } from '@/components/footer/MenuFooterItem'
 export const MenuFooter = async () => {
   const { data, error } = await getMainMenuAction()
   if (error) {
-    return <CustomError error={error} />
+    return (
+      <CustomError
+        classNames=''
+        error={error}
+      />
+    )
   }
 
   const menuItems = data?.menuItems?.edges
