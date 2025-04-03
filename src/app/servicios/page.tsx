@@ -1,8 +1,9 @@
+import { Metadata } from 'next'
+
 import { AnimatedTitle } from '@/components/AnimatedTitle'
 import { Container } from '@/components/Container'
 import { OurServices } from '@/components/services/OurServices'
 import { TimeTable } from '@/components/services/TimeTable'
-import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title:
@@ -52,7 +53,7 @@ export default function Page() {
             classNamesTitle='capitalize xl:text-8xl pb-4 '
           />
           <div className='schedule mb-8'>
-            <h2 className='mb-8 text-center'>Horarios de clases</h2>
+            <h2 className='mb-8 text-center'>Horarios de clases</h2>{' '}
             <p>
               Consulta nuestros horarios detallados y selecciona el que mejor se
               ajuste a tus necesidades. Contamos con sesiones regulares durante
@@ -89,6 +90,7 @@ export default function Page() {
             href='https://thenounproject.com/creator/AliceNoir/'
             target='_blank'
             title='iconos'
+            rel='noreferrer noopener'
           >
             Noun Project
           </a>{' '}
