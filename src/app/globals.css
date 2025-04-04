@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-body: 'Ubuntu ';
+  --font-body: 'Ubuntu';
   --font-heading: 'Oswald';
   --font-hand: 'Shadows Into Light';
   --main-header-height: 6rem;
