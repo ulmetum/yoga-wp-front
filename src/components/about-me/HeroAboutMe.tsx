@@ -1,4 +1,4 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 
 import { CopyClipboard } from '@/components/footer/CopyClipboard'
 import { BfgImgAboutMe } from '@/components/about-me/BgImgAboutMe'
