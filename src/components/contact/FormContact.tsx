@@ -13,7 +13,7 @@ import { getCookie } from 'cookies-next'
 import { useRef, useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import { ModalContact } from '@/components/contact/ModalContact'
-import { AnimatedTitle } from '@/components/AnimatedTitle'
+// import { AnimatedTitle } from '@/components/AnimatedTitle'
 
 const durationSuccessModal = 5000
 const durationErrorModal = 5000
