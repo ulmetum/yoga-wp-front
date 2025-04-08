@@ -13,7 +13,8 @@ export const useHidden = () => {
 
   useMotionValueEvent(scrollY, 'change', (y) => {
     const difference = y - lastYRef.current
-    if (Math.abs(difference) > 50) {
+    // if (Math.abs(difference) > 50) {
+    if (difference > 50 || difference < -50) {
       setIsHidden(difference > 0)
       lastYRef.current = y
     }
