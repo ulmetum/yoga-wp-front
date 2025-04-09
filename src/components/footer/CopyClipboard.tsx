@@ -56,7 +56,7 @@ export const CopyClipboard = ({ color = 'light' }: Props) => {
           isVisible === 'copied' && 'duration-[.35s] -translate-y-[200%]'
         )}
       >
-        descubriendolosastros@gmail.com
+        laisladelyoga@gmail.com
       </p>
 
       <p

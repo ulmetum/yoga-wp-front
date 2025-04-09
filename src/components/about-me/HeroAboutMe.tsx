@@ -27,16 +27,6 @@ export const HeroAboutMe = () => {
               una vida plena y significativa.
             </p>
           </div>
-          {/* <div className='image bottom-4 right-2 h-[300px] w-1/2 overflow-hidden rounded-md shadow-md max-lg:absolute max-[450px]:hidden md:w-[min(100%,350px)] lg:block lg:h-[450px] lg:w-1/3'>
-            <Image
-              className='relative h-full w-full -scale-x-100 rounded-md object-cover grayscale-[55%]'
-              src='/images/perfil.webp'
-              priority
-              alt='Perfil'
-              width={300}
-              height={600}
-            />
-          </div> */}
           <TiltShineCard
             classNamesContainer='max-md:hidden max-lg:absolute bottom-4 right-4 '
             classNamesInner='w-60 lg:w-80'
