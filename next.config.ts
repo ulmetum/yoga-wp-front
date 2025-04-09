@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         protocol: 'http', // También puedes permitir localhost si es necesario
         hostname: 'localhost',
       },
+      {
+        protocol: 'https', // Si usas https en local (aunque Local by Flywheel generalmente usa http)
+        hostname: 'laisladelyoga.com',
+      },
     ],
   },
 }

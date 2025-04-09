@@ -29,12 +29,12 @@ export async function PUT(request: NextRequest) {
   // console.log('Authorization header:', authorizationHeader)
 
   if (authorizationHeader !== `Bearer ${REVALIDATE_SECRET_KEY}`) {
-    console.error(`Invalid token: ${authorizationHeader}`)
+    // console.error(`Invalid token: ${authorizationHeader}`)
     return new Response(`Invalid token`, { status: STATUS_CODES.UNAUTHORIZED })
   }
 
   if (!paths && !tags) {
-    console.error(`Precondition Failed: Missing paths and tags`)
+    // console.error(`Precondition Failed: Missing paths and tags`)
     return new Response(`Precondition Failed: Missing paths and tags`, {
       status: STATUS_CODES.PRECONDITION_FAILED,
     })
@@ -91,7 +91,7 @@ export async function PUT(request: NextRequest) {
     } else {
       message = 'An error occurred'
     }
-    console.error('Revalidation error:', message)
+    // console.error('Revalidation error:', message)
     return new Response(message, {
       status: STATUS_CODES.INTERNAL_SERVER_ERROR,
     })

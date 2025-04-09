@@ -52,7 +52,7 @@ export const sendEmail = async ({
 
     return response
   } catch (error) {
-    console.error('Error al enviar el correo:', error)
+    // console.error('Error al enviar el correo:', error)
 
     if (error instanceof Error) {
       throw new Error(`Fallo al enviar el correo: ${error.message}`)

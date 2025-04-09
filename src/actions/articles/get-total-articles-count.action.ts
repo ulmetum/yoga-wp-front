@@ -23,7 +23,7 @@ export const getTotalArticlesCounttAction = async ({
 
     return { data: totalArticles, error: null }
   } catch (error) {
-    console.log({ error })
+    // console.log({ error })
     return { data: null, error: errorMessages[typeError] }
   }
 }

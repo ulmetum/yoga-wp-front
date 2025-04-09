@@ -38,7 +38,7 @@ export async function sendEmailContactAction(data: formContact) {
 
     return { success: true, name: data.name }
   } catch (error) {
-    console.log({ error })
+    // console.log({ error })
     return { success: false, name: 'No hay nombre' }
   }
 }

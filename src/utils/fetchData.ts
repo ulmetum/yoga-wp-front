@@ -16,7 +16,7 @@ export const fetchData = async <T>({
     const data = await request<T>({ url, document: query, variables })
     return { data, error: null }
   } catch (error) {
-    console.error({ error })
+    // console.error({ error })
 
     return { data: null, error: errorMessages[errorType] }
   }

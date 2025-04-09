@@ -109,6 +109,8 @@ export default async function SlugPage({ params }: Props) {
   const nextArticle = nextPrevArticles?.nextArticle
   const prevArticle = nextPrevArticles?.prevArticle
 
+  console.log({ image: articlesBySlug.post.featuredImage.node.sourceUrl })
+
   return (
     <div>
       <section className='section-top sticky left-0 xl:top-0 flex xl:min-h-screen -top-[40dvh] min-h-[140dvh]  w-full items-center justify-center py-[calc(var(--main-header-height))] xl:px-6'>
