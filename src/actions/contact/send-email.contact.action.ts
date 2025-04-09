@@ -1,6 +1,6 @@
 'use server'
 
-// import { sendEmail } from '@/utils/brevo'
+import { sendEmail } from '@/utils/brevo'
 import {
   formContact,
   formContactSchema,
@@ -25,15 +25,15 @@ export async function sendEmailContactAction(data: formContact) {
   }
 
   try {
-    // await sendEmail({
-    //   action: 'respond', // Se debe enviar un coreo de respuesta automática
-    //   to: [{ name: 'Míriam', email: 'laisladelyoga@gmail.com' }],
-    //   templateId: 3, // Plantilla para la web laisladelyoga.com
-    //   params: {
-    //     ...data,
-    //     website: 'laisladelyoga.com',
-    //   },
-    // })
+    await sendEmail({
+      action: 'respond', // Se debe enviar un coreo de respuesta automática
+      to: [{ name: 'Míriam', email: 'laisladelyoga@gmail.com' }],
+      templateId: 3, // Plantilla para la web laisladelyoga.com
+      params: {
+        ...data,
+        website: 'laisladelyoga.com',
+      },
+    })
     // throw new Error('Error al enviar el correo')
 
     return { success: true, name: data.name }
