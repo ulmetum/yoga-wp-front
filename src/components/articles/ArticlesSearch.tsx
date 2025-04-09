@@ -19,12 +19,12 @@ export const ArticlesSearch = ({ currentPage, query, searchResult }: Props) => {
             Lo siento pero no hay resultados que mostrar
           </h1>
           <p>
-            Pruebe con otros términos de búsqueda o explore nuestras secciones
+            Prueba con otros términos de búsqueda o explore nuestras secciones
           </p>
         </div>
       ) : (
         <h1 className='text-primary my-12 text-4xl text-center xl:text-5xl'>
-          Su búsqueda ha arrojado los siguientes resultados...
+          Tu búsqueda ha arrojado los siguientes resultados...
         </h1>
       )}
       <ul className='articles-search'>
@@ -36,7 +36,6 @@ export const ArticlesSearch = ({ currentPage, query, searchResult }: Props) => {
             i={index}
             slug={edge.node.slug || ''}
             title={edge.node.title || ''}
-            // excerpt={edge.node.excerpt || ''}
             createdAt={edge.node.date!}
             subtitle={edge.node.headings?.subtitle || ''}
           />
